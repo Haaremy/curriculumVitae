@@ -13,59 +13,104 @@ class Navigation extends Component {
           <div>
             <div className="scrollmenu">{/*Displays all NavigationBar Items*/}
               <nav>
-                <ul id="navi" className="navul">
-                  <li
-                    className="navli"
-                    onClick={() => this.props.changeScreen("index")}
-                  >
-                    <a>{t("Startseite")}</a>
-                  </li>
+                <ul id="navi" className="navul"> {/* Dropdown Menu */}
                   <li>
                     <div className="dropdown">
-                      <button className="dropbtn">Designs</button> {/*Dropdown for the Designs*/}
+                      <div className="dropdown">
+                        <button className="dropbtn">Einstellungen</button> {/*Dropdown Button */}
+                          <div
+                            id="myDropdown"
+                            className="dropdown-content"
+                            onClick={console.log()}
+                          >
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+                              <li>
+                              <button className="dropbtn">Design</button>  
+                                <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 1*/}
+                                                                                {/*Dropdown Option 1.1 */}
+                                    <a  id="light"  href="#" value="light"      
+                                      onClick={() =>
+                                        document.documentElement.setAttribute(
+                                        "class",
+                                        "light"
+                                        )
+                                      }
+                                    >
+                                      {t("light")}{" "}</a>  
+                                                                                {/*Dropdown Option 1.2 */}
+                                      <a  id="dark"  href="#" value="dark"
+                                      onClick={() =>
+                                        document.documentElement.setAttribute(
+                                        "class",
+                                        "dark"
+                                        )
+                                      }
+                                    >
+                                      {t("dark")}{" "}</a>         
+                                </ul>
+                              </li>
+                              <li>
+                              <button className="dropbtn">Sprache</button>
+                                <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 2*/}
+                                                                                {/*Dropdown Option 2.1*/}
+                                    <a  id="de"  href="#" value="light"
+                                      onClick={() =>
+                                        i18n.changeLanguage(
+                                          this.props.changeLanguage("de")
+                                        )
+                                      }
+                                    >
+                                      {t("Deutsch")}{" "}</a>                                                                  
+                                                                                {/*Dropdown Option 2.2*/}
+                                <a  id="en"  href="#" value="light"
+                                      onClick={() =>
+                                        i18n.changeLanguage(
+                                          this.props.changeLanguage("en")
+                                        )
+                                      }
+                                    >
+                                      {t("English")}{" "}</a>        
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      className="navli"
+                      onClick={() => this.props.changeScreen("index")}
+                    >
+                    <a>{t("Startseite")}</a>
+                    </li>
+
+                  
+                  <li>
+                    <div className="dropdown">
+                      <button className="dropbtn">Social Media</button> {/*Dropdown for the Designs*/}
                       <div
                         id="myDropdown"
                         className="dropdown-content"
                         onClick={console.log()}
                       >
                         <a
-                          id="light"
-                          href="#"
-                          value="light"
-                          onClick={() =>
-                            document.documentElement.setAttribute(
-                              "class",
-                              "light"
-                            )
-                          }
+                          id="Instagram"
+                          href="https://instagram.com/haaremy"
                         >
-                          {t("light")}{" "}
+                          {t("Instagram")}
                         </a>
                         <a
-                          id="dark"
-                          href="#"
-                          value="dark"
-                          onClick={() =>
-                            document.documentElement.setAttribute(
-                              "class",
-                              "dark"
-                            )
-                          }
+                          id="Youtube"
+                          href="https://www.youtube.com/@haaremy"
                         >
-                          {t("dark")}
-                        </a>{/*Fire was renamed to colorfull*/}
+                          {t("Youtube")}
+                        </a>
+                        
                         <a
-                          id="fire"
-                          href="#"
-                          value="fire"
-                          onClick={() =>
-                            document.documentElement.setAttribute(
-                              "class",
-                              "fire"
-                            )
-                          }
+                          id="Github"
+                          href="https://github.com/Haaremy"
                         >
-                          {t("fire")}
+                          {t("Github")}
                         </a>
                       </div>
                     </div>
@@ -76,31 +121,6 @@ class Navigation extends Component {
             <div class="line" />
           </div>
         </nav>
-        <aside>
-          <div id="app-cover">
-            {" "}
-            {/* https://codepen.io/himalayasingh/pen/EdVzNL*/}{/*Language-Switch with really bad British Flag*/}
-            <div class="row">
-              <div class="toggle-button-cover">
-                <div class="button-cover">
-                  <div class="button r" id="button-1">
-                    <input
-                      type="checkbox"
-                      class="checkbox"
-                      onClick={() =>
-                        i18n.changeLanguage(
-                          this.props.changeLanguage(this.props.lang)
-                        )
-                      }
-                    ></input>
-                    <div class="knobs"></div>
-                    <div class="layer"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
       </main>
     );
   }

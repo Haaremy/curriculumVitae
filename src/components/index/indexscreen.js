@@ -9,29 +9,43 @@ class IndexScreen extends Component {
     const {t} = this.props;
     return (
       <>
-      
-        <h1 className="mainHeadline">Gamified Crowdsourcing Platform</h1>
-        <aside className="quiz">
+        <aside className="quickNavigation">
         
-          Score: 
+        <ul id="navi" className="navul">
+          <li
+            className="navli"
+            onClick={() => this.props.changeScreen("index")}
+            >
+            <a>{t("about")}</a>
+          </li>
+          <li
+            className="navli"
+            onClick={() => this.props.changeScreen("index")}
+            >
+            <a>{t("cv")}</a>
+          </li>
+          <li
+            className="navli"
+            onClick={() => this.props.changeScreen("index")}
+            >
+            <a>{t("skills")}</a>
+          </li>
+          <li
+            className="navli"
+            onClick={() => this.props.changeScreen("index")}
+            >
+            <a>{t("refs")}</a>
+          </li>
+          <li
+            className="navli"
+            onClick={() => this.props.changeScreen("index")}
+            >
+            <a>{t("contact")}</a>
+          </li>
+        </ul>
           
 
         </aside>
-        <div className="weiter">
-          <div className="pure-menu pure-menu-horizontal pure-menu-scrollable custom-restricted">
-            <ul className="pure-menu-list">
-            
-              <li
-                className="pure-menu-item"
-                onClick={() => this.props.changeScreen("quiz")}
-              >
-                <button id="loading" className="weiter">
-                  {t("tasks")}
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
         
       </>
     );

@@ -2,7 +2,6 @@ import "../style.css";
 
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { v4 as uuid } from "uuid";
 import IndexScreen from "../index/indexscreen";
 import ErrorScreen from "../error/errorscreen";
 import Footer from "../footer/footer";
@@ -13,45 +12,41 @@ class App extends Component {
     super(props);
     this.state = {
       currentScreen: "index",
-      uuid: uuid(),
       lang: "de",
       currentTheme: "dark",
       login: false,
     };
   }
 
+  // change Screen shown
   changeScreen = (newScreen) => this.setState({ currentScreen: newScreen }); //declarng all needed setStates
-  changeLanguage = (oldLang) => {
-    if (oldLang === "de") {
+  
+  // change Language shown
+  changeLanguage = (newLang) => {
+    if (newLang === "en") {
       this.setState({ lang: "en" });
-      return "en";
+      localStorage.setItem("lang", "en");
     } else {
       this.setState({ lang: "de" });
-      return "de";
+      localStorage.setItem("lang", "de");
     }
   };
-  changeTheme = (newTheme) => this.setState({ currentTheme: newTheme });
+
+  // change Theme shown
+  changeTheme = (newTheme) => {
+    this.setState({ currentTheme: newTheme });
+    if(newTheme === "dark"){
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  // check for Login State
   changeLog = (bool) => this.setState({ login: bool });
-  /*loadData = () => {
-    // quick function to fetch all data
-    fetch("https://webengineering.ins.hs-anhalt.de:40930/solutions")
-      .then((res) => {
-        if (!!res?.ok) {
-          return res.json();
-        } else {
-          throw new Error("The response was not ok.");
-        }
-      })
-      .then((solutions) => {
-        this.setState({ solutions });
-      })
-      .catch((errorMessage) => console.error);
-*/
     
 
   componentDidMount() {
-
-      document.getElementById("loading").setAttribute("class", "loader");
 
   }
 

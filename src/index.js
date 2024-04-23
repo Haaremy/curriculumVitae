@@ -1,5 +1,5 @@
 import React from 'react';
-//import './i18n/config.js';
+import './i18n/config.js';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/app/app';
