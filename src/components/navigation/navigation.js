@@ -25,13 +25,13 @@ class Navigation extends Component {
                             className="dropdown-content"
                             onClick={console.log()}
                           >
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                              <li>
+                            <ul class="dropdown-menu"> 
+                              <li >
                                 {t("design")}
                               
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 1*/}
                                                                                 {/*Dropdown Option 1.1 */}
-                                    <a  id="light"  href="#" value="light"      
+                                    <a  className="dropItem" id="light"  href="#" value="light"      
                                       onClick={() =>
 
                                         this.props.changeTheme("light")
@@ -39,7 +39,7 @@ class Navigation extends Component {
                                     >
                                       {t("light")}{" "}</a>  
                                                                                 {/*Dropdown Option 1.2 */}
-                                      <a  id="dark"  href="#" value="dark"
+                                      <a  className="dropItem" id="dark"  href="#" value="dark"
                                       onClick={() =>
                                         this.props.changeTheme("dark")
                                       }
@@ -51,7 +51,7 @@ class Navigation extends Component {
                               {t("language")}
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 2*/}
                                                                                 {/*Dropdown Option 2.1*/}
-                                    <a  id="de"  href="#" value="light"
+                                    <a  className="dropItem" id="de"  href="#" value="light"
                                       onClick={() => {
                                         
                                           this.props.changeLanguage("de")
@@ -63,7 +63,7 @@ class Navigation extends Component {
                                     >
                                       {t("Deutsch")}{" "}</a>                                                                  
                                                                                 {/*Dropdown Option 2.2*/}
-                                <a  id="en"  href="#" value="light"
+                                <a  className="dropItem" id="en"  href="#" value="light"
                                       onClick={() => {
                                         i18n.changeLanguage("en")
                                           this.props.changeLanguage("en")
@@ -96,12 +96,14 @@ class Navigation extends Component {
                         onClick={console.log()}
                       >
                         <a
+                          className="dropItem"
                           id="Instagram"
                           href="https://instagram.com/haaremy"
                         >
                           {t("Instagram")}
                         </a>
                         <a
+                         className="dropItem"
                           id="Youtube"
                           href="https://www.youtube.com/@haaremy"
                         >
@@ -109,6 +111,7 @@ class Navigation extends Component {
                         </a>
                         
                         <a
+                          className="dropItem"
                           id="Github"
                           href="https://github.com/Haaremy"
                         >
