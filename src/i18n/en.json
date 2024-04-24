@@ -1,8 +1,13 @@
 {
+    "webTitle": "Haaremy.de",
+    "settings": "Settings",
+    "design": "Design",
+    "language": "Sprache",
     "about": "About",
-    "cv": "Lebenslauf",
-    "skills": "Fähigkeiten",
-    "refs":"Referenzen",
-    "contacts":"Kontakt",
-    "footerTitle": "Haaremy.de"
+    "cv": "CV",
+    "skills": "Skills",
+    "refs":"References",
+    "contacts":"Contacts",
+    "download": "Download as PDF",
+    "imprint": "Impressum"
 }

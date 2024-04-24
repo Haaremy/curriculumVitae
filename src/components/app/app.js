@@ -23,23 +23,18 @@ class App extends Component {
   
   // change Language shown
   changeLanguage = (newLang) => {
-    if (newLang === "en") {
-      this.setState({ lang: "en" });
-      localStorage.setItem("lang", "en");
-    } else {
-      this.setState({ lang: "de" });
-      localStorage.setItem("lang", "de");
-    }
+      this.setState({ lang: newLang });
+      localStorage.setItem("lang", newLang);
   };
 
   // change Theme shown
   changeTheme = (newTheme) => {
     this.setState({ currentTheme: newTheme });
-    if(newTheme === "dark"){
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute(
+      "class",
+      newTheme
+    )
   };
 
   // check for Login State
@@ -47,11 +42,12 @@ class App extends Component {
     
 
   componentDidMount() {
-
+    this.changeTheme(localStorage.getItem("theme"));
+    this.changeLanguage(localStorage.getItem("lang"));
+    //this.i18n.changeLanguage(localStorage.getItem("lang"));
   }
 
   render() {
-    let langSwitch = <aside></aside>;
     let navigationBar = ( //declaring needed states for components
       <Navigation
         changeScreen={this.changeScreen}
@@ -68,7 +64,7 @@ class App extends Component {
       <Footer changeScreen={this.changeScreen} lang={this.state.lang} />
     );
 
-    let screenComponent; // Displays MainPage
+    let screenComponent; // Displays IndexSceen
 
     switch (this.state.currentScreen) {
       case "index":
@@ -85,7 +81,6 @@ class App extends Component {
     return (
       <>
         {navigationBar}
-        {langSwitch}
         <main>{screenComponent}</main>
         {footbar}
       </>

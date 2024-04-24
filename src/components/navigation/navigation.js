@@ -1,7 +1,9 @@
 import React from "react";
 import { Component } from "react";
-import logo from "./../../media/logo192.png";
 import { withTranslation } from "react-i18next";
+import Icon from '@mdi/react';
+import { mdiHumanGreetingProximity } from '@mdi/js';
+import { mdiCog } from '@mdi/js';
 
 class Navigation extends Component {
   render() {
@@ -11,13 +13,13 @@ class Navigation extends Component {
       <main>
         <nav>
           <div>
-            <div className="scrollmenu">{/*Displays all NavigationBar Items*/}
+           
               <nav>
                 <ul id="navi" className="navul"> {/* Dropdown Menu */}
                   <li>
                     <div className="dropdown">
                       <div className="dropdown">
-                        <button className="dropbtn">Einstellungen</button> {/*Dropdown Button */}
+                        <div className="dropbtn"><Icon path={mdiCog} size={1} /></div> {/*Dropdown Button */}
                           <div
                             id="myDropdown"
                             className="dropdown-content"
@@ -25,48 +27,47 @@ class Navigation extends Component {
                           >
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
                               <li>
-                              <button className="dropbtn">Design</button>  
+                                {t("design")}
+                              
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 1*/}
                                                                                 {/*Dropdown Option 1.1 */}
                                     <a  id="light"  href="#" value="light"      
                                       onClick={() =>
-                                        document.documentElement.setAttribute(
-                                        "class",
-                                        "light"
-                                        )
+
+                                        this.props.changeTheme("light")
                                       }
                                     >
                                       {t("light")}{" "}</a>  
                                                                                 {/*Dropdown Option 1.2 */}
                                       <a  id="dark"  href="#" value="dark"
                                       onClick={() =>
-                                        document.documentElement.setAttribute(
-                                        "class",
-                                        "dark"
-                                        )
+                                        this.props.changeTheme("dark")
                                       }
                                     >
                                       {t("dark")}{" "}</a>         
                                 </ul>
                               </li>
                               <li>
-                              <button className="dropbtn">Sprache</button>
+                              {t("language")}
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 2*/}
                                                                                 {/*Dropdown Option 2.1*/}
                                     <a  id="de"  href="#" value="light"
-                                      onClick={() =>
-                                        i18n.changeLanguage(
+                                      onClick={() => {
+                                        
                                           this.props.changeLanguage("de")
-                                        )
+                                          i18n.changeLanguage("de")
+                                      }
+                                          
+                                        
                                       }
                                     >
                                       {t("Deutsch")}{" "}</a>                                                                  
                                                                                 {/*Dropdown Option 2.2*/}
                                 <a  id="en"  href="#" value="light"
-                                      onClick={() =>
-                                        i18n.changeLanguage(
+                                      onClick={() => {
+                                        i18n.changeLanguage("en")
                                           this.props.changeLanguage("en")
-                                        )
+                                      }
                                       }
                                     >
                                       {t("English")}{" "}</a>        
@@ -79,15 +80,16 @@ class Navigation extends Component {
                     </li>
                     <li
                       className="navli"
+                      id="pageTitle"
                       onClick={() => this.props.changeScreen("index")}
                     >
-                    <a>{t("Startseite")}</a>
+                    <a>{t("webTitle")}</a>
                     </li>
 
                   
                   <li>
                     <div className="dropdown">
-                      <button className="dropbtn">Social Media</button> {/*Dropdown for the Designs*/}
+                      <button className="dropbtn"><Icon path={mdiHumanGreetingProximity} size={1} /></button> {/*Dropdown for the Designs*/}
                       <div
                         id="myDropdown"
                         className="dropdown-content"
@@ -117,8 +119,6 @@ class Navigation extends Component {
                   </li>
                 </ul>
               </nav>
-            </div>
-            <div class="line" />
           </div>
         </nav>
       </main>

@@ -1,7 +1,10 @@
 import React from "react";
-import logo from "./../../media/logo192.png";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
+import Icon from '@mdi/react';
+import { mdiEmail } from '@mdi/js';
+import { mdiCellphone } from '@mdi/js';
+import { mdiHumanGreetingProximity } from '@mdi/js';
 
 class Footer extends Component {
   render() {
@@ -12,47 +15,63 @@ class Footer extends Component {
         {/*Draws Line*/}
 
         <footer-box>
-          {t("footerTitle")}
-          {/*Title Text*/}
           <br />
           {/*All Links*/}
           <ul id="foot" className="footul">
             <li className="footli">
-              <a href="https://webengineering.ins.hs-anhalt.de:40443/api/v1/web/whisk.system/776_master/stjmbeckfirst/index.html">
-                Jeremys Gitlab
+            <div className="footP1">
+            <a href="mailto:webmaster@haaremy.de">
+            <Icon path={mdiEmail} size={1} />
+              </a>
+              <a href="#">
+              {t("imprint")}
+              </a>
+              </div>
+              
+            </li>
+            <li className="footli">
+              <a href="tel:+49(0)15730062682">
+              <Icon path={mdiCellphone} size={1} />
               </a>
             </li>
             <li className="footli">
-              <a href="https://gitlab.hs-anhalt.de/stjmbeck/reactapp-lnw">
-                Projektseite
+              <div className="footP1">
+                <div className="dropdown">
+                  <button className="dropbtn"><Icon path={mdiHumanGreetingProximity} size={1} /></button> {/*Dropdown for the Designs*/}
+                  <div
+                    id="myDropdown"
+                    className="dropdown-content"
+                    onClick={console.log()}
+                    >
+                  <a
+                    id="Instagram"
+                    href="https://instagram.com/haaremy"
+                  >
+                    {t("Instagram")}
+                  </a>
+                  <a
+                    id="Youtube"
+                    href="https://www.youtube.com/@haaremy"
+                    >
+                    {t("Youtube")}
+                  </a>         
+                  <a
+                    id="Github"
+                    href="https://github.com/Haaremy"
+                  >
+                    {t("Github")}
+                  </a>
+          	    </div>
+              </div>
+
+              <a href="#">
+              © 2024 Haaremy Productions
               </a>
-            </li>
-            <li className="footli">
-              <a href="https://webengineering.ins.hs-anhalt.de:40443/api/v1/web/whisk.system/908_master/lnwwum/index.html">
-                Prototyp
-              </a>
+              </div>
+              
             </li>
           </ul>
-          {/*Displays Credits*/}
         </footer-box>
-        <br />
-        <br />
-        <br />
-        <div className="credits">{t("footerText")}</div>
-        <br />
-        <br />
-        <br />
-
-        <a href="https://instagram.com/Haaremy">
-          {/*My Logo & Instagram*/}
-          <img
-            src={logo}
-            alt="logo"
-            onClick={(e) =>
-              "window.open(https://instagram.com/haaremy), return false"
-            }
-          />
-        </a>
       </footer>
     );
   }

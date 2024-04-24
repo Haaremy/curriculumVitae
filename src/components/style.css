@@ -1,37 +1,27 @@
 .dark{
-    --bg: #1f293c;
-    --text: white;
+    --primary: #1d334a;
+    --secondary: #7486d4;
+    --text: #fae8e7;
     --hlcolor: gray;
     --credits: gray;
     --line: gray;
+    --bgDD: #d47479;
   }
   
   .light{
-    --bg: white;
-    --text: #282c34;
-    --line: black;
+    --primary: #fae8e7;
+    --secondary: #d47479;
+    --text: #1d334a;
+    --line: #1d334a;
     --hlcolor: gray;
     --credits: black;
+    --bgDD: #7486d4;
   }
-  
-  .fire{
-    
-    --bg: linear-gradient(45deg, blue, red);
-    --text: white;
-    --filter: blur(10px);
-    --hlcolor: red;
-    --credits: white;
-    --line: white;
-    }
   
   
   
   html {
-  background-color: var(--bg);
-  background-image: var(--bg);
-  background-size: var(--bgs);
-  animation: var(--anim);
-  backdrop-filter: var(--filter);
+  background-color: var(--primary);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,26 +29,26 @@
     font-size: calc(10px + 2vmin);
     color: var(--text);
     cursor: cell;
-    margin-left: 2%;
-    width: 100%;
+
   }	
   
-  
+  body{
+    border: 0.2vw dashed var(--secondary);
+    display: ruby-text-container;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    width: 75%;
+  }
   
   
   
   main{
     text-align: center;
     display: grid;
-    margin-top: 5%;
     position:relative ;
   }
   
-  body{
-    width: 75%;
-    display:ruby-text;
-    text-align: center;
-  }
   
   footer{
       margin-top: 5%;
@@ -66,24 +56,24 @@
     text-align: center;
   }
   
-  .mainHeadline {
-    color: var(--text);
-    display: block;
-    font-size: 3em;
-    text-align: center;
-  }
-  
   h1 {
     color: var(--text);
+    font-size: 3vw;
   }
   
   h2 {
     color: var(--text);
+    font-size: 2vw;
   }
   
   p {
     font-family: arial;
     font-size: 90%;
+    font-size: 1vw;
+  }
+
+  div{
+    font-size: 1vw;
   }
   
   ul{
@@ -91,51 +81,6 @@
   }
   
   
-  
-  .pure-menu-horizontal.pure-menu-scrollable {
-      white-space: nowrap;
-      overflow-y: hidden;
-      overflow-x: auto;
-      padding: .5em 0;
-  }
-  
-  
-  
-  .loader {
-    border-radius: 0%;
-    border-bottom: turquoise;
-    border-left: teal;
-    border-right: tomato;
-    border-style:solid;
-    background-color: transparent;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-  }
-  
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  form.questionbuttons{
-      display: flex;
-      text-align: center;
-    justify-content: center;
-  }
-  
-  
-  div.pure-menu-link{
-      text-align: center;
-    color: var(--text);
-  }
   
   
   
@@ -158,21 +103,12 @@
     white-space: nowrap;
   }
   .my-menu-active > .my-menu-link, .my-menu-link:focus, .my-menu-link:hover {
-    background-color: #777;
+    background-color: transparent;
   }
   a:active, a:hover {
     outline: 0;
   }
-  
-  
-  /*language-changer https://codepen.io/himalayasingh/pen/EdVzNL */
-  #app-cover
-  {
-    position:absolute;
-    margin-top: 10px;
-    margin-left: 15px;
-    counter-reset: button-counter;
-  }
+
   
   .button
   {
@@ -206,35 +142,7 @@
       transition: 0.5s ease all;
       z-index: 1;
   }
-  
-  /* language switch */
-  #button-1 .knobs:before
-  {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      width: 10px;
-      font-size: 10px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 1;
-      padding: 9px 4px;
-      background: linear-gradient(180deg, transparent, transparent 4px, #c8102e 4px, #c8102e 7px, transparent 7px, transparent 100%), linear-gradient(90deg, transparent, transparent 10px, #c8102e 10px, #c8102e 12px, transparent 12px, transparent 100%), linear-gradient(180deg, transparent, transparent 4px, #FFF 4px, #FFF 7px, transparent 7px, transparent 100%), linear-gradient(90deg, transparent, transparent 9px, #FFF 9px, #FFF 13px, transparent 13px, transparent 100%), linear-gradient(26.56505deg, transparent, transparent 9px, #c8102e 9px, #c8102e 10px, transparent 10px, transparent 100%) 0 0/11px 100% no-repeat, linear-gradient(-26.56505deg, transparent, transparent 10px, #c8102e 10px, #c8102e 11px, transparent 11px, transparent 100%) 11px 0/11px 100% no-repeat, linear-gradient(26.56505deg, transparent, transparent 10px, #c8102e 10px, #c8102e 11px, transparent 11px, transparent 100%) 11px 6px/11px 100% no-repeat, linear-gradient(-26.56505deg, transparent, transparent 9px, #c8102e 9px, #c8102e 10px, transparent 10px, transparent 100%) 0 55px/11px 100% no-repeat, linear-gradient(27deg, transparent, transparent 9px, #FFF 9px, #FFF 11px, transparent 11px, transparent 100%), linear-gradient(153deg, transparent, transparent 9px, #FFF 9px, #FFF 11px, transparent 11px, transparent 100%), #012169;
-  
-      border-radius: 40%;
-      transition: 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
-  }
-  
-  #button-1 .checkbox:checked + .knobs:before
-  {
-      content: '';
-      left: 30px;
-      width: 10px;
-      position: absolute;
-      background-image: linear-gradient(black,red, yellow);
-  
-    }
+
   
   
   
@@ -245,147 +153,24 @@
   
   
   
-  
-  
-  /*---------- quiz */
-  label.quizlist{
-      text-align: left;
-      display: block;
-      margin-bottom: 20px;
-  }
-  
-  form.questions{
-      display:block;
-      padding-right: 25%;
-  }
-  
-  aside.quiz { 
-      width: auto;
-      min-height: 1%;
-      min-width: 10%;
-      position: fixed;
-      right: 1%; 
-      margin-top: 1%;
-      background-color: transparent;
-      border:1px solid white;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      padding-left: 2px;
-      padding-right: 1px;
-      max-width: 10%;
-  
-    } 
-    
-    /*------ question */
-  
-  label.question{
-    font-size: (50px + 3vmin);
-    font-weight: 200;
-    text-align: center;
-    margin-left: 20px;
-    max-width: 1080px;
-  }
-  
-  form.answerRadios{
-      display: inline-block;
-      text-align: left;
-  }
-  
-  form.AnswerForm{
-    display: contents;
-    text-align: left;
-  }
-  
-  input#rb.radiobutton{
-    margin-right: 10px;
-  }
-  
-  radio-box{
-      display: block ruby;
-      text-align: inherit;
-      width: 100%;
-      margin-left: 50px;
-      margin-top: 20px;
-      color: blanchedalmond;
-  }
-  
-  a#firstQuestion.disabled, a#lastQuestion.disabled{
-      background-color: gray;
-  }
-  
-  a#firstQuestion.pure-button, a#lastQuestion.pure-button{
-      background-color: transparent;
-      border-bottom-color: turquoise;
-      border-left-color: teal;
-      border-right-color: tomato;
-    color: var(--text);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  
-  }
-  
-  div.waiting{
-      text-align: center;
-      display:flex;
-      margin-left: 50%;
-  }
-  
-  .loading {
-      display:flex;
-      position: fixed;
-      text-align: center;
-      border-radius: 0%;
-      border-bottom: turquoise;
-      border-left: teal;
-      border-right: tomato;
-      border-style:solid;
-      background-color: transparent;
-      width: 100px;
-      height: 100px;
-      -webkit-animation: spin 2s linear infinite; /* Safari */
-      animation: spin 2s linear infinite;
-    }
-    
-    /* Safari */
-    @-webkit-keyframes spin {
-      0% { -webkit-transform: rotate(0deg); }
-      100% { -webkit-transform: rotate(360deg); }
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  
-  
   /*-------- navigation */
   
   
   .line {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid var(--secondary);
     width: 100%;
-    margin-bottom: 10px;
+
   }
   
-  .pure-menu-horizontal#navi {
+  
+  nav{
     display: block;
     text-align: center;
-    justify-content: space-around;
-  }
-  .pure-menu-link {
-    color: var(--text);
-  }
-  
-  div.scrollmenu{
-    white-space:inherit;
-  }
-  nav{
-      color: var(--text);
-  display: inline-flex;
-    border-radius: 2%;
+    justify-content: center;
+      width: 100%px;
+      border-bottom-width: 10px;
+      border-color: var(--secondary);
+      color: var(--secondary);
   }
   
   ul.navul {
@@ -393,12 +178,15 @@
     padding: 0;
     overflow: visible;
     border-radius: 5%;
-    display: ruby;
-    width: 50%;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 80%;
     background-color:transparent;
   }
   
-  
+  #pageTitle > a{
+    font-size: 4vw;
+  }
   
   li.navli a {
   
@@ -409,10 +197,11 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 2vw;
   }
   
   li a:hover {
-    background-color: #111;
+    background-color: var(--primary);
   }
   
   select.maintainer{
@@ -421,15 +210,6 @@
     margin-top: 15%;
   }
   
-  .auth-button{
-    background-color: transparent;
-  border-color: transparent;
-  color: var(--text);
-  display: contents;
-  border-radius: 5px;
-  position: top;
-    text-align: center;
-  }
   
   
   
@@ -437,36 +217,39 @@
   
   
   .dropbtn {
-    background-color: transparent;
+    background-color: var(--secondary);
     color: var(--text);
     padding: 14px 16px;
     border-radius: 5px;
     border: none;
     min-width: 50px;
-      margin-top: 5px;
+    margin-top: 5px;
     display: block;
+  }
+
+  .dropbtn:hover{
+    background-color: red;
   }
   
   .dropdown {
     position: relative;
     display: inline-block;
     border-radius: 5px;
-    min-width: 50px;
-    
+    width: 50%;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: var(--primary);
     border-radius: 5px;
     min-width: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   .dropdown-content a {
-    color: black;
+    color: var(--text);
+    background-color: var(--secondary);
     padding: 14px 16px;
     text-decoration: none;
     border-color: transparent;
@@ -477,119 +260,91 @@
   
   
   
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    color: var(--secondary);
+    background-color: var(--text);
+  }
   
   .dropdown:hover .dropdown-content {display: block;}
   
-  .dropdown:hover .dropbtn {background-color: #111;}
+  .dropdown:hover .dropbtn {background-color: transparent;}
   
-  
-  /*------ index */
-  
-  
-  button#loading.weiter{
-      background-color: transparent;
-      border-bottom-color: turquoise;
-      border-left-color: teal;
-      border-right-color: tomato;
-    color: var(--text);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+  @media screen and (max-width: 1200px){
   
   }
   
-  button#auth.weiter{
-    background-color: transparent;
-    border-bottom-color: turquoise;
-    border-left-color: teal;
-    border-right-color: tomato;
-  color: var(--text);
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  margin-right: 50px;
-  display: inline-block;
-  font-size: 16px;
-  
-  }
-  .pure-menu-horizontal {
-      display: block;
-      text-align: center;
+  .dropdown-menu li {
+    position: relative;
+    background-color: var(--secondary);
+    border-radius: 5%;
+    color: var(--bgDD);
     }
-    
-    /* ---------- highscore */
-    form.questions{
-    display:block;
-    padding-right: 25%;
-  }
-  
-  aside.badges { 
-    width: auto;
-    min-height: 100px;
-    min-width: 200px;
+    .dropdown-menu .dropdown-submenu {
+    display: none;
     position: absolute;
-    left: 1%; 
-    margin-top: 2px;
-    background-color: transparent;
-    border:2px solid white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2px;
-    padding-right: 1px;
-  } 
-  
-  aside.score { 
-    width: auto;
-    min-height: 100px;
-    min-width: 200px;
-    position: fixed;
-    right: 1%; 
-    margin-top: 2px;
-    background-color: transparent;
-    border:2px solid white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2px;
-    padding-right: 1px;
-  } 
-  
-  /* -------goals */
-  button#loading.weiter{
-      background-color: transparent;
-      border-bottom-color: turquoise;
-      border-left-color: teal;
-      border-right-color: tomato;
-    color: var(--text);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  
-  }
-  
-  .pure-menu-horizontal {
-      display: block;
-      text-align: center;
+    left: 100%;
+    top: -7px;
     }
+    .dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+    }
+    .dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+    }
+  /*------ indexSceen */
+ 
+  div.about{
+    background-image: url("./../media/Image1.jpg");
+    background-repeat: no-repeat;
+    justify-content: space-evenly;
+    display: flex;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 300px;
+  }
+
+  p.about{
+    background-color: #00000075;
+    padding: 10%;
+  }
+    
+    /* ---------- Sticky Navigation on Page */
+    @media (min-width: 720px) {
+  aside.quickNavigation { 
+    width: 100%;
+    background-color: var(--primary);
+    border:2px dashed var(--secondary);
+    padding-top: 10px;
+    position: sticky;
+    top: 0;
+  } 
+
+
+  aside.cvDownload { 
+    width: 10%;
+    margin-top: 2px;
+    justify-content: right;
+    background-color: var(--primary);
+    border:2px dashed var(--secondary);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: sticky;
+    bottom: 0;
+  } 
+}
+
+
+  
     
     /*---------footer*/
     
   .line {
     display: flex;
-    border-bottom: 2px solid var(--line);
+    border-bottom: 2px solid var(--secondary);
     width: 100%;
-    margin-bottom: 10px;
   }
   
-  .pure-menu-horizontal#footer {
-    display: block;
-    text-align: center;
-    margin-left: -4%;
-  }
   
   footer{
     display: block;
@@ -604,29 +359,12 @@
     justify-content: center;
       width: 100%px;
       border-bottom-width: 10px;
-      border-color: var(--line);
-      color: var(--line);
+      border-color: var(--secondary);
+      color: var(--secondary);
+      margin-left: 10%;
+      margin-right: 10%;
   }
   
-  div.credits{
-    color: var(--credits);
-    text-align: center;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
-  
-  .pure-menu-horizontal#foot {
-    display: block;
-    text-align: center;
-    margin-left: -4%;
-    border-color: gray;
-      color: gray;
-  }
-  .pure-menu-link {
-    color: var(--text);
-  }
   
   
   ul.footul {
@@ -634,7 +372,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    display: inline flow-root list-item;
+    display: flex;
+    justify-content: space-between;
     border-color: gray;
       color: gray;
   }
@@ -657,7 +396,7 @@
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
-    background-color: #111;
+    background-color: var(--primary);
   }
   
   select.maintainer{
@@ -697,101 +436,7 @@
     color: #61dafb;
   }
   
-  @keyframes App-logo-spin {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(360deg);
-    }
-  }
-  
-  /* ------answer */
-  /* ------admin */
-  form.questions{
-    display:block;
-    padding-right: 25%;
-  }
-  
-  aside.badges { 
-    width: auto;
-    min-height: 100px;
-    min-width: 200px;
-    position: absolute;
-    left: 1%; 
-    margin-top: 2px;
-    background-color: transparent;
-    border:2px solid white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2px;
-    padding-right: 1px;
-  } 
-  
-  aside.score { 
-    width: auto;
-    min-height: 100px;
-    min-width: 200px;
-    position: fixed;
-    right: 1%; 
-    margin-top: 2px;
-    background-color: transparent;
-    border:2px solid white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2px;
-    padding-right: 1px;
-  } 
   
   
-  input#newQuestion{
-    width: 50%;
-  }
   
   
-  #newAnswer1, #newAnswer2, #newAnswer3, #newAnswer4,#newQuestion, #erstellen, #newMedia{
-    margin-left: 10px;
-    color: black;
-    margin-bottom: 10px;
-  }
-  
-  #delete{
-    background-color: transparent;
-    border-color: transparent;
-  }
-  
-  
-  /* ------faq */
-  
-  div#faq{
-    color:black;
-    display: contents;
-    margin-left: -50%;
-    text-align: left;
-  }
-  
-  details#sub{
-    margin-left: 5%;
-    margin-bottom: 1%;
-  }
-  
-  @media screen and (max-width: 1200px){
-  
-  }
-  
-  .dropdown-menu li {
-    position: relative;
-    }
-    .dropdown-menu .dropdown-submenu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: -7px;
-    }
-    .dropdown-menu .dropdown-submenu-left {
-    right: 100%;
-    left: auto;
-    }
-    .dropdown-menu > li:hover > .dropdown-submenu {
-    display: block;
-    }
