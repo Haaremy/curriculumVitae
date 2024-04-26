@@ -36,11 +36,11 @@ class Footer extends Component {
             </li>
             <li className="footli">
               <div className="footP1">
-                <div className="dropdown">
+                <div className="dropup">
                   <button className="dropbtn"><Icon path={mdiHumanGreetingProximity} size={1} /></button> {/*Dropdown for the Designs*/}
                   <div
                     id="myDropdown"
-                    className="dropdown-content"
+                    className="dropup-content"
                     onClick={console.log()}
                     >
                   <a

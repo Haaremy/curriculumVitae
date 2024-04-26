@@ -15,8 +15,13 @@ class App extends Component {
       lang: "de",
       currentTheme: "dark",
       login: false,
+      toggle1: true,
+      toggle2: true,
+      toggle3: true,
     };
   }
+
+  
 
   // change Screen shown
   changeScreen = (newScreen) => this.setState({ currentScreen: newScreen }); //declarng all needed setStates
@@ -39,15 +44,29 @@ class App extends Component {
 
   // check for Login State
   changeLog = (bool) => this.setState({ login: bool });
-    
+  
+  // Indexscreen toggle Type in Lebenslauf (sichtbar / nicht sichtbar)
+  setToggle1 = (bool) => this.setState({ toggle1: bool });
+  setToggle2 = (bool) => this.setState({ toggle2: bool });
+  setToggle3 = (bool) => this.setState({ toggle3: bool });
 
   componentDidMount() {
+    const { i18n } = this.props;
+    if(localStorage.getItem("theme")==null){
+      localStorage.setItem("theme", "light")
+    }
+    if(localStorage.getItem("lang")==null){
+      localStorage.setItem("lang", "de")
+    }
     this.changeTheme(localStorage.getItem("theme"));
     this.changeLanguage(localStorage.getItem("lang"));
-    //this.i18n.changeLanguage(localStorage.getItem("lang"));
+    i18n.changeLanguage(localStorage.getItem("lang"));
+    //this.state.changeLanguage(localStorage.getItem("lang"));
   }
 
+
   render() {
+    
     let navigationBar = ( //declaring needed states for components
       <Navigation
         changeScreen={this.changeScreen}
@@ -71,6 +90,12 @@ class App extends Component {
         screenComponent = (
           <IndexScreen
             changeScreen={this.changeScreen}
+            toggle1 = {this.state.toggle1}
+            setToggle1 = {this.setToggle1}
+            toggle2 = {this.state.toggle2}
+            setToggle2 = {this.setToggle2}
+            toggle3 = {this.state.toggle3}
+            setToggle3 = {this.setToggle3}
           />
         );
         break;

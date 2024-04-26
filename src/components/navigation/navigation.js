@@ -19,7 +19,7 @@ class Navigation extends Component {
                   <li>
                     <div className="dropdown">
                       <div className="dropdown">
-                        <div className="dropbtn"><Icon path={mdiCog} size={1} /></div> {/*Dropdown Button */}
+                        <Icon className="dropbtn" path={mdiCog} size={1} />
                           <div
                             id="myDropdown"
                             className="dropdown-content"
@@ -89,7 +89,7 @@ class Navigation extends Component {
                   
                   <li>
                     <div className="dropdown">
-                      <button className="dropbtn"><Icon path={mdiHumanGreetingProximity} size={1} /></button> {/*Dropdown for the Designs*/}
+                      <Icon className="dropbtn" path={mdiHumanGreetingProximity} size={1} />
                       <div
                         id="myDropdown"
                         className="dropdown-content"
