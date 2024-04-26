@@ -1,29 +1,41 @@
-.dark{
-    --primary: rgb(26, 29, 30);
+
+/*
+Width:
+    320px — 480px: Mobile devices
+    481px — 768px: iPads, Tablets
+    769px — 1024px: Small screens, laptops
+    1025px — 1200px: Desktops, large screens
+    1201px and more —  Extra large screens, TV
+*/
+
+/* Themes */
+  
+  .light{
+    --primary: #fae8e7; /* primary (Body) Color*/
+    --primary-2: #181a1f; /* primary (HTML) Color*/
+    --secondary: #d47479; /* highlight Color*/
+    --text: #1d334a; /* Color for Texts and Dropdown Hover*/
+    --line: #1d334a;  /* Seperator Line (CV, Footer, ..)*/
+    --bgDD: #7486d4; /* DropDown Background*/
+    --bgBS: transparent; /* Neon Light*/
+  }
+
+  .shadow{
+    --primary: #262930;
+    --primary-2: #181a1f;
     --secondary: #7486d4;
     --text: #fae8e7;
-    --hlcolor: gray;
-    --credits: gray;
     --line: gray;
     --bgDD: #d47479;
     --bgBS: #d47479;
   }
   
-  .light{
-    --primary: #fae8e7;
-    --secondary: #d47479;
-    --text: #1d334a;
-    --line: #1d334a;
-    --hlcolor: gray;
-    --credits: black;
-    --bgDD: #7486d4;
-    --bgBS: transparent;
-  }
   
   
-  
+
+
   html {
-  background-color: var(--primary);
+  background-color: var(--primary-2);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,8 +45,14 @@
 
   }	
   
+
+  /* Screen Width Depending Elements*/
+
+
+  @media (min-width: 720px) {
   body{
     display: ruby-text-container;
+    background-color: var(--primary);
     text-align: center;
     flex-direction: row;
     align-items: center;
@@ -46,9 +64,105 @@
               0 0 2.8rem var(--bgBS),
               inset 0 0 1.3rem transparent;
   }
+
+  h1 {
+    color: var(--text);
+    font-size: 3vw;
+  }
+  
+  h2 {
+    color: var(--text);
+    font-size: 2vw;
+  }
+
+  p {
+    font-family: arial;
+    font-size: 1vw;
+  }
+
+  aside.cvDownload { 
+    width: 10%;
+    margin-top: 2px;
+    margin-left: 95%;
+    background-color: var(--primary);
+    border:2px dashed var(--primary);
+    background-color: var(--secondary);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: sticky;
+    bottom: 0;
+    box-shadow: 0 0 .2rem transparent,
+              0 0 .2rem var(--bgBS),
+              0 0 2rem var(--bgBS),
+              0 0 0.8rem transparent,
+              0 0 2.8rem transparent,
+              inset 0 0 1.3rem transparent;
+  } 
+}
+
+
+
+
+
+
+@media (max-width: 720px) {
+  body{
+    display: ruby-text-container;
+    background-color: var(--primary);
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem transparent,
+              0 0 2rem var(--bgBS),
+              0 0 0.8rem var(--bgBS),
+              0 0 2.8rem var(--bgBS),
+              inset 0 0 1.3rem transparent;
+  }
+
+  h1 {
+    color: var(--text);
+    font-size: 5vw;
+  }
+  
+  h2 {
+    color: var(--text);
+    font-size: 4vw;
+  }
+
+  p {
+    font-family: arial;
+    font-size: 3vw;
+  }
+
+  aside.cvDownload { 
+    width: 10%;
+    margin-top: 2px;
+    margin-left: 75%;
+    background-color: var(--primary);
+    border:2px dashed var(--primary);
+    background-color: var(--secondary);
+    position: sticky;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    bottom: 0;
+    box-shadow: 0 0 .2rem transparent,
+              0 0 .2rem var(--bgBS),
+              0 0 2rem var(--bgBS),
+              0 0 0.8rem transparent,
+              0 0 2.8rem transparent,
+              inset 0 0 1.3rem transparent;
+  } 
+}
   
   
-  
+
+
+
+  /* Screen Width Independent Elements*/
+
+
   main{
     text-align: center;
     display: grid;
@@ -62,21 +176,6 @@
     text-align: center;
   }
   
-  h1 {
-    color: var(--text);
-    font-size: 3vw;
-  }
-  
-  h2 {
-    color: var(--text);
-    font-size: 2vw;
-  }
-  
-  p {
-    font-family: arial;
-    font-size: 90%;
-    font-size: 1vw;
-  }
 
   div{
     font-size: 1vw;
@@ -95,20 +194,6 @@
     color: var(--text);
   }
 
-  a:active, a:hover {
-    outline: 0;
-  }
-
-  
-  .button
-  {
-      position: relative;
-      top: 50%;
-      width: 74px;
-      height: 36px;
-      margin: -20px auto 0 auto;
-  
-  }
   
   /*-------- navigation */
   
@@ -222,7 +307,7 @@
 
   .dropdown-content a {
     color: var(--text);
-    background-color: var(--bgBS);
+    background-color: var(--bgDD);
     padding: 0.5vw 1vw;
     text-decoration: none;
     border-color: 0.1vw dashed var(--primary);
@@ -236,7 +321,7 @@
 
   .dropup-content a {
     color: var(--text);
-    background-color: var(--bgBS);
+    background-color: var(--bgDD);
     padding: 0.5vw 1vw;
     text-decoration: none;
     border-color: 0.1vw dashed var(--primary);
@@ -279,7 +364,7 @@
   }
   .dropdown-menu li {
     color: var(--text);
-    background-color: var(--bgBS);
+    background-color: var(--bgDD);
     padding: 1vw 1vw;
     border-radius: 5px;
     display: flex;
@@ -318,7 +403,7 @@
   }
     
     /* ---------- Sticky Navigation on Page */
-    @media (min-width: 720px) {
+
   aside.quickNavigation { 
     width: 110%;
     background-color: var(--primary);
@@ -338,26 +423,6 @@
   
   } 
 
-
-  aside.cvDownload { 
-    width: 10%;
-    margin-top: 2px;
-    margin-left: 95%;
-    background-color: var(--primary);
-    border:2px dashed var(--primary);
-    background-color: var(--secondary);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: sticky;
-    bottom: 0;
-    box-shadow: 0 0 .2rem transparent,
-              0 0 .2rem var(--bgBS),
-              0 0 2rem var(--bgBS),
-              0 0 0.8rem transparent,
-              0 0 2.8rem transparent,
-              inset 0 0 1.3rem transparent;
-  } 
-}
 
 
   

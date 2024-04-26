@@ -41,10 +41,10 @@ class Navigation extends Component {
                                                                                 {/*Dropdown Option 1.2 */}
                                       <a  className="dropItem" id="dark"  href="#" value="dark"
                                       onClick={() =>
-                                        this.props.changeTheme("dark")
+                                        this.props.changeTheme("shadow")
                                       }
                                     >
-                                      {t("dark")}{" "}</a>         
+                                      {t("shadow")}{" "}</a>         
                                 </ul>
                               </li>
                               <li>

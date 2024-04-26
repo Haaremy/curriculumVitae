@@ -13,11 +13,8 @@ class App extends Component {
     this.state = {
       currentScreen: "index",
       lang: "de",
-      currentTheme: "dark",
+      currentTheme: "light",
       login: false,
-      toggle1: true,
-      toggle2: true,
-      toggle3: true,
     };
   }
 
@@ -45,10 +42,6 @@ class App extends Component {
   // check for Login State
   changeLog = (bool) => this.setState({ login: bool });
   
-  // Indexscreen toggle Type in Lebenslauf (sichtbar / nicht sichtbar)
-  setToggle1 = (bool) => this.setState({ toggle1: bool });
-  setToggle2 = (bool) => this.setState({ toggle2: bool });
-  setToggle3 = (bool) => this.setState({ toggle3: bool });
 
   componentDidMount() {
     const { i18n } = this.props;
@@ -90,12 +83,6 @@ class App extends Component {
         screenComponent = (
           <IndexScreen
             changeScreen={this.changeScreen}
-            toggle1 = {this.state.toggle1}
-            setToggle1 = {this.setToggle1}
-            toggle2 = {this.state.toggle2}
-            setToggle2 = {this.setToggle2}
-            toggle3 = {this.state.toggle3}
-            setToggle3 = {this.setToggle3}
           />
         );
         break;

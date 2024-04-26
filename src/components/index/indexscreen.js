@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Icon from '@mdi/react';
 import { mdiSortBoolAscendingVariant } from '@mdi/js';
 
+let toggleType = [ true, true, true];
+
 const sortTable = (n) => {
   var name = "myTable", table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   if(document?.getElementById(name)==null){
@@ -62,26 +64,35 @@ const sortTable = (n) => {
 }
 
 class IndexScreen extends Component {
-  componentDidMount() {
 
+  constructor(){
+    super();
+    this.state = {
+      toggleState0 : true,
+      toggleState1 : true,
+      toggleState2 : true,
+    }
   }
   
-  changeToggle1(){
-    
-    this.props.setToggle1(!this.props.toggle1)
- }
- changeToggle2(){
-  this.props.setToggle2(!this.props.toggle2)
-}
-changeToggle3(){
-  this.props.setToggle3(!this.props.toggle3)
-}
+  changeToggle = (n) =>{
+    toggleType[n] = !toggleType[n];
+    if(n === 0){
+      this.setState({toggleState0 : toggleType[n]})
+    }
+    if(n === 1){
+      this.setState({toggleState1 : toggleType[n]})
+    }
+    if(n === 2){
+      this.setState({toggleState2 : toggleType[n]})
+    }
+  }
+
   
   render() {
     const {t} = this.props;
-    let toggleType1 = this.props.toggle1 ? "istoggled" : "nottoggled";
-    let toggleType2 = this.props.toggle2 ? "istoggled" : "nottoggled";
-    let toggleType3 = this.props.toggle3 ? "istoggled" : "nottoggled";
+    let toggleWork = this.state.toggleState0 ? "istoggled" : "nottoggled";
+    let toggleEdu = this.state.toggleState1 ? "istoggled" : "nottoggled";
+    let togglePursuit = this.state.toggleState2 ? "istoggled" : "nottoggled";
 
     return (
       <>
@@ -158,34 +169,34 @@ changeToggle3(){
                         className="dropdown-content"                      >
                         <a 
                           className="dropItem"
-                          onClick={this.changeToggle1.bind(this)}
+                          onClick={() => this.changeToggle(0)}
                         >
                           <input 
                             type="checkbox"
-                            checked={this.props.toggle1}
-                            onChange={this.changeToggle1.bind(this)}
+                            checked={toggleType[0]}
+                            
                           />
                           {t("work")}
                         </a>
                         <a 
                           className="dropItem"
-                         onClick={this.changeToggle2.bind(this)}
+                         onClick={() => this.changeToggle(1)}
                         >
                           <input 
                             type="checkbox"
-                            checked={this.props.toggle2}
-                            onChange={this.changeToggle2.bind(this)}
+                            checked={toggleType[1]}
+                            
                             />
                           {t("edu")}
                         </a>
                         <a 
                           className="dropItem"
-                          onClick={this.changeToggle3.bind(this)}
+                          onClick={() => this.changeToggle(2)}
                         >
                           <input 
                             type="checkbox"
-                            checked={this.props.toggle3}
-                            onChange={this.changeToggle3.bind(this)}
+                            checked={toggleType[2]}
+                            
                           />
                           {t("pursuits")}
                         </a>
@@ -203,52 +214,52 @@ changeToggle3(){
               <td className="date">{t("today")}</td>
               <td className="description"></td>
             </tr>
-            <tr className={toggleType1}>
+            <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
               <td className="date">2023 {t("apr")}.</td>
               <td className="description">{t("dewo23/4.1")}</td>
             </tr>
-            <tr className={toggleType3}>
+            <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
               <td className="date">2022 {t("feb")}.</td>
               <td className="description">{t("depu22/02.1")}</td>
             </tr>
-            <tr className={toggleType3}>
+            <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
               <td className="date">2021 {t("oct")}.</td>
               <td className="description">{t("depu21/10.1")}</td>
             </tr>
-            <tr className={toggleType3}>
+            <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
               <td className="date">2021 {t("apr")}.</td>
               <td className="description">{t("depu21/04.1")}</td>
             </tr>
-            <tr className={toggleType3}>
+            <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
               <td className="date">2021 {t("feb")}.</td>
               <td className="description">{t("depu21/02.1")}</td>
             </tr>
-            <tr className={toggleType2}>
+            <tr className={toggleEdu}>
               <td className="type">{t("edu")}</td>
               <td className="date">2020 {t("oct")}.</td>
               <td className="description">{t("deedu20/10.1")}</td>
             </tr>
-            <tr className={toggleType1}>
+            <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
               <td className="date">2020 {t("oct")}.</td>
               <td className="description">{t("dewo20/08.1")}</td>
             </tr>
-            <tr className={toggleType2}>
+            <tr className={toggleEdu}>
               <td className="type">{t("edu")}</td>
               <td className="date">2020 {t("jul")}.</td>
               <td className="description">{t("deedu20/07.1")}</td>
             </tr>
-            <tr className={toggleType3}>
+            <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
               <td className="date">2019 {t("apr")}.</td>
               <td className="description">{t("depu19/04.1")}</td>
             </tr>
-            <tr className={toggleType1}>
+            <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
               <td className="date">2018 {t("apr")}.</td>
               <td className="description">{t("dewo18/04.1")}</td>
