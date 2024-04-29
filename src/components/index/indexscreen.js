@@ -216,53 +216,88 @@ class IndexScreen extends Component {
             </tr>
             <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
-              <td className="date">2023 {t("apr")}.</td>
-              <td className="description">{t("dewo23/4.1")}</td>
+              <td className="date">2023 {t("apr")}</td>
+              <td className="description">{t("dewo23/04")}<br/><br/></td>
             </tr>
             <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
-              <td className="date">2022 {t("feb")}.</td>
-              <td className="description">{t("depu22/02.1")}</td>
+              <td className="date">2022 {t("feb")}</td>
+              <td className="description">{t("depu22/02")}<br/><br/></td>
             </tr>
             <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
-              <td className="date">2021 {t("oct")}.</td>
-              <td className="description">{t("depu21/10.1")}</td>
+              <td className="date">2021 {t("oct")}</td>
+              <td className="description">{t("depu21/10")}<br/><br/></td>
             </tr>
             <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
-              <td className="date">2021 {t("apr")}.</td>
-              <td className="description">{t("depu21/04.1")}</td>
+              <td className="date">2021 {t("apr")}</td>
+              <td className="description">{t("depu21/04")}<br/><br/></td>
             </tr>
             <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
-              <td className="date">2021 {t("feb")}.</td>
-              <td className="description">{t("depu21/02.1")}</td>
+              <td className="date">2021 {t("feb")}</td>
+              <td className="description">{t("depu21/02")}<br/><br/></td>
             </tr>
             <tr className={toggleEdu}>
               <td className="type">{t("edu")}</td>
-              <td className="date">2020 {t("oct")}.</td>
-              <td className="description">{t("deedu20/10.1")}</td>
+              <td className="date">2020 {t("oct")}</td>
+              <td className="description">{t("deedu20/10")}<br/><br/></td>
             </tr>
             <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
-              <td className="date">2020 {t("oct")}.</td>
-              <td className="description">{t("dewo20/08.1")}</td>
+              <td className="date">2020 {t("oct")}</td>
+              <td className="description">{t("dewo20/08")}<br/><br/></td>
             </tr>
             <tr className={toggleEdu}>
               <td className="type">{t("edu")}</td>
-              <td className="date">2020 {t("jul")}.</td>
-              <td className="description">{t("deedu20/07.1")}</td>
+              <td className="date">2020 {t("jul")}</td>
+              <td className="description">{t("deedu20/07")}<br/><br/></td>
             </tr>
             <tr className={togglePursuit}>
               <td className="type">{t("pursuits")}</td>
-              <td className="date">2019 {t("apr")}.</td>
-              <td className="description">{t("depu19/04.1")}</td>
+              <td className="date">2019 {t("apr")}</td>
+              <td className="description">{t("depu19/04")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("edu")}</td>
+              <td className="date">2018 {t("may")}</td>
+              <td className="description">{t("deedu18/05")}<br/><br/></td>
             </tr>
             <tr className={toggleWork}>
               <td className="type">{t("work")}</td>
-              <td className="date">2018 {t("apr")}.</td>
-              <td className="description">{t("dewo18/04.1")}</td>
+              <td className="date">2018 {t("apr")}</td>
+              <td className="description">{t("dewo18/04")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("edu")}</td>
+              <td className="date">2017 {t("mar")}</td>
+              <td className="description">{t("deedu17/03")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("edu")}</td>
+              <td className="date">2016 {t("mar")}</td>
+              <td className="description">{t("deedu16/03")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("pursuits")}</td>
+              <td className="date">2013 {t("oct")}</td>
+              <td className="description">{t("depur13/10")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("edu")}</td>
+              <td className="date">2012 {t("sep")}</td>
+              <td className="description">{t("deedu12/09")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type">{t("edu")}</td>
+              <td className="date">2008 {t("sep")}</td>
+              <td className="description">{t("deedu08/09")}<br/><br/></td>
+            </tr>
+            <tr className={toggleWork}>
+              <td className="type"></td>
+              <td className="date">2002 {t("feb")}</td>
+              <td className="description">{t("deedu02/02")}<br/><br/></td>
             </tr>
             
             </table>
@@ -274,6 +309,16 @@ class IndexScreen extends Component {
           <h1>{t("skills")}</h1>
           <br/>
           <br/>
+          <div className="skillTable">
+          <label for="teamwork">{t("teamwork")}</label><br/>
+          <input type="radio" id="teamwork" name="teamwork" value="5" disabled checked="false"/>
+          <input type="radio" id="teamwork" name="teamwork" value="4" disabled checked="false"/>
+          <input type="radio" id="teamwork" name="teamwork" value="3" disabled checked="false"/>
+          <input type="radio" id="teamwork" name="teamwork" value="2" disabled checked="false"/>
+          <input type="radio" id="teamwork" name="teamwork" value="1" disabled checked="false"/>
+            <input type="radio" id="teamwork" name="teamwork" value="0" disabled checked="true"/>
+              <br/><br/><br/>
+        </div>
         </div>
         <div id="refs" className="refs">
           <h1>{t("refs")}</h1>
