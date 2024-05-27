@@ -2,12 +2,14 @@ import "../style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import IndexScreen from "../index/indexscreen";
 import ErrorScreen from "../error/errorscreen";
-import Footer from "../footer/footer";
 import Navigation from "../navigation/navigation";
-import Imprint from "../imprint/imprint";
 import TopNavigation from "../topnavigation/topnavigation.js";
+import Footer from "../footer/footer";
+import Index from "../index/index";
+import CV from "../cv/cv";
+import Imprint from "../imprint/imprint";
+
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +79,8 @@ class App extends Component {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<TopNavigation />}>
-          <Route path="cv" element={<IndexScreen />} />
+          <Route path="" element={<Index />} />
+          <Route path="cv" element={<CV />} />
           <Route path="imprint" element={<Imprint />} />
           <Route path="*" element={<ErrorScreen />} />
         </Route>

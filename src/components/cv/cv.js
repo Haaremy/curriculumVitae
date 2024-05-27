@@ -63,7 +63,7 @@ const sortTable = (n) => {
   }
 }
 
-class IndexScreen extends Component {
+class CV extends Component {
 
   constructor(){
     super();
@@ -367,4 +367,4 @@ class IndexScreen extends Component {
   }
 }
 
-export default withTranslation()(IndexScreen);
+export default withTranslation()(CV);

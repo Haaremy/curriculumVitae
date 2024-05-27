@@ -10,6 +10,9 @@ const TopNavigation = () => {
       <aside className="quickNavigation">
       <ul id="navi" className="navul">
           <li className="navli">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navli">
             <Link to="/cv">CV</Link>
           </li>
         </ul>
