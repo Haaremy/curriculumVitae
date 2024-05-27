@@ -100,31 +100,26 @@ class IndexScreen extends Component {
         <ul id="navi" className="navul">
           <li
             className="navli"
-            onClick={() => this.props.changeScreen("index")}
             >
             <a href="#about">{t("about")}</a>
           </li>
           <li
             className="navli"
-            onClick={() => this.props.changeScreen("index")}
             >
             <a href="#cv">{t("cv-s")}</a>
           </li>
           <li
             className="navli"
-            onClick={() => this.props.changeScreen("index")}
             >
             <a href="#skills">{t("skills")}</a>
           </li>
           <li
             className="navli"
-            onClick={() => this.props.changeScreen("index")}
             >
             <a href="#refs">{t("refs")}</a>
           </li>
           <li
             className="navli"
-            onClick={() => this.props.changeScreen("index")}
             >
             <a href="#foot">{t("contacts")}</a>
           </li>
@@ -138,20 +133,32 @@ class IndexScreen extends Component {
       <div className="indexContent">
         
         <div className="about-main" id="about">
-          <div className="about">
-            <div className="about-text">
-              <h1>{t("about")}</h1>
-              <h1>Jeremy Becker</h1>
-              <br/>
-              <br/>
-              <p className="about">
-                {t("about-caption")}
-              </p>
+
+
+        <div class="flip-card-cv">
+              <div class="flip-card-inner-cv about-text-cv">
+                <div class="flip-card-front-cv">
+                  
+                  <div className="about">
+                    <div className="about-text">
+                      <h1>Abriss</h1>
+                      <h1>Jeremy Becker</h1>
+                    </div>
+                  </div>
+                </div>
+              <div class="flip-card-back-cv">
+              
+              <div className="about-flipped">
+                    <div className="about-text-flipped">
+                      <h1><br/>{t("about-caption")}</h1>
+                    </div>
+                  </div>
               </div>
-            
- 
-          </div>
-          <br/>
+              </div>
+            </div>
+
+          <div class="line"/>
+            <br/>
         </div>
         <div id="cv" className="cv">
           <h1>{t("cv")}</h1>
@@ -324,6 +331,22 @@ class IndexScreen extends Component {
           <h1>{t("refs")}</h1>
           <br/>
           <br/>
+
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="img_avatar.png" alt="<Cover Image not Loading>"/>
+                  <h1>Projekt 1 Titel</h1>
+                </div>
+              <div class="flip-card-back">
+                <p className="flip-info">Infotext zu Projekt.</p>
+                <a className="flip-link">Link 1 zu Projekt (inaktiv).</a>
+                <br/>
+                <a className="flip-link">Link 2 zu Projekt (inaktiv).</a>
+              </div>
+              </div>
+            </div> 
+
         </div>
       </div>
 

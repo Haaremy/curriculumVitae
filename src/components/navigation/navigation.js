@@ -83,7 +83,7 @@ class Navigation extends Component {
                       id="pageTitle"
                       onClick={() => this.props.changeScreen("index")}
                     >
-                    <a>{t("webTitle")}</a>
+                    <h1>{t("webTitle")}</h1>
                     </li>
 
                   
@@ -123,8 +123,11 @@ class Navigation extends Component {
                 </ul>
               </nav>
           </div>
+
+      
         </nav>
       </main>
+      
     );
   }
 }

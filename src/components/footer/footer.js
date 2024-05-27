@@ -23,7 +23,7 @@ class Footer extends Component {
             <a href="mailto:webmaster@haaremy.de">
             <Icon path={mdiEmail} size={1} />
               </a>
-              <a href="#">
+              <a href="imprint">
               {t("imprint")}
               </a>
               </div>

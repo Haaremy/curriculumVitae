@@ -1,11 +1,13 @@
 import "../style.css";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
 import IndexScreen from "../index/indexscreen";
 import ErrorScreen from "../error/errorscreen";
 import Footer from "../footer/footer";
 import Navigation from "../navigation/navigation";
+import Imprint from "../imprint/imprint";
+import TopNavigation from "../topnavigation/topnavigation.js";
 
 class App extends Component {
   constructor(props) {
@@ -18,10 +20,6 @@ class App extends Component {
     };
   }
 
-  
-
-  // change Screen shown
-  changeScreen = (newScreen) => this.setState({ currentScreen: newScreen }); //declarng all needed setStates
   
   // change Language shown
   changeLanguage = (newLang) => {
@@ -72,29 +70,25 @@ class App extends Component {
       />
     );
 
-    let footbar = (
-      <Footer changeScreen={this.changeScreen} lang={this.state.lang} />
-    );
-
-    let screenComponent; // Displays IndexSceen
-
-    switch (this.state.currentScreen) {
-      case "index":
-        screenComponent = (
-          <IndexScreen
-            changeScreen={this.changeScreen}
-          />
-        );
-        break;
-
-      default:
-        screenComponent = <ErrorScreen />;
-    }
     return (
       <>
-        {navigationBar}
-        <main>{screenComponent}</main>
-        {footbar}
+    {navigationBar}
+    <main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TopNavigation />}>
+          <Route path="cv" element={<IndexScreen />} />
+          <Route path="imprint" element={<Imprint />} />
+          <Route path="*" element={<ErrorScreen />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    </main>
+    {<Footer/>}
+
+
+
+        
       </>
     );
   }
