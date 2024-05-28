@@ -4,15 +4,16 @@ import { withTranslation } from "react-i18next";
 import Icon from '@mdi/react';
 import { mdiHumanGreetingProximity } from '@mdi/js';
 import { mdiCog } from '@mdi/js';
+import { Outlet, Link } from "react-router-dom";
+import Logo from "../../media/logo192.png";
 
-class Navigation extends Component {
+class Header extends Component {
   render() {
     const { t, i18n } = this.props;
 
     return (
       <main>
-        <nav>
-          <div>
+
            
               <nav>
                 <ul id="navi" className="navul"> {/* Dropdown Menu */}
@@ -31,7 +32,7 @@ class Navigation extends Component {
                               
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 1*/}
                                                                                 {/*Dropdown Option 1.1 */}
-                                    <a  className="dropItem" id="light"  href="#" value="light"      
+                                    <a  className="dropItem" id="light"  value="light"      
                                       onClick={() =>
 
                                         this.props.changeTheme("light")
@@ -39,7 +40,7 @@ class Navigation extends Component {
                                     >
                                       {t("light")}{" "}</a>  
                                                                                 {/*Dropdown Option 1.2 */}
-                                      <a  className="dropItem" id="dark"  href="#" value="dark"
+                                      <a  className="dropItem" id="dark" value="dark"
                                       onClick={() =>
                                         this.props.changeTheme("shadow")
                                       }
@@ -51,9 +52,9 @@ class Navigation extends Component {
                               {t("language")}
                                 <ul class="dropdown-menu dropdown-submenu" >    {/*Dropdown Submenu 2*/}
                                                                                 {/*Dropdown Option 2.1*/}
-                                    <a  className="dropItem" id="de"  href="#" value="light"
+                                    <a  className="dropItem" id="de"  value="light"
                                       onClick={() => {
-                                        
+                                          
                                           this.props.changeLanguage("de")
                                           i18n.changeLanguage("de")
                                       }
@@ -63,7 +64,7 @@ class Navigation extends Component {
                                     >
                                       {t("Deutsch")}{" "}</a>                                                                  
                                                                                 {/*Dropdown Option 2.2*/}
-                                <a  className="dropItem" id="en"  href="#" value="light"
+                                <a  className="dropItem" id="en" value="light"
                                       onClick={() => {
                                         i18n.changeLanguage("en")
                                           this.props.changeLanguage("en")
@@ -81,11 +82,11 @@ class Navigation extends Component {
                     <li
                       className="navli"
                       id="pageTitle"
-                      onClick={() => this.props.changeScreen("index")}
                     >
+                    <img src={Logo} alt="Logo" height="50vw"/>
                     <h1>{t("webTitle")}</h1>
                     </li>
-
+ 
                   
                   <li>
                     <div className="dropdown">
@@ -121,15 +122,28 @@ class Navigation extends Component {
                     </div>
                   </li>
                 </ul>
-              </nav>
-          </div>
 
-      
-        </nav>
+                <aside className="topNavigation">
+          <ul id="navi" className="navul">
+              <li className="navli">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="navli">
+                <Link to="/cv">CV</Link>
+              </li>
+            </ul>
+            </aside>
+                      
+          <Outlet />
+              </nav>
+
+
+          
+
       </main>
       
     );
   }
 }
 
-export default withTranslation()(Navigation);
+export default withTranslation()(Header);

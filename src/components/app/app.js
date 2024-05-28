@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
 import ErrorScreen from "../error/errorscreen";
-import Navigation from "../navigation/navigation";
-import TopNavigation from "../topnavigation/topnavigation.js";
+import Header from "../header/header.js";
 import Footer from "../footer/footer";
 import Index from "../index/index";
 import CV from "../cv/cv";
@@ -61,27 +60,25 @@ class App extends Component {
   render() {
     
     let navigationBar = ( //declaring needed states for components
-      <Navigation
-        changeScreen={this.changeScreen}
+      <Header
         currentTheme={this.state.currentTheme}
         changeTheme={this.changeTheme}
         changeLanguage={this.changeLanguage}
         lang={this.state.lang}
-        login={this.changeLog}
-        log={this.state.login}
       />
     );
 
     return (
       <>
-    {navigationBar}
     <main>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TopNavigation />}>
+        <Route path="/" element={navigationBar}>
           <Route path="" element={<Index />} />
           <Route path="cv" element={<CV />} />
+          <Route path="lebenslauf" element={<CV />}/>
           <Route path="imprint" element={<Imprint />} />
+          <Route path="impressum" element={<Imprint />} />
           <Route path="*" element={<ErrorScreen />} />
         </Route>
       </Routes>

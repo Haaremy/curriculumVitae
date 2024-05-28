@@ -312,20 +312,190 @@ class CV extends Component {
           <div class="line"/>
             <br/>
         </div>
+        <h1>{t("skills")}</h1>
         <div id="skills" className="skills">
-          <h1>{t("skills")}</h1>
+          
           <br/>
           <br/>
-          <div className="skillTable">
-          <label for="teamwork">{t("teamwork")}</label><br/>
-          <input type="radio" id="teamwork" name="teamwork" value="5" disabled checked="false"/>
-          <input type="radio" id="teamwork" name="teamwork" value="4" disabled checked="false"/>
-          <input type="radio" id="teamwork" name="teamwork" value="3" disabled checked="false"/>
-          <input type="radio" id="teamwork" name="teamwork" value="2" disabled checked="false"/>
-          <input type="radio" id="teamwork" name="teamwork" value="1" disabled checked="false"/>
+          <div className="work-skills">
+            <h2>{t("work-skills")}</h2>
+            <div className="skillTable">
+            <label for="teamwork">{t("teamwork")}</label><br/>
+            <input type="radio" id="teamwork" name="teamwork" value="5" disabled checked="false"/>
+            <input type="radio" id="teamwork" name="teamwork" value="4" disabled checked="false"/>
+            <input type="radio" id="teamwork" name="teamwork" value="3" disabled checked="false"/>
+            <input type="radio" id="teamwork" name="teamwork" value="2" disabled checked="false"/>
+            <input type="radio" id="teamwork" name="teamwork" value="1" disabled checked="false"/>
             <input type="radio" id="teamwork" name="teamwork" value="0" disabled checked="true"/>
-              <br/><br/><br/>
-        </div>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="teammanagement">{t("teammanagement")}</label><br/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="5" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="4" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="3" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="2" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="1" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement" value="0" disabled checked="true"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="communication">{t("communication")}</label><br/>
+            <input type="radio" id="communication" name="communication" value="5" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication" value="4" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication" value="3" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication" value="2" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication" value="1" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="reliability">{t("reliability")}</label><br/>
+            <input type="radio" id="reliability" name="reliability" value="5" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability" value="4" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability" value="3" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability" value="2" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability" value="1" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="punctuality">{t("punctuality")}</label><br/>
+            <input type="radio" id="punctuality" name="punctuality" value="5" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality" value="4" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality" value="3" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality" value="2" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality" value="1" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="punctuality">{t("solo")}</label><br/>
+            <input type="radio" id="solo" name="solo" value="5" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo" value="4" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo" value="3" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo" value="2" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo" value="1" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="timemanagement">{t("timemanagement")}</label><br/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="5" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="4" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="3" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="2" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="1" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+          </div>
+          <div className="language-skills">
+            <h2>{t("languages")}</h2>
+            <div className="skillTable">
+            <label for="english">{t("english")}</label><br/>
+            <input type="radio" id="english" name="english" value="5" disabled checked="false"/>
+            <input type="radio" id="english" name="english" value="4" disabled checked="false"/>
+            <input type="radio" id="english" name="english" value="3" disabled checked="false"/>
+            <input type="radio" id="english" name="english" value="2" disabled checked="false"/>
+            <input type="radio" id="english" name="english" value="1" disabled checked="false"/>
+            <input type="radio" id="english" name="english" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="french">{t("french")}</label><br/>
+            <input type="radio" id="french" name="french" value="5" disabled checked="false"/>
+            <input type="radio" id="french" name="french" value="4" disabled checked="false"/>
+            <input type="radio" id="french" name="french" value="3" disabled checked="false"/>
+            <input type="radio" id="french" name="french" value="2" disabled checked="false"/>
+            <input type="radio" id="french" name="french" value="1" disabled checked="false"/>
+            <input type="radio" id="french" name="french" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="java">Java</label><br/>
+            <input type="radio" id="java" name="java" value="5" disabled checked="false"/>
+            <input type="radio" id="java" name="java" value="4" disabled checked="false"/>
+            <input type="radio" id="java" name="java" value="3" disabled checked="false"/>
+            <input type="radio" id="java" name="java" value="2" disabled checked="false"/>
+            <input type="radio" id="java" name="java" value="1" disabled checked="false"/>
+            <input type="radio" id="java" name="java" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="javascript">JavaScript</label><br/>
+            <input type="radio" id="javas" name="javas" value="5" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas" value="4" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas" value="3" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas" value="2" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas" value="1" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="react">ReactJS</label><br/>
+            <input type="radio" id="react" name="react" value="5" disabled checked="false"/>
+            <input type="radio" id="react" name="react" value="4" disabled checked="false"/>
+            <input type="radio" id="react" name="react" value="3" disabled checked="false"/>
+            <input type="radio" id="react" name="react" value="2" disabled checked="false"/>
+            <input type="radio" id="react" name="react" value="1" disabled checked="false"/>
+            <input type="radio" id="react" name="react" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="python">Python</label><br/>
+            <input type="radio" id="python" name="python" value="5" disabled checked="false"/>
+            <input type="radio" id="python" name="python" value="4" disabled checked="false"/>
+            <input type="radio" id="python" name="python" value="3" disabled checked="false"/>
+            <input type="radio" id="python" name="python" value="2" disabled checked="false"/>
+            <input type="radio" id="python" name="python" value="1" disabled checked="false"/>
+            <input type="radio" id="python" name="python" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="CSharp">C#</label><br/>
+            <input type="radio" id="cSharp" name="cSharp" value="5" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp" value="4" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp" value="3" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp" value="2" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp" value="1" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+          </div>
+          <div className="hobby-skills">
+            <h2>{t("hobbys")}</h2>
+            <div className="skillTable">
+            <label for="skating">{t("skating")}</label><br/>
+            <input type="radio" id="skating" name="skating" value="5" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating" value="4" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating" value="3" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating" value="2" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating" value="1" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="cooking">{t("cooking")}</label><br/>
+            <input type="radio" id="cooking" name="cooking" value="5" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking" value="4" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking" value="3" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking" value="2" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking" value="1" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+            <div className="skillTable">
+            <label for="baking">{t("baking")}</label><br/>
+            <input type="radio" id="baking" name="baking" value="5" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking" value="4" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking" value="3" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking" value="2" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking" value="1" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking" value="0" disabled checked="false"/>
+            <br/><br/><br/>
+            </div>
+          </div>
         </div>
         <div id="refs" className="refs">
           <h1>{t("refs")}</h1>

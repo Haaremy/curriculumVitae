@@ -102,6 +102,7 @@ Width:
     table{
       margin: 5vw;
       font-size: 11px;
+      color: var(--text);
     }
 
     /* ---------- Sticky Navigation on Page */
@@ -126,6 +127,28 @@ Width:
               inset 0 0 1.3rem transparent;
   
   } 
+
+  aside.topNavigation { 
+    width: 110%;
+    background-color: var(--primary);
+    border:2px dashed var(--primary);
+    background-color: var(--secondary);
+    padding-top: 10px;
+    max-height: 3vw;
+    margin-left: -7.5%;
+    margin-bottom: 10%;
+    font-size: 0vw;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem transparent,
+              0 0 2rem transparent,
+              0 0 0.8rem transparent,
+              0 0 2.8rem var(--bgBS),
+              inset 0 0 1.3rem transparent;
+  
+  }
 
   ul.navul {
     list-style-type: none;
@@ -202,17 +225,40 @@ Width:
     table{
       margin: 5vw;
       font-size: 11px;
+      color: var(--text);
     }
 
     /* ---------- Sticky Navigation on Page */
 
   aside.quickNavigation { 
     width: 110%;
+    height: 5vw;
+    background-color: var(--primary);
+    border:2px dashed var(--primary);
+    background-color: var(--secondary);
+    margin-left: -5%;
+    position: sticky;
+    top: 5vw;
+    z-index: 4;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem transparent,
+              0 0 2rem transparent,
+              0 0 0.8rem transparent,
+              0 0 2.8rem var(--bgBS),
+              inset 0 0 1.3rem transparent;
+  
+  }
+
+  aside.topNavigation { 
+    width: 110%;
     background-color: var(--primary);
     border:2px dashed var(--primary);
     background-color: var(--secondary);
     padding-top: 10px;
+    height: 3vw;
     margin-left: -5%;
+    margin-bottom: 2%;
+    font-size: 0vw;
     position: sticky;
     top: 0;
     z-index: 4;
@@ -224,6 +270,7 @@ Width:
               inset 0 0 1.3rem transparent;
   
   }
+
   
   ul.navul {
     list-style-type: none;
@@ -304,6 +351,7 @@ Width:
 
   /* ---------- Sticky Navigation on Page */
 
+
   aside.quickNavigation { 
     width: 110%;
     background-color: var(--primary);
@@ -311,6 +359,27 @@ Width:
     background-color: var(--secondary);
     padding-top: 10px;
     margin-left: -5%;
+    margin-bottom: 10%;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem transparent,
+              0 0 2rem transparent,
+              0 0 0.8rem transparent,
+              0 0 2.8rem var(--bgBS),
+              inset 0 0 1.3rem transparent;
+  
+  } 
+
+  aside.topNavigation { 
+    width: 110%;
+    background-color: var(--primary);
+    border:2px dashed var(--primary);
+    background-color: var(--secondary);
+    padding-top: 10px;
+    margin-left: -5%;
+    margin-bottom: 10%;
     position: sticky;
     top: 0;
     z-index: 4;
@@ -352,12 +421,6 @@ Width:
     position:relative ;
   }
   
-  
-  footer{
-      margin-top: 5%;
-  
-    text-align: center;
-  }
   
 
   div{
@@ -403,8 +466,9 @@ Width:
   
   
   
-  #pageTitle > a{
+  li#pageTitle.navli > a{
     font-size: 4vw;
+    display: inline-flex;
   }
 
   
@@ -457,7 +521,7 @@ Width:
     position: relative;
     display: inline-block;
     border-radius: 5px;
-    width: 50%;
+  
   }
   /*the Box of first drop*/
   .dropdown-content {
@@ -466,7 +530,7 @@ Width:
     background-color: transparent;
     border-radius: 5px;
     min-width: 5vw;
-    z-index: 3;
+    z-index: 5;
   }
 
   .dropup-content {
@@ -612,10 +676,6 @@ Width:
   
   
   footer{
-    display: block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 0 .2rem transparent,
               0 0 .2rem var(--bgBS),
               0 0 2rem var(--bgBS),
@@ -624,49 +684,7 @@ Width:
               inset 0 0 1.3rem transparent;
   }
   
-  footer-box {
-      display: block;
-    text-align: center;
-    justify-content: center;
-      width: 100%px;
-      border-bottom-width: 10px;
-      border-color: var(--secondary);
-      color: var(--secondary);
-      margin-left: 10%;
-      margin-right: 10%;
-      z-index: 5;
-      
-  
-  }
-  
-  
-  
-  ul.footul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    border-color: gray;
-      color: gray;
-  }
-  
-  li.footli {
-    float: left;
-    border-color: gray;
-      color: gray;
-  }
-  
-  li.footli a {
-    display: block;
-    color: var(--text);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-color: gray;
-      color: gray;
-  }
+
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
@@ -699,11 +717,14 @@ li{
 
 
 th#th1{
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
 }
 
 .categoryName{
   font-size: 18px;
+  justify-content: center;
+  min-height: 100%;
 }
 
   td.date {
@@ -723,6 +744,7 @@ th#th1{
     margin-bottom: 2vw;
     background-color: var(--secondary);
     z-index: 2;
+    color: var(--text);
   }
 
     td.date:after { 
@@ -738,7 +760,7 @@ th#th1{
     content: '';
     left: 50%;
     z-index: 1;
-
+    color: var(--text);
   }
   
   .categoryHead{
@@ -759,10 +781,51 @@ th#th1{
     margin-left: 5vw;
     display: flex;
     position: absolute;
+    color: var(--text);
   }
-  
-  .skillTable{
-    display: inline-flex;
+  .skills{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+
+  .footer-table{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-table a{
+    text-decoration: none;
+  }
+
+  .work-skills, .language-skills, .hobby-skills{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    justify-content: left;
+
+  }
+
+  .custom-column{
+    width: 100%;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+
+
+
+  .skillTable, .custom-row{
+    color: var(--text);
+    justify-items: center;
   }
 
 
