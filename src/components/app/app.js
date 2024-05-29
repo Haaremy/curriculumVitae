@@ -8,6 +8,7 @@ import Footer from "../footer/footer";
 import Index from "../index/index";
 import CV from "../cv/cv";
 import Imprint from "../imprint/imprint";
+import Matrix from "../matrix/matrix.js";
 
 
 class App extends Component {
@@ -75,6 +76,7 @@ class App extends Component {
       <Routes>
         <Route path="/" element={navigationBar}>
           <Route path="" element={<Index />} />
+          <Route path="matrix" element={<Matrix />} />
           <Route path="cv" element={<CV />} />
           <Route path="lebenslauf" element={<CV />}/>
           <Route path="imprint" element={<Imprint />} />

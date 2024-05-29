@@ -156,13 +156,13 @@ class CV extends Component {
               </div>
               </div>
             </div>
-
+            <br/><br/>
           <div class="line"/>
             <br/>
         </div>
         <div id="cv" className="cv">
           <h1>{t("cv")}</h1>
-          <br/>
+       
           
           <div class="lebenslauf">
             <table id="myTable">
@@ -177,6 +177,7 @@ class CV extends Component {
                         <a 
                           className="dropItem"
                           onClick={() => this.changeToggle(0)}
+                          href="#"
                         >
                           <input 
                             type="checkbox"
@@ -319,184 +320,205 @@ class CV extends Component {
           <br/>
           <div className="work-skills">
             <h2>{t("work-skills")}</h2>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
+            
+
             <label for="teamwork">{t("teamwork")}</label><br/>
-            <input type="radio" id="teamwork" name="teamwork" value="5" disabled checked="false"/>
-            <input type="radio" id="teamwork" name="teamwork" value="4" disabled checked="false"/>
-            <input type="radio" id="teamwork" name="teamwork" value="3" disabled checked="false"/>
-            <input type="radio" id="teamwork" name="teamwork" value="2" disabled checked="false"/>
-            <input type="radio" id="teamwork" name="teamwork" value="1" disabled checked="false"/>
-            <input type="radio" id="teamwork" name="teamwork" value="0" disabled checked="true"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="teamwork1" name="teamwork1" value="5" disabled checked="false"/>
+            <input type="radio" id="teamwork2" name="teamwork2" value="4" disabled checked="false"/>
+            <input type="radio" id="teamwork3" name="teamwork3" value="3" disabled checked="false"/>
+            <input type="radio" id="teamwork4" name="teamwork4" value="2" disabled checked="false"/>
+            <input type="radio" id="teamwork5" name="teamwork5" value="1" disabled checked="false"/>
+            <input type="radio" id="teamwork6" name="teamwork6" value="0" enabled checked="true"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="teammanagement">{t("teammanagement")}</label><br/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="5" disabled checked="false"/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="4" disabled checked="false"/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="3" disabled checked="false"/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="2" disabled checked="false"/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="1" disabled checked="false"/>
-            <input type="radio" id="teammanagement" name="teammanagement" value="0" disabled checked="true"/>
+            <p class="tooltiptext">{t("teammanagement-text")}</p>
+            <input type="radio" id="teammanagement" name="teammanagement1" value="5" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement2" value="4" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement3" value="3" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement4" value="2" disabled checked="false"/>
+            <input type="radio" id="teammanagement" name="teammanagement5" value="1" enabled checked="true"/>
+            <input type="radio" id="teammanagement" name="teammanagement6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="communication">{t("communication")}</label><br/>
-            <input type="radio" id="communication" name="communication" value="5" disabled checked="false"/>
-            <input type="radio" id="communication" name="communication" value="4" disabled checked="false"/>
-            <input type="radio" id="communication" name="communication" value="3" disabled checked="false"/>
-            <input type="radio" id="communication" name="communication" value="2" disabled checked="false"/>
-            <input type="radio" id="communication" name="communication" value="1" disabled checked="false"/>
-            <input type="radio" id="communication" name="communication" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("communication-text")}</p>
+            <input type="radio" id="communication" name="communication1" value="5" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication2" value="4" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication3" value="3" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication4" value="2" enabled checked="true"/>
+            <input type="radio" id="communication" name="communication5" value="1" disabled checked="false"/>
+            <input type="radio" id="communication" name="communication6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="reliability">{t("reliability")}</label><br/>
-            <input type="radio" id="reliability" name="reliability" value="5" disabled checked="false"/>
-            <input type="radio" id="reliability" name="reliability" value="4" disabled checked="false"/>
-            <input type="radio" id="reliability" name="reliability" value="3" disabled checked="false"/>
-            <input type="radio" id="reliability" name="reliability" value="2" disabled checked="false"/>
-            <input type="radio" id="reliability" name="reliability" value="1" disabled checked="false"/>
-            <input type="radio" id="reliability" name="reliability" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("reliability-text")}</p>
+            <input type="radio" id="reliability" name="reliability1" value="5" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability2" value="4" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability3" value="3" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability4" value="2" disabled checked="false"/>
+            <input type="radio" id="reliability" name="reliability5" value="1" enabled checked="true"/>
+            <input type="radio" id="reliability" name="reliability6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="punctuality">{t("punctuality")}</label><br/>
-            <input type="radio" id="punctuality" name="punctuality" value="5" disabled checked="false"/>
-            <input type="radio" id="punctuality" name="punctuality" value="4" disabled checked="false"/>
-            <input type="radio" id="punctuality" name="punctuality" value="3" disabled checked="false"/>
-            <input type="radio" id="punctuality" name="punctuality" value="2" disabled checked="false"/>
-            <input type="radio" id="punctuality" name="punctuality" value="1" disabled checked="false"/>
-            <input type="radio" id="punctuality" name="punctuality" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("punctuality-text")}</p>
+            <input type="radio" id="punctuality" name="punctuality1" value="5" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality2" value="4" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality3" value="3" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality4" value="2" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality5" value="1" disabled checked="false"/>
+            <input type="radio" id="punctuality" name="punctuality6" value="0" enabled checked="true"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
-            <label for="punctuality">{t("solo")}</label><br/>
-            <input type="radio" id="solo" name="solo" value="5" disabled checked="false"/>
-            <input type="radio" id="solo" name="solo" value="4" disabled checked="false"/>
-            <input type="radio" id="solo" name="solo" value="3" disabled checked="false"/>
-            <input type="radio" id="solo" name="solo" value="2" disabled checked="false"/>
-            <input type="radio" id="solo" name="solo" value="1" disabled checked="false"/>
-            <input type="radio" id="solo" name="solo" value="0" disabled checked="false"/>
+            <div className="skillTable tooltip">
+            <label for="solo">{t("solo")}</label><br/>
+            <p class="tooltiptext">{t("solo-text")}</p>
+            <input type="radio" id="solo" name="solo1" value="5" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo2" value="4" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo3" value="3" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo4" value="2" disabled checked="false"/>
+            <input type="radio" id="solo" name="solo5" value="1" enabled checked="true"/>
+            <input type="radio" id="solo" name="solo6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="timemanagement">{t("timemanagement")}</label><br/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="5" disabled checked="false"/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="4" disabled checked="false"/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="3" disabled checked="false"/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="2" disabled checked="false"/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="1" disabled checked="false"/>
-            <input type="radio" id="timemanagement" name="timemanagement" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("timemanagement-text")}</p>
+            <input type="radio" id="timemanagement" name="timemanagement1" value="5" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement2" value="4" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement3" value="3" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement4" value="2" enabled checked="true"/>
+            <input type="radio" id="timemanagement" name="timemanagement5" value="1" disabled checked="false"/>
+            <input type="radio" id="timemanagement" name="timemanagement6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
           </div>
           <div className="language-skills">
             <h2>{t("languages")}</h2>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="english">{t("english")}</label><br/>
-            <input type="radio" id="english" name="english" value="5" disabled checked="false"/>
-            <input type="radio" id="english" name="english" value="4" disabled checked="false"/>
-            <input type="radio" id="english" name="english" value="3" disabled checked="false"/>
-            <input type="radio" id="english" name="english" value="2" disabled checked="false"/>
-            <input type="radio" id="english" name="english" value="1" disabled checked="false"/>
-            <input type="radio" id="english" name="english" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("english-text")}</p>
+            <input type="radio" id="english" name="english1" value="5" disabled checked="false"/>
+            <input type="radio" id="english" name="english2" value="4" disabled checked="false"/>
+            <input type="radio" id="english" name="english3" value="3" enabled checked="true"/>
+            <input type="radio" id="english" name="english4" value="2" disabled checked="false"/>
+            <input type="radio" id="english" name="english5" value="1" disabled checked="false"/>
+            <input type="radio" id="english" name="english6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="french">{t("french")}</label><br/>
-            <input type="radio" id="french" name="french" value="5" disabled checked="false"/>
-            <input type="radio" id="french" name="french" value="4" disabled checked="false"/>
-            <input type="radio" id="french" name="french" value="3" disabled checked="false"/>
-            <input type="radio" id="french" name="french" value="2" disabled checked="false"/>
-            <input type="radio" id="french" name="french" value="1" disabled checked="false"/>
-            <input type="radio" id="french" name="french" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("french-text")}</p>
+            <input type="radio" id="french" name="french1" value="5" disabled checked="false"/>
+            <input type="radio" id="french" name="french2" value="4" disabled checked="false"/>
+            <input type="radio" id="french" name="french3" value="3" enabled checked="true"/>
+            <input type="radio" id="french" name="french4" value="2" disabled checked="false"/>
+            <input type="radio" id="french" name="french5" value="1" disabled checked="false"/>
+            <input type="radio" id="french" name="french6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="java">Java</label><br/>
-            <input type="radio" id="java" name="java" value="5" disabled checked="false"/>
-            <input type="radio" id="java" name="java" value="4" disabled checked="false"/>
-            <input type="radio" id="java" name="java" value="3" disabled checked="false"/>
-            <input type="radio" id="java" name="java" value="2" disabled checked="false"/>
-            <input type="radio" id="java" name="java" value="1" disabled checked="false"/>
-            <input type="radio" id="java" name="java" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="java" name="java1" value="5" disabled checked="false"/>
+            <input type="radio" id="java" name="java2" value="4" disabled checked="false"/>
+            <input type="radio" id="java" name="java3" value="3" enabled checked="true"/>
+            <input type="radio" id="java" name="java4" value="2" disabled checked="false"/>
+            <input type="radio" id="java" name="java5" value="1" disabled checked="false"/>
+            <input type="radio" id="java" name="java6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="javascript">JavaScript</label><br/>
-            <input type="radio" id="javas" name="javas" value="5" disabled checked="false"/>
-            <input type="radio" id="javas" name="javas" value="4" disabled checked="false"/>
-            <input type="radio" id="javas" name="javas" value="3" disabled checked="false"/>
-            <input type="radio" id="javas" name="javas" value="2" disabled checked="false"/>
-            <input type="radio" id="javas" name="javas" value="1" disabled checked="false"/>
-            <input type="radio" id="javas" name="javas" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="javas" name="javas1" value="5" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas2" value="4" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas3" value="3" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas4" value="2" enabled checked="true"/>
+            <input type="radio" id="javas" name="javas5" value="1" disabled checked="false"/>
+            <input type="radio" id="javas" name="javas6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="react">ReactJS</label><br/>
-            <input type="radio" id="react" name="react" value="5" disabled checked="false"/>
-            <input type="radio" id="react" name="react" value="4" disabled checked="false"/>
-            <input type="radio" id="react" name="react" value="3" disabled checked="false"/>
-            <input type="radio" id="react" name="react" value="2" disabled checked="false"/>
-            <input type="radio" id="react" name="react" value="1" disabled checked="false"/>
-            <input type="radio" id="react" name="react" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="react" name="react1" value="5" disabled checked="false"/>
+            <input type="radio" id="react" name="react2" value="4" disabled checked="false"/>
+            <input type="radio" id="react" name="react3" value="3" disabled checked="false"/>
+            <input type="radio" id="react" name="react4" value="2" enabled checked="true"/>
+            <input type="radio" id="react" name="react5" value="1" disabled checked="false"/>
+            <input type="radio" id="react" name="react6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="python">Python</label><br/>
-            <input type="radio" id="python" name="python" value="5" disabled checked="false"/>
-            <input type="radio" id="python" name="python" value="4" disabled checked="false"/>
-            <input type="radio" id="python" name="python" value="3" disabled checked="false"/>
-            <input type="radio" id="python" name="python" value="2" disabled checked="false"/>
-            <input type="radio" id="python" name="python" value="1" disabled checked="false"/>
-            <input type="radio" id="python" name="python" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="python" name="python1" value="5" enabled checked="true"/>
+            <input type="radio" id="python" name="python2" value="4" disabled checked="false"/>
+            <input type="radio" id="python" name="python3" value="3" disabled checked="false"/>
+            <input type="radio" id="python" name="python4" value="2" disabled checked="false"/>
+            <input type="radio" id="python" name="python5" value="1" disabled checked="false"/>
+            <input type="radio" id="python" name="python6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="CSharp">C#</label><br/>
-            <input type="radio" id="cSharp" name="cSharp" value="5" disabled checked="false"/>
-            <input type="radio" id="cSharp" name="cSharp" value="4" disabled checked="false"/>
-            <input type="radio" id="cSharp" name="cSharp" value="3" disabled checked="false"/>
-            <input type="radio" id="cSharp" name="cSharp" value="2" disabled checked="false"/>
-            <input type="radio" id="cSharp" name="cSharp" value="1" disabled checked="false"/>
-            <input type="radio" id="cSharp" name="cSharp" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("teamwork-text")}</p>
+            <input type="radio" id="cSharp" name="cSharp1" value="5" enabled checked="true"/>
+            <input type="radio" id="cSharp" name="cSharp2" value="4" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp3" value="3" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp4" value="2" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp5" value="1" disabled checked="false"/>
+            <input type="radio" id="cSharp" name="cSharp6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
           </div>
           <div className="hobby-skills">
             <h2>{t("hobbys")}</h2>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="skating">{t("skating")}</label><br/>
-            <input type="radio" id="skating" name="skating" value="5" disabled checked="false"/>
-            <input type="radio" id="skating" name="skating" value="4" disabled checked="false"/>
-            <input type="radio" id="skating" name="skating" value="3" disabled checked="false"/>
-            <input type="radio" id="skating" name="skating" value="2" disabled checked="false"/>
-            <input type="radio" id="skating" name="skating" value="1" disabled checked="false"/>
-            <input type="radio" id="skating" name="skating" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("skating-text")}</p>
+            <input type="radio" id="skating" name="skating1" value="5" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating2" value="4" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating3" value="3" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating4" value="2" disabled checked="false"/>
+            <input type="radio" id="skating" name="skating5" value="1" enabled checked="true"/>
+            <input type="radio" id="skating" name="skating6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="cooking">{t("cooking")}</label><br/>
-            <input type="radio" id="cooking" name="cooking" value="5" disabled checked="false"/>
-            <input type="radio" id="cooking" name="cooking" value="4" disabled checked="false"/>
-            <input type="radio" id="cooking" name="cooking" value="3" disabled checked="false"/>
-            <input type="radio" id="cooking" name="cooking" value="2" disabled checked="false"/>
-            <input type="radio" id="cooking" name="cooking" value="1" disabled checked="false"/>
-            <input type="radio" id="cooking" name="cooking" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("cooking-text")}</p>
+            <input type="radio" id="cooking" name="cooking1" value="5" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking2" value="4" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking3" value="3" enabled checked="true"/>
+            <input type="radio" id="cooking" name="cooking4" value="2" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking5" value="1" disabled checked="false"/>
+            <input type="radio" id="cooking" name="cooking6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
-            <div className="skillTable">
+            <div className="skillTable tooltip">
             <label for="baking">{t("baking")}</label><br/>
-            <input type="radio" id="baking" name="baking" value="5" disabled checked="false"/>
-            <input type="radio" id="baking" name="baking" value="4" disabled checked="false"/>
-            <input type="radio" id="baking" name="baking" value="3" disabled checked="false"/>
-            <input type="radio" id="baking" name="baking" value="2" disabled checked="false"/>
-            <input type="radio" id="baking" name="baking" value="1" disabled checked="false"/>
-            <input type="radio" id="baking" name="baking" value="0" disabled checked="false"/>
+            <p class="tooltiptext">{t("baking-text")}</p>
+            <input type="radio" id="baking" name="baking1" value="5" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking2" value="4" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking3" value="3" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking4" value="2" enabled checked="true"/>
+            <input type="radio" id="baking" name="baking5" value="1" disabled checked="false"/>
+            <input type="radio" id="baking" name="baking6" value="0" disabled checked="false"/>
             <br/><br/><br/>
             </div>
           </div>
         </div>
+        <div class="line"/>
+            <br/>
         <div id="refs" className="refs">
           <h1>{t("refs")}</h1>
           <br/>
@@ -505,7 +527,7 @@ class CV extends Component {
             <div class="flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="img_avatar.png" alt="<Cover Image not Loading>"/>
+                  <img src="img_avatar.png" alt="<Cover not Loading>"/>
                   <h1>Projekt 1 Titel</h1>
                 </div>
               <div class="flip-card-back">

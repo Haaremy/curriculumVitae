@@ -44,6 +44,8 @@ Width:
     color: var(--text);
 
   }	
+
+
   
 
   /* Screen Width Depending Elements*/
@@ -545,21 +547,7 @@ Width:
 
 
 
-  .dropdown-content a {
-    color: var(--text);
-    background-color: var(--bgDD);
-    padding: 0.5vw 1vw;
-    text-decoration: none;
-    border-color: 0.1vw dashed var(--primary);
-    border-radius: 5px;
-    display: flex;
-    min-width: 5vw;
-    border: 2px dashed var(--text);
-    margin-bottom: 0.3vw;
-    margin-left: 1vw;
-  }
-
-  .dropup-content a {
+  .dropdown-content a{
     color: var(--text);
     background-color: var(--bgDD);
     padding: 0.5vw 1vw;
@@ -573,9 +561,7 @@ Width:
     margin-left: 1vw;
   }
   
-  
-  
-  .dropdown-content a:hover {
+  .dropdown-content a:hover{
     color: var(--secondary);
     background-color: var(--text);
     display: flex;
@@ -826,7 +812,41 @@ th#th1{
   .skillTable, .custom-row{
     color: var(--text);
     justify-items: center;
+    
   }
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted var(--primary); /* If you want dots under the hoverable text */
+  transition: transform 0.5s ease;
+  z-index: 5;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--secondary);
+  color: var(--text);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip:hover{
+  transform: scale(1.2); 
+}
 
 
 /* Flip Card in Ref Part*/
@@ -931,3 +951,5 @@ th#th1{
     text-align: left;
     margin: 5vw;
   }
+
+

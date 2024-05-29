@@ -54,7 +54,7 @@ class Header extends Component {
                                                                                 {/*Dropdown Option 2.1*/}
                                     <a  className="dropItem" id="de"  value="light"
                                       onClick={() => {
-                                          
+
                                           this.props.changeLanguage("de")
                                           i18n.changeLanguage("de")
                                       }
@@ -126,10 +126,10 @@ class Header extends Component {
                 <aside className="topNavigation">
           <ul id="navi" className="navul">
               <li className="navli">
-                <Link to="/">Home</Link>
+                <Link to="/">{t("home")}</Link>
               </li>
               <li className="navli">
-                <Link to="/cv">CV</Link>
+                <Link to="/cv">{t("cv-s")}</Link>
               </li>
             </ul>
             </aside>
