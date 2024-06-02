@@ -20,7 +20,7 @@ class Index extends Component {
           .catch((error) => console.log(error))
   
 
-        }>{t("Fetch Test")} <Icon path={mdiArrowRight}/></a></h1>
+        }>{t("Fetch Test")}</a></h1>
         </div>
     </div>        
     );
