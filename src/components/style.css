@@ -53,6 +53,8 @@ Width:
   @media screen and (min-width: 1500px) {
     body{
       display: ruby-text-container;
+      border-radius: 50px;
+      margin-top: 3vh;
       background-color: var(--primary);
       text-align: center;
       flex-direction: row;
@@ -64,6 +66,9 @@ Width:
                 0 0 0.8rem var(--bgBS),
                 0 0 2.8rem var(--bgBS),
                 inset 0 0 1.3rem transparent;
+    }
+    .seperator{
+      background-color: transparent;
     }
   
     h1 {

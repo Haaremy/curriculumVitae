@@ -133,8 +133,9 @@ class Header extends Component {
               </li>
             </ul>
             </aside>
-                      
-          <Outlet />
+             <div className="seperator">
+              <Outlet />
+            </div>         
               </nav>
 
 
