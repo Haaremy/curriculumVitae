@@ -7,7 +7,21 @@ class Index extends Component {
     const { t } = this.props;
     return (
     <div>
-        Index Seite.
+        <div id="music" className="music">
+        <h1><a href = "#" onClick={() =>
+
+          fetch("http://9.109.114.193:31231/httpreceiver/path1/ExampleFileName.txt", {
+          method: "GET",
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => console.log(error))
+  
+
+        }>{t("Fetch Test")} <Icon path={mdiArrowRight}/></a></h1>
+        </div>
     </div>        
     );
   }
