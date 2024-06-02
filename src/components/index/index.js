@@ -10,7 +10,7 @@ class Index extends Component {
         <div id="music" className="music">
         <h1><a href = "#" onClick={() =>
 
-          fetch("http://stream.haaremy.de", {
+          fetch("https://stream.haaremy.de", {
           method: "GET",
           })
           .then((response) => response.json())
