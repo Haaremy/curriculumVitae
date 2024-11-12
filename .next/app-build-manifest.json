@@ -1,0 +1,112 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/_not-found/page-39bcbd5f20313135.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/css/776a59e27d2d98fa.css",
+      "static/chunks/app/layout-2a042be6c10fb39a.js"
+    ],
+    "/Datenschutz/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Datenschutz/page-fb0d5315b544aa8e.js"
+    ],
+    "/Weihnachtsolympiade/Scoreboard/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Weihnachtsolympiade/Scoreboard/page-f5cf6554ca9c1b95.js"
+    ],
+    "/Filme/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/a4634e51-b293761d75981fea.js",
+      "static/chunks/472-df71467dc22b6768.js",
+      "static/chunks/app/Filme/page-9417365eb783d9dc.js"
+    ],
+    "/Impressum/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Impressum/page-ded2a8548cb6eaa4.js"
+    ],
+    "/Hexagrow/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Hexagrow/page-f7ab101aafd4f4f9.js"
+    ],
+    "/Lebenslauf/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Lebenslauf/page-37e8058e55fadbd9.js"
+    ],
+    "/Serien/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Serien/page-805204ea4df070be.js"
+    ],
+    "/PatchWorlds/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/PatchWorlds/page-0c537b31e983511d.js"
+    ],
+    "/Weihnachtsolympiade/Scoreboard/team/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Weihnachtsolympiade/Scoreboard/team/page-84c7a43f702468bf.js"
+    ],
+    "/Weihnachtsolympiade/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/Weihnachtsolympiade/page-b933263e5db75c5d.js"
+    ],
+    "/blank/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/blank/page-d39ce9df1d3098ba.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/page-ffa99ac42411131b.js"
+    ],
+    "/test/page": [
+      "static/chunks/webpack-e8a837ea91afd5b3.js",
+      "static/chunks/fd9d1056-11ce62f37ac7f0fd.js",
+      "static/chunks/23-949fbd812eec7061.js",
+      "static/chunks/main-app-3099cae47b51bd7c.js",
+      "static/chunks/app/test/page-91ecae1f14ff811c.js"
+    ]
+  }
+}
