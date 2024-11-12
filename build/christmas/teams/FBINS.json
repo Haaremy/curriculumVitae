@@ -1,28 +1,28 @@
 {
-  "name": "",
-  "punkte": 0,
-  "player1": "",
-  "player2": "",
-  "player3": "",
-  "player4": "",
+  "name": "FSR-INS",
+  "punkte": 97,
+  "player1": "Jeremy",
+  "player2": "User2",
+  "player3": "Teammeber",
+  "player4": "MVP",
   "games": {
     "game1": [
       {
-        "p1": 0,
-        "p2": 0,
-        "p3": 0,
-        "p4": 0,
-        "pT": 0,
+        "p1": "2",
+        "p2": "2",
+        "p3": "3",
+        "p4": "44",
+        "pT": 51,
         "stamp": ""
       }
     ],
     "game2": [
       {
-        "p1": 0,
-        "p2": 0,
+        "p1": "44",
+        "p2": "2",
         "p3": 0,
         "p4": 0,
-        "pT": 0,
+        "pT": 46,
         "stamp": ""
       }
     ],
@@ -246,5 +246,6 @@
         "stamp": ""
       }
     ]
-  }
+  },
+  "timestamp": "12.11., 03:47:15"
 }
