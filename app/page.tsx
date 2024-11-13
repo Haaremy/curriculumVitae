@@ -12,7 +12,7 @@ export default function Home() {
       <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-4xl text-center mb-12">
         <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-4">Willkommen auf Haaremy.de</h1>
         <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">
-          Fühl dich frei, alle Seiten zu erkunden. Diese Website dient meiner persönlichen Weiterentwicklung. Es kann passieren, dass die Website nicht erreichbar ist, da der entsprechende Server zwar dauerhaft läuft, aber auch privat ist.
+          Fühl dich frei, alle Seiten zu erkunden. Diese Website dient meiner persönlichen Weiterentwicklung. Es kann passieren, dass die Website nicht erreichbar ist, da der entsprechende Server zwar dauerhaft läuft, aber auch privat ist und keinen kommerziellen Zweck erfüllt.
         </p> 
       </section>
       {/* Willkommen Section */}

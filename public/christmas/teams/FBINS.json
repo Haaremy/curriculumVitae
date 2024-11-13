@@ -1,6 +1,6 @@
 {
   "name": "FSR-INS",
-  "punkte": 97,
+  "punkte": 95,
   "player1": "Jeremy",
   "player2": "User2",
   "player3": "Teammeber",
@@ -8,11 +8,11 @@
   "games": {
     "game1": [
       {
-        "p1": "2",
+        "p1": "",
         "p2": "2",
         "p3": "3",
         "p4": "44",
-        "pT": 51,
+        "pT": 49,
         "stamp": ""
       }
     ],
@@ -247,5 +247,5 @@
       }
     ]
   },
-  "timestamp": "13.11., 00:22:42"
+  "timestamp": "13.11., 02:08:45"
 }

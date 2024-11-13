@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import Saved from './saved';
 
 type GameKeys = 'game1' | 'game2' | 'game3' | 'game4' | 'game5';
 type GameData = {
@@ -64,6 +65,12 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     false, false, false, false, false, false, false, false]);
   const [error, setError] = useState<string | null>(null);
   const [selectedID, setSelectedID] = useState("");
+  const [showSaved, setShowSaved] = useState(false);
+  const [showNotSaved, setShowNotSaved] = useState(false);
+  const handleNotSavedOpen = () => setShowNotSaved(true);
+  const handleNotSavedlClose = () => setShowNotSaved(false);
+  const handleSavedOpen = () => setShowSaved(true);
+  const handleSavedlClose = () => setShowSaved(false);
   const [selectedTeam, setSelectedTeam] = useState<TeamData>({
     name: '',
     punkte: 0,
@@ -261,19 +268,36 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
       };
   
       
-
-      await fetch('https://haaremy.de/api/saveTeamData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: selectedID, teamData: updatedTeam }),
-      });
-
-      setTeamData((prevData) => ({
-        ...prevData,
-        [selectedTeam.name]: updatedTeam,
-      }));
+      try {
+        const response = await fetch('/api/saveTeamData', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: selectedID, teamData: updatedTeam }),
+        });
+    
+        // Check if the response is successful
+        if (response.ok) {
+          // Open the modal after the data is saved successfully
+          handleSavedOpen();
+    
+          // Update the team data in the state
+          setTeamData((prevData) => ({
+            ...prevData,
+            [selectedID]: updatedTeam, // update the state with new data
+          }));
+        } else {
+          // Handle errors if the response is not successful
+          console.error('Failed to save team data:', response.statusText);
+          handleNotSavedOpen();
+        }
+      } catch (error) {
+        // Handle any network or unexpected errors
+        console.error('Error saving team data:', error);
+      }
+    
+      
     }
   };
 
@@ -301,6 +325,8 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     });
   };
 
+  
+
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
@@ -322,7 +348,12 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   onChange={handlePinSearchChange}
   className="text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
 />
-
+{showSaved && (
+                <Saved message="Erfolgreich gespeichert!" onClose={handleSavedlClose} />
+            )}
+{showNotSaved && (
+                <Saved message="Fehler beim Speichern!" onClose={handleNotSavedlClose} />
+            )}
       </div>
 
       <button
