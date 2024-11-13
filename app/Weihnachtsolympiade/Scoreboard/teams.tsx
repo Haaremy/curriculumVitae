@@ -95,14 +95,23 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+      
       <div className="flex-1 w-full transition-all duration-300">
+      <div className="mb-6">
+        <a
+          href="./Scoreboard/team"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+        >
+          Team Editor
+        </a>
+      </div>
         <div className="p-4">
           <input
             type="text"
             placeholder="Suche nach Team..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="mb-4 p-2 w-full border border-gray-300 rounded"
+            className="mb-4 p-2 w-full border border-gray-300 rounded text-black"
           />
           {loading && <p className="text-blue-500 text-center col-span-full">Loading...</p>}
           {error && <p className="text-red-500 text-center col-span-full">{error}</p>}
@@ -132,10 +141,11 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
                           <div className="text-center mb-4 font-semibold">
                             {team.player1} - {team.player2} - {team.player3} - {team.player4}
                           </div>
-                          {Object.keys(team.games).map((gameKey) => {
+                          {Object.keys(team.games).map((gameKey, index) => {
                             const scores = team.games[gameKey as keyof typeof team.games];
-                            if (!Array.isArray(scores) || scores.length === 0) return null;
-
+                            if (!Array.isArray(scores) || scores.length === 0 || !scores.some(score => score.pT > 0)) {
+                              return null;
+                            } else
                             return (
                               <div key={gameKey} className="mb-4">
                                 <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow mb-2">
@@ -147,6 +157,7 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
                                         {score.p2 !== 0 && <span>P2: <strong>{score.p2}</strong></span>}{" "}
                                         {score.p3 !== 0 && <span>P3: <strong>{score.p3}</strong></span>}{" "}
                                         {score.p4 !== 0 && <span>P4: <strong>{score.p4}</strong></span>}{" "}
+                                        <br/>
                                         <span>Teilpunktzahl: <strong>{score.pT}</strong></span>
                                       </p>
                                       <p>

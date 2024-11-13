@@ -62,9 +62,9 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
                     <button onClick={toggleDropdown} className="p-2 rounded-full bg-gray-800 text-white dark:bg-pink-500">
                         <span className="sr-only">Open Menu</span>
                         {/* Tool wheel icon */}
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.4 12.6a7.5 7.5 0 00-.2-1.8l2.1-1.7a.9.9 0 00.2-1.1l-2-3.4a.9.9 0 00-1-.4l-2.5 1a7.7 7.7 0 00-2.2-1.2l-.4-2.6A.9.9 0 0012 2h-4a.9.9 0 00-.9 1l-.4 2.6a7.7 7.7 0 00-2.2 1.2l-2.5-1a.9.9 0 00-1 .4l-2 3.4a.9.9 0 00.2 1.1l2.1 1.7a7.5 7.5 0 000 3.6l-2.1 1.7a.9.9 0 00-.2 1.1l2 3.4a.9.9 0 001 .4l2.5-1a7.7 7.7 0 002.2 1.2l.4 2.6a.9.9 0 00.9 1h4a.9.9 0 00.9-1l.4-2.6a7.7 7.7 0 002.2-1.2l2.5 1a.9.9 0 001-.4l2-3.4a.9.9 0 00-.2-1.1l-2.1-1.7a7.5 7.5 0 00.2-1.8zM12 15a3 3 0 110-6 3 3 0 010 6z" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="white" viewBox="0 0 50 50" stroke="currentColor">
+                            <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                        </svg>    
                     </button>
                     {showDropdown && (
                         <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
