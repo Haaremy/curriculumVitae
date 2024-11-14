@@ -59,14 +59,11 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   const [teamData, setTeamData] = useState<{ [key: string]: TeamData }>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [showEditor, setshowEditor] = useState<boolean>(false);
-  const [isLocked, setLocked] = useState<boolean[]>([
-    false, false, false, false, false, false, false, false,
-    false, false, false, false, false, false, false, false,
-    false, false, false, false, false, false, false, false]);
   const [error, setError] = useState<string | null>(null);
   const [selectedID, setSelectedID] = useState("");
   const [showSaved, setShowSaved] = useState(false);
   const [showNotSaved, setShowNotSaved] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleNotSavedOpen = () => setShowNotSaved(true);
   const handleNotSavedlClose = () => setShowNotSaved(false);
   const handleSavedOpen = () => setShowSaved(true);
@@ -79,30 +76,30 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     player3: '',
     player4: '',
     games: {
-      game1: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game2: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game3: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game4: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game5: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game6: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game7: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game8: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game9: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game10: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game11: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game12: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game13: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game14: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game15: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game16: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game17: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game18: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game19: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game20: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game21: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game22: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game23: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-      game24: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
+      game1: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game2: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game3: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game4: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game5: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game6: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game7: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game8: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game9: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game10: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game11: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game12: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game13: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game14: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game15: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game16: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game17: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game18: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game19: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game20: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game21: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game22: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game23: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game24: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
     },
   });
 
@@ -139,30 +136,30 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
           player3: "",
           player4: "",
           games: {
-            game1: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game2: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game3: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game4: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game5: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game6: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game7: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game8: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game9: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game10: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game11: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game12: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game13: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game14: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game15: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game16: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game17: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game18: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game19: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game20: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game21: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game22: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game23: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
-            game24: [{ p1: 0, p2: 0, p3: 0, p4: 0, pT: 0, stamp: '' }],
+            game1: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game2: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game3: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game4: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game5: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game6: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game7: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game8: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game9: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game10: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game11: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game12: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game13: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game14: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game15: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game16: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game17: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game18: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game19: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game20: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game21: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game22: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game23: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
+            game24: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
           },
         };
         setTeamData((prevData) => ({
@@ -208,6 +205,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
       fetchAndSaveTeamData(teamName);
       setSelectedTeam(teamData[teamName]);
       setTeamQuery(""); // Reset input fields
+      setPinQuery("");
       setshowEditor(true);
     } else {
       setError('No matching ID found or PIN is incorrect');
@@ -226,32 +224,35 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   const getPoints = () => {
     let points: number;
     points = 0;
-    selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);
-    selectedTeam.games.game2[0].pT = (Number(selectedTeam.games.game2[0].p1) || 0) +  (Number(selectedTeam.games.game2[0].p2) || 0) + (Number(selectedTeam.games.game2[0].p3) || 0) +  (Number(selectedTeam.games.game2[0].p4) || 0);
-    selectedTeam.games.game3[0].pT = (Number(selectedTeam.games.game3[0].p1) || 0) +  (Number(selectedTeam.games.game3[0].p2) || 0) + (Number(selectedTeam.games.game3[0].p3) || 0) +  (Number(selectedTeam.games.game3[0].p4) || 0);
-    selectedTeam.games.game4[0].pT = (Number(selectedTeam.games.game4[0].p1) || 0) +  (Number(selectedTeam.games.game4[0].p2) || 0) + (Number(selectedTeam.games.game4[0].p3) || 0) +  (Number(selectedTeam.games.game4[0].p4) || 0);
-    selectedTeam.games.game5[0].pT = (Number(selectedTeam.games.game5[0].p1) || 0) +  (Number(selectedTeam.games.game5[0].p2) || 0) + (Number(selectedTeam.games.game5[0].p3) || 0) +  (Number(selectedTeam.games.game5[0].p4) || 0);
-    selectedTeam.games.game6[0].pT = (Number(selectedTeam.games.game6[0].p1) || 0) +  (Number(selectedTeam.games.game6[0].p2) || 0) + (Number(selectedTeam.games.game6[0].p3) || 0) +  (Number(selectedTeam.games.game6[0].p4) || 0);
-    selectedTeam.games.game7[0].pT = (Number(selectedTeam.games.game7[0].p1) || 0) +  (Number(selectedTeam.games.game7[0].p2) || 0) + (Number(selectedTeam.games.game7[0].p3) || 0) +  (Number(selectedTeam.games.game7[0].p4) || 0);
-    selectedTeam.games.game8[0].pT = (Number(selectedTeam.games.game8[0].p1) || 0) +  (Number(selectedTeam.games.game8[0].p2) || 0) + (Number(selectedTeam.games.game8[0].p3) || 0) +  (Number(selectedTeam.games.game8[0].p4) || 0);
-    selectedTeam.games.game9[0].pT = (Number(selectedTeam.games.game9[0].p1) || 0) +  (Number(selectedTeam.games.game9[0].p2) || 0) + (Number(selectedTeam.games.game9[0].p3) || 0) +  (Number(selectedTeam.games.game9[0].p4) || 0);
-    selectedTeam.games.game10[0].pT = (Number(selectedTeam.games.game10[0].p1) || 0) +  (Number(selectedTeam.games.game10[0].p2) || 0) + (Number(selectedTeam.games.game10[0].p3) || 0) +  (Number(selectedTeam.games.game10[0].p4) || 0);
-    selectedTeam.games.game11[0].pT = (Number(selectedTeam.games.game11[0].p1) || 0) +  (Number(selectedTeam.games.game11[0].p2) || 0) + (Number(selectedTeam.games.game11[0].p3) || 0) +  (Number(selectedTeam.games.game11[0].p4) || 0);
-    selectedTeam.games.game12[0].pT = (Number(selectedTeam.games.game12[0].p1) || 0) +  (Number(selectedTeam.games.game12[0].p2) || 0) + (Number(selectedTeam.games.game12[0].p3) || 0) +  (Number(selectedTeam.games.game12[0].p4) || 0);
-    selectedTeam.games.game13[0].pT = (Number(selectedTeam.games.game13[0].p1) || 0) +  (Number(selectedTeam.games.game13[0].p2) || 0) + (Number(selectedTeam.games.game13[0].p3) || 0) +  (Number(selectedTeam.games.game13[0].p4) || 0);
-    selectedTeam.games.game14[0].pT = (Number(selectedTeam.games.game14[0].p1) || 0) +  (Number(selectedTeam.games.game14[0].p2) || 0) + (Number(selectedTeam.games.game14[0].p3) || 0) +  (Number(selectedTeam.games.game14[0].p4) || 0);
-    selectedTeam.games.game15[0].pT = (Number(selectedTeam.games.game15[0].p1) || 0) +  (Number(selectedTeam.games.game15[0].p2) || 0) + (Number(selectedTeam.games.game15[0].p3) || 0) +  (Number(selectedTeam.games.game15[0].p4) || 0);
-    selectedTeam.games.game16[0].pT = (Number(selectedTeam.games.game16[0].p1) || 0) +  (Number(selectedTeam.games.game16[0].p2) || 0) + (Number(selectedTeam.games.game16[0].p3) || 0) +  (Number(selectedTeam.games.game16[0].p4) || 0);
-    selectedTeam.games.game17[0].pT = (Number(selectedTeam.games.game17[0].p1) || 0) +  (Number(selectedTeam.games.game17[0].p2) || 0) + (Number(selectedTeam.games.game17[0].p3) || 0) +  (Number(selectedTeam.games.game17[0].p4) || 0);
-    selectedTeam.games.game18[0].pT = (Number(selectedTeam.games.game18[0].p1) || 0) +  (Number(selectedTeam.games.game18[0].p2) || 0) + (Number(selectedTeam.games.game18[0].p3) || 0) +  (Number(selectedTeam.games.game18[0].p4) || 0);
-    selectedTeam.games.game19[0].pT = (Number(selectedTeam.games.game19[0].p1) || 0) +  (Number(selectedTeam.games.game19[0].p2) || 0) + (Number(selectedTeam.games.game19[0].p3) || 0) +  (Number(selectedTeam.games.game19[0].p4) || 0);
-    selectedTeam.games.game20[0].pT = (Number(selectedTeam.games.game20[0].p1) || 0) +  (Number(selectedTeam.games.game20[0].p2) || 0) + (Number(selectedTeam.games.game20[0].p3) || 0) +  (Number(selectedTeam.games.game20[0].p4) || 0);
-    selectedTeam.games.game21[0].pT = (Number(selectedTeam.games.game21[0].p1) || 0) +  (Number(selectedTeam.games.game21[0].p2) || 0) + (Number(selectedTeam.games.game21[0].p3) || 0) +  (Number(selectedTeam.games.game21[0].p4) || 0);
-    selectedTeam.games.game22[0].pT = (Number(selectedTeam.games.game22[0].p1) || 0) +  (Number(selectedTeam.games.game22[0].p2) || 0) + (Number(selectedTeam.games.game22[0].p3) || 0) +  (Number(selectedTeam.games.game22[0].p4) || 0);
-    selectedTeam.games.game23[0].pT = (Number(selectedTeam.games.game23[0].p1) || 0) +  (Number(selectedTeam.games.game23[0].p2) || 0) + (Number(selectedTeam.games.game23[0].p3) || 0) +  (Number(selectedTeam.games.game23[0].p4) || 0);
-    selectedTeam.games.game24[0].pT = (Number(selectedTeam.games.game24[0].p1) || 0) +  (Number(selectedTeam.games.game24[0].p2) || 0) + (Number(selectedTeam.games.game24[0].p3) || 0) +  (Number(selectedTeam.games.game24[0].p4) || 0);
+
+    //game1
+    if(selectedTeam.games.game1[0].p1>=0 && selectedTeam.games.game1[0].p2>=0 && selectedTeam.games.game1[0].p3>=0 && selectedTeam.games.game1[0].p4>=0){
+       if(selectedTeam.games.game1[0].stamp==""){ //setzt den Zeitstempel, wenn Input akzeptiert -> Sperrt Input
+        selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);
+        selectedTeam.games.game1[0].stamp=humanReadableTimestamp;
+      }
+    } else { // Inhalte unvollständig
+      setErrorMessage("Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME1)")
+      handleNotSavedOpen();
+      return; // punkte null -> kein Speichern
+    }
+
+    //game2
+    if((Number(selectedTeam.games.game1[0].p1) || 0)==100) selectedTeam.games.game1[0].pT+=10;
+
+
+
+
+  //////////////////////////////////////////////
+  //////////////////////////////////////////////
+  //////////////////////////////////////////////
     
-    
+  // Die restlichen Spieleauswertungen auf Punkte Basis
+
+  //////////////////////////////////////////////
+  //////////////////////////////////////////////
+  //////////////////////////////////////////////
+
     for (let c = 1; c <= 24; c++) {
       const gameKey = `game${c}` as keyof TeamData['games'];
       points += selectedTeam.games[gameKey][0].pT || 0; // Add pT, default to 0 if undefined
@@ -262,40 +263,46 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   const handleSave = async () => {
     if (selectedTeam) {
       selectedTeam.punkte=getPoints();
-      const updatedTeam = {
-        ...selectedTeam,
-        timestamp: humanReadableTimestamp,
-      };
-  
+      if(selectedTeam.punkte!=null){
+
+        const updatedTeam = {
+          ...selectedTeam,
+          timestamp: humanReadableTimestamp,
+        };
+    
+        
+        try {
+          const response = await fetch('/api/saveTeamData', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: selectedID, teamData: updatedTeam }),
+          });
       
-      try {
-        const response = await fetch('/api/saveTeamData', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name: selectedID, teamData: updatedTeam }),
-        });
-    
-        // Check if the response is successful
-        if (response.ok) {
-          // Open the modal after the data is saved successfully
-          handleSavedOpen();
-    
-          // Update the team data in the state
-          setTeamData((prevData) => ({
-            ...prevData,
-            [selectedID]: updatedTeam, // update the state with new data
-          }));
-        } else {
-          // Handle errors if the response is not successful
-          console.error('Failed to save team data:', response.statusText);
-          handleNotSavedOpen();
+          // Check if the response is successful
+          if (response.ok) {
+            // Open the modal after the data is saved successfully
+            handleSavedOpen();
+      
+            // Update the team data in the state
+            setTeamData((prevData) => ({
+              ...prevData,
+              [selectedID]: updatedTeam, // update the state with new data
+            }));
+          } else {
+            // Handle errors if the response is not successful
+            console.error('Failed to save team data:', response.statusText);
+            setErrorMessage("Fehler: Es gabe ein Serverproblem! (POST)")
+            handleNotSavedOpen();
+          }
+        } catch (error) {
+          // Handle any network or unexpected errors
+          console.error('Error saving team data:', error);
         }
-      } catch (error) {
-        // Handle any network or unexpected errors
-        console.error('Error saving team data:', error);
+
       }
+      
     
       
     }
@@ -308,14 +315,15 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     field: keyof GameData[0]
   ) => {
     const { value } = event.target;
+ 
   
     setSelectedTeam((prevTeam) => {
       const updatedGames = { ...prevTeam.games };
-  
+      
       // Update the specific field of the player in the game
       updatedGames[gameKey][playerIndex] = {
         ...updatedGames[gameKey][playerIndex], // Keep the previous values
-        [field]: value, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
+        [field]: !isNaN(Number(value)) ? Number(value) : -1, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
       };
   
       return {
@@ -337,7 +345,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   placeholder="TEAM ID"
   value={teamQuery}
   onChange={handleTeamSearchChange}
-  className="text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
+  className={`${showEditor ? "hidden" : ""} text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
   id="team"
 />
 
@@ -346,13 +354,13 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   placeholder="PIN"
   value={pinQuery}
   onChange={handlePinSearchChange}
-  className="text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
+  className={`${showEditor ? "hidden" : ""} text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
 />
 {showSaved && (
                 <Saved message="Erfolgreich gespeichert!" onClose={handleSavedlClose} />
             )}
 {showNotSaved && (
-                <Saved message="Fehler beim Speichern!" onClose={handleNotSavedlClose} />
+                <Saved message={errorMessage} onClose={handleNotSavedlClose} />
             )}
       </div>
 
@@ -399,30 +407,51 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
           {/* Edit game data */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {(Object.keys(selectedTeam.games) as Array<keyof TeamData['games']>).map((gameKey) => (
-  <div key={gameKey} className="p-4 bg-gray-100 rounded-md shadow-md space-y-2">
-    <h3 className="text-lg font-semibold text-gray-800">Eintrag {gameKey.toUpperCase()}</h3>
+  <div
+    key={gameKey}
+    className={`${
+      selectedTeam.games[gameKey][0]?.stamp !== ""
+        ? "bg-gray-100"
+        : Math.random() > 0.5
+        ? "bg-red-100"
+        : Math.random() > 0.5
+        ? "bg-green-100"
+        : "bg-blue-100"
+    } p-4 rounded-md shadow-md space-y-2`}
+  >
+    <h3 className="text-lg font-semibold text-gray-800">
+      Eintrag {gameKey.toUpperCase()}
+    </h3>
 
     {/* Map through each playerData for the current game */}
     {selectedTeam.games[gameKey].map((playerData, playerIndex) => (
       <div key={`${gameKey}-player-${playerIndex}`} className="space-y-2">
-        {['p1', 'p2', 'p3', 'p4'].map((playerField, i) => (
+        {(['p1', 'p2', 'p3', 'p4'] as Array<keyof GameData[0]>).map((playerField, i) => (
           <input
             key={`${gameKey}-${playerIndex}-${playerField}`}
             type="number"
-            placeholder={`Player ${i + 1}`}
-            value={playerData[playerField as keyof GameData[0]]} // Ensure correct field is used
-            onChange={(e) => {
-              const value = e.target.value;
-              if (/^\d*$/.test(value)) { // Allow only numbers
-                handleGameInputChange(e, gameKey, playerIndex, playerField as keyof GameData[0]);
-              }
-            }}
-            className="w-full px-4 py-2 border-2 border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
-            disabled={isLocked[i]}
+            placeholder={`# ${i + 1}`}
+            disabled={playerData.stamp !== ""}
+            value={
+              playerData[playerField] != -1 ? playerData[playerField] : ''
+            } // empty when Entry is -1
+            onChange={(e) =>
+              handleGameInputChange(
+                e,
+                gameKey,
+                playerIndex,
+                playerField
+              )
+            }
+            className={`${
+              selectedTeam.games[gameKey][0]?.stamp !== "" ? "bg-grey-100 text-gray-400" : "bg-white text-gray-900"
+            } w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
           />
         ))}
       </div>
     ))}
+
+
   </div>
 ))}
             

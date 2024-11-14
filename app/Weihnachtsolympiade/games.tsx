@@ -6,11 +6,11 @@ import InfoBox from './info';
 export default function GamesList({ filenames }: { filenames: string[] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredFilenames, setFilteredFilenames] = useState<string[]>([]);
-  const [gameData, setGameData] = useState<{ [key: string]: { title: string; shortstory: string; story: string; user: string; content: string; points: string; location: string; } }>({});
+  const [gameData, setGameData] = useState<{ [key: string]: { title: string; shortstory: string; story: string; user: string; content: string; points: string; location: string; url: string;} }>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [showInfo, setShowInfo] = useState(false);
-  const [selectedGame, setSelectedGame] = useState<{ title: string; user: string; story: string; content: string; points: string; location: string; } | null>(null);
+  const [selectedGame, setSelectedGame] = useState<{ title: string; user: string; story: string; content: string; points: string; location: string; url: string;} | null>(null);
 
   const handleInfoOpen = (name: string) => {
     setSelectedGame(gameData[name]);
