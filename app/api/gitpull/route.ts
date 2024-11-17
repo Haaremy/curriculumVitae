@@ -1,13 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { exec } = require('child_process');
+import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
+import { exec } from 'child_process';
 
 const app = express();
-const PORT = 3000; // or any port you'd like to use
+const PORT = 3000; // Port to listen on
 
+// Middleware to parse JSON body
 app.use(bodyParser.json());
 
-app.post('/deploy', (req, res) => {
+app.post('/deploy', (req: Request, res: Response) => {
   // Verify the webhook payload (optional, you can use a secret)
   const payload = req.body;
   console.log('Received webhook:', payload);
@@ -31,7 +32,7 @@ app.post('/deploy', (req, res) => {
   }
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Listening for GitHub webhooks on http://localhost:${PORT}`);
 });
-
