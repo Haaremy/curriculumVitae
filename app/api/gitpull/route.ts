@@ -36,3 +36,4 @@ app.post('/deploy', (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Listening for GitHub webhooks on http://localhost:${PORT}`);
 });
+
