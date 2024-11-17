@@ -11,17 +11,11 @@ export async function POST(request: Request) {
     }
 
     // Production environment handling
-    if (process.env.NODE_ENV === 'production') {
-      if (process.env.VERCEL) {
-        // Placeholder: Integrate with cloud storage or a database
-        throw new Error('File system access is not available in production on Vercel.');
-      } else {
-        console.warn('Consider moving file system operations to cloud storage for production environments.');
-      }
-    }
+   
 
     // Path to save the JSON file
     const filePathJsons = path.join(process.cwd(), './public/christmas/teams', `${name}.json`);
+    if(fs.existsSync(filePathJsons)){console.log("JSON Path not found.")};
 
     // Create 'teams' directory if it doesn't exist
     if (!fs.existsSync(path.dirname(filePathJsons))) {
@@ -33,7 +27,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: 'Team data saved successfully' });
   } catch (error) {
-    console.error('Error saving data:', error);
-    return NextResponse.json({ error: 'Failed to save team data' }, { status: 500 });
+    console.error('Error saving data:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
+    return NextResponse.json({ error: 'Failed to save team data', details: error.message }, { status: 500 });
   }
 }

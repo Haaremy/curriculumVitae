@@ -112,7 +112,6 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   });
 
   const fetchAndSaveTeamData = async (name: string) => {
-    setLoading(true);
     setError(null);
 
     try {
@@ -178,15 +177,17 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
     } finally {
-      setLoading(false);
+      
     }
   };
 
   useEffect(() => {
     if (ids.length > 0) {
+      setLoading(true);
       ids.forEach((team) => {
         fetchAndSaveTeamData(team);
       });
+      setLoading(false);
     }
   }, [ids]);
 
