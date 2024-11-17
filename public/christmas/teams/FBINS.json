@@ -1,27 +1,27 @@
 {
-  "name": "FSR-INS",
-  "punkte": 25,
-  "player1": "Jeremy",
-  "player2": "User2",
-  "player3": "User3",
-  "player4": "Another User4",
+  "name": "",
+  "punkte": 0,
+  "player1": "",
+  "player2": "",
+  "player3": "",
+  "player4": "",
   "games": {
     "game1": [
       {
-        "p1": 22,
-        "p2": 0,
-        "p3": 0,
-        "p4": 3,
-        "pT": 25,
-        "stamp": "14.11., 03:06:32"
+        "p1": -1,
+        "p2": -1,
+        "p3": -1,
+        "p4": -1,
+        "pT": 0,
+        "stamp": ""
       }
     ],
     "game2": [
       {
-        "p1": 1,
-        "p2": 1,
-        "p3": 1,
-        "p4": 1,
+        "p1": -1,
+        "p2": -1,
+        "p3": -1,
+        "p4": -1,
         "pT": 0,
         "stamp": ""
       }
@@ -246,6 +246,5 @@
         "stamp": ""
       }
     ]
-  },
-  "timestamp": "17.11., 23:08:09"
+  }
 }
