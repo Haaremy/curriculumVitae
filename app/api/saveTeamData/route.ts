@@ -6,9 +6,18 @@ export async function POST(request: Request) {
   try {
     const { name, teamData } = await request.json();
 
-    // Check that process is running in a non-serverless environment
-    if (process.env.NODE_ENV === 'production' && process.env.VERCEL) {
-      throw new Error('File system access is not available in production on Vercel.');
+    if (!name || !teamData) {
+      return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+    }
+
+    // Production environment handling
+    if (process.env.NODE_ENV === 'production') {
+      if (process.env.VERCEL) {
+        // Placeholder: Integrate with cloud storage or a database
+        throw new Error('File system access is not available in production on Vercel.');
+      } else {
+        console.warn('Consider moving file system operations to cloud storage for production environments.');
+      }
     }
 
     // Path to save the JSON file
