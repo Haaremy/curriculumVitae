@@ -54,10 +54,10 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
         const savedTheme = localStorage.getItem('theme');
         console.log("Theme: "+savedTheme);
         if (savedTheme === 'light') {
-            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
             setIsDarkMode(false);
         } else {
-            document.documentElement.classList.remove('light');
+            document.documentElement.classList.add('dark');
             setIsDarkMode(true);
         }
     }, []);
