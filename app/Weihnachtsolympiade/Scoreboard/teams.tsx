@@ -97,10 +97,12 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       
       <div className="flex-1 w-full transition-all duration-300">
-      <div className="mb-6">
+      
+        <div className="p-4">
+        <div className="mb-6">
       <a
           href="/Weihnachtsolympiade"
-          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
         </a>
@@ -111,8 +113,6 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
           Team Editor
         </a>
       </div>
-        <div className="p-4">
-         
           {loading && <p className="text-blue-500 text-center col-span-full">Loading...</p>}
           {error && <p className="text-red-500 text-center col-span-full">{error}</p>}
           <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
