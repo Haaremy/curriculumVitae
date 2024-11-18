@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
     deployApplication((err, stdout, stderr) => {
       if (err) {
         console.error(`Error: ${stderr}`);
-        //return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
+        return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
       }
 
       console.log(`Output: ${stdout}`);
