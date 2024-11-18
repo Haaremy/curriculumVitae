@@ -1,6 +1,14 @@
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import { exec } from 'child_process';
+import https from 'https';
+import fs from 'fs';
+
+// SSL Certificates
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/haaremy.de/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/haaremy.de/fullchain.pem')
+};
 
 const app = express();
 const PORT = 443; // Port to listen on
@@ -8,7 +16,7 @@ const PORT = 443; // Port to listen on
 // Middleware to parse JSON body
 app.use(bodyParser.json());
 
-app.post('/deploy', (req: Request, res: Response) => {
+app.post('/api/gitpull', (req: Request, res: Response) => {
   // Verify the webhook payload (optional, you can use a secret)
   const payload = req.body;
   console.log('Received webhook:', payload);
@@ -32,10 +40,7 @@ app.post('/deploy', (req: Request, res: Response) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Listening for GitHub webhooks on http://localhost:${PORT}`);
+// Create the HTTPS server with SSL
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`Listening for GitHub webhooks on https://localhost:${PORT}`);
 });
-
-
-
