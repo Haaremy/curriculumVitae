@@ -16,7 +16,7 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string, body: Arr
 const deployApplication = (): Promise<string> => {
   return new Promise((resolve, reject) => {
     exec(
-        'cd /var/www/haaremy.de && sudo git pull origin master && sudo npm install && sudo npm run build && sudo pm2 restart haaremy-app',      (err, stdout, stderr) => {
+        'cd /var/www/haaremy.de && git pull origin master && sudo npm install && sudo npm run build && sudo pm2 restart haaremy-app',      (err, stdout, stderr) => {
         if (err) {
           reject(`Error: ${stderr}`);
         } else {
