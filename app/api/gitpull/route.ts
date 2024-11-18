@@ -14,22 +14,19 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string, body: Arr
 };
 
 const deployApplication = (): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      console.log('Starting deployment...');
-      exec(
-        'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
-        (err, stdout, stderr) => {
-          if (err) {
-            console.error('Deployment error:', stderr);
-            reject(`Error: ${stderr}`);
-          } else {
-            console.log('Deployment successful:', stdout);
-            resolve(stdout);
-          }
+  return new Promise((resolve, reject) => {
+    exec(
+      'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
+      (err, stdout, stderr) => {
+        if (err) {
+          reject(`Error: ${stderr}`);
+        } else {
+          resolve(stdout);
         }
-      );
-    });
-  };
+      }
+    );
+  });
+};
 
 export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
@@ -46,7 +43,7 @@ export async function POST(req: NextRequest) {
     if (!isValidSignature) {
       return NextResponse.json({ message: 'Invalid signature' }, { status: 400 });
     }
-
+    
 
     const payload = JSON.parse(Buffer.from(body).toString());
     console.log('Received GitHub webhook:', payload);
