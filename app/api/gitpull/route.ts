@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
     // Parse the JSON payload from the body
     const payload = JSON.parse(Buffer.from(body).toString());
     console.log('Received GitHub webhook:', payload);
+
     
 
     // Run the deployment process and wait for the result
