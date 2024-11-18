@@ -16,7 +16,7 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string, body: Arr
 const deployApplication = (): Promise<string> => {
   return new Promise((resolve, reject) => {
     exec(
-      'cd /var/www/haaremy.de && git pull origin master',
+      'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
       (err, stdout, stderr) => {
         if (err) {
           reject(`Error: ${stderr}`);
@@ -25,19 +25,9 @@ const deployApplication = (): Promise<string> => {
         }
       }
     );
-    exec(
-        'cd /var/www/haaremy.de && npm install && npm run build && pm2 restart haaremy-app',
-        (err, stdout, stderr) => {
-          if (err) {
-            return NextResponse.json({ message: '2. exe', error: stderr }, { status: 500 });
-          } else {
-            resolve(stdout);
-          }
-        }
-      );
+    
   });
 };
-
 
 export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
