@@ -190,6 +190,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     }
   }, [ids]);
 
+  
   const handleTeamSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTeamQuery(event.target.value);
   };
