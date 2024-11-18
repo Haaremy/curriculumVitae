@@ -30,6 +30,61 @@ export default function Page() {
 
   ];
 
+  const workSkills = [
+    { name: "Project Management", val: 4, des: "Man" },
+    { name: "Team Leadership", val: 5, des: "Team" },
+  ];
+
+  const languageSkills = [
+    { name: "Deutsch", val: 5, des: "Muttersprache" },
+    { name: "Englisch", val: 4, des: "Unterricht von Klasse 2 bis 12 sowie Modul im Studium" },
+  ];
+
+  const SkillGroup = ({ title, skills }: { title: string; skills: { name: string; val: number; des: string }[] }) => {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  
+    return (
+      <div>
+        <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-4">{title}</h2>
+        <div className="relative">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex items-center mb-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="flex-1">
+                <label className="block">{skill.name}</label>
+                  {hoveredIndex !== null && (
+                    <div className="absolute top-0 left-0 mt-4 p-4 bg-gray-800 text-white rounded-lg shadow-lg z-10">
+                      <p>{skills[hoveredIndex].des}</p>
+                    </div>
+                  )}
+              </div>
+  
+              {[1, 2, 3, 4, 5].map((value) => (
+                <div key={value} className="inline-flex items-center ml-2">
+                  <input
+                    type="radio"
+                    name={skill.name}
+                    value={value}
+                    disabled={skill.val !== value}
+                    checked={skill.val === value}
+                    className="ml-2 bg-pink-400"
+                    readOnly
+                  />
+                  <label className="ml-1">{value}</label>
+                </div>
+              ))}
+            </div>
+          ))}
+          
+        </div>
+      </div>
+    );
+  };
+
   const refs = [
     {name: "Hexagrow", des: "Eine Gruppenarbeit aus dem Modul Spieleentwicklung.", link: "https://haaremy.de/Hexagrow"},
     {name: (<>Zertifikat:<br/> Praktikum 2018</>), des: "Pflichtpraktikum bei Computer e.K. Bereiche: Kunden und Software.", link: "https://stream.haaremy.de/docs/pRKC.pdf"},
@@ -174,28 +229,28 @@ export default function Page() {
               Filter
             </button>
             <div className={`flex flex-col ${isFilter ? 'block' : 'hidden'} transition-all duration-300 absolute top-full left-0 bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-lg`}>
-              <label className="p-2">
+              <label className="p-2 text-pink-600 dark:text-pink-400">
                 <input
                   type="checkbox"
                   checked={toggleType[0]}
                   onChange={() => setToggleType([!toggleType[0],toggleType[1],toggleType[2]])}
                 /> Arbeit
               </label>
-              <label className="p-2">
+              <label className="p-2 text-pink-600 dark:text-pink-400" >
                 <input
                   type="checkbox"
                   checked={toggleType[1]}
                   onChange={() => setToggleType([toggleType[0],!toggleType[1],toggleType[2]])}
                 /> Engagement
               </label>
-              <label className="p-2">
+              <label className="p-2 text-pink-600 dark:text-pink-400">
                 <input
                   type="checkbox"
                   checked={toggleType[2]}
                   onChange={() => setToggleType([toggleType[0],toggleType[1],!toggleType[2]])}
                 /> Ausbildung
               </label>
-              <div className="p-2 m-2">
+              <div className="p-2 m-2 text-pink-600 dark:text-pink-400">
                 Zeitlinie:
                 <button
                   onClick={() => setTimeAsc(prev => !prev)}
@@ -210,17 +265,17 @@ export default function Page() {
             <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
               <thead>
                 <tr className="bg-pink-100 dark:bg-gray-700">
-                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Typ</th>
-                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Zeit</th>
-                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Beschreibung</th>
+                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Typ</th>
+                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Zeit</th>
+                  <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Beschreibung</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredData.map((item, index) => (
                   <tr key={index} className="bg-pink-50 dark:bg-gray-900">
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{item.type}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{item.date}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{item.description}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.type}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.date}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.description}</td>
                   </tr>
                 ))}
               </tbody>
@@ -233,28 +288,10 @@ export default function Page() {
           <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-4">Fähigkeiten</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-4">Arbeiten</h2>
-              <label className="block text-gray-700 dark:text-gray-300">
-                Teamwork
-                <input type="radio" name="teamwork" value="5" disabled className="ml-2" />
-              </label>
-              <label className="block text-gray-700 dark:text-gray-300">
-                Team Management
-                <input type="radio" name="teammanagement" value="5" disabled className="ml-2" />
-              </label>
-              {/* Additional skills */}
+            <SkillGroup title="Arbeiten" skills={workSkills} />
             </div>
             <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-4">Sprachen</h2>
-              <label className="block text-gray-700 dark:text-gray-300">
-                English
-                <input type="radio" name="english" value="5" disabled className="ml-2" />
-              </label>
-              <label className="block text-gray-700 dark:text-gray-300">
-                French
-                <input type="radio" name="french" value="5" disabled className="ml-2" />
-              </label>
-              {/* Additional languages */}
+            <SkillGroup title="Sprachen" skills={languageSkills} />
             </div>
           </div>
         </div>

@@ -53,12 +53,12 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         console.log("Theme: "+savedTheme);
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            setIsDarkMode(true);
-        } else {
-            document.documentElement.classList.remove('dark');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light');
             setIsDarkMode(false);
+        } else {
+            document.documentElement.classList.remove('light');
+            setIsDarkMode(true);
         }
     }, []);
     
