@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.post('/api/gitpull', (req: Request, res: Response) => {
     // Deploy code when webhook is received
-    exec('cd /var/www/haaremy.de && git pull origin main && npm install && pm2 restart haaremy-app', (err, stdout, stderr) => {
+    exec('cd /var/www/haaremy.de && git pull origin master && npm install && pm2 restart haaremy-app', (err, stdout, stderr) => {
       if (err) {
         console.error(`Error: ${stderr}`);
         return res.status(500).send('Deployment failed');
