@@ -16,12 +16,12 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
 };
 
 const deployApplication = (callback: (error: any, stdout: string, stderr: string) => void) => {
-  exec(
-    'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
-    (err, stdout, stderr) => {
-      callback(err, stdout, stderr);
-    }
-  );
+  //exec(
+    //'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
+    //(err, stdout, stderr) => {
+     // callback(err, stdout, stderr);
+    //}
+  //);
 };
 
 export async function POST(req: NextRequest) {
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
   try {
     const payload = await req.json();
     console.log('Received GitHub webhook:', payload);
-    
+
 
     // Run the deployment process after successful webhook validation
     deployApplication((err, stdout, stderr) => {
