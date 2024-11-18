@@ -15,6 +15,7 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
   return signature === calculatedSignature;
 };
 
+
 const deployApplication = (callback: (error: any, stdout: string, stderr: string) => void) => {
   //exec(
     //'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
