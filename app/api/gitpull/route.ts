@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { exec } from 'child_process';
 
 const app = express();
-const PORT = 3000; // Port to listen on
+const PORT = 443; // Port to listen on
 
 // Middleware to parse JSON body
 app.use(bodyParser.json());
