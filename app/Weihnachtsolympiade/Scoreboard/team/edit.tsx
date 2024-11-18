@@ -68,6 +68,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   const handleNotSavedlClose = () => setShowNotSaved(false);
   const handleSavedOpen = () => setShowSaved(true);
   const handleSavedlClose = () => setShowSaved(false);
+  const color = () => Math.random()*3;
   const [selectedTeam, setSelectedTeam] = useState<TeamData>({
     name: '',
     punkte: 0,
@@ -222,26 +223,32 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     }));
   };
 
+  const gameResult1 = () => {
+    if(selectedTeam.games.game1[0].stamp==""){ //setzt den Zeitstempel, wenn Input akzeptiert -> Auswertung & Sperrt Input
+      selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);
+      selectedTeam.games.game1[0].stamp=humanReadableTimestamp;
+      console.log("Saved Game1");
+    }
+  }
+
   const getPoints = () => {
     let points: number;
     points = 0;
 
-    //game1
-    if(selectedTeam.games.game1[0].p1>=0 && selectedTeam.games.game1[0].p2>=0 && selectedTeam.games.game1[0].p3>=0 && selectedTeam.games.game1[0].p4>=0){
-       if(selectedTeam.games.game1[0].stamp==""){ //setzt den Zeitstempel, wenn Input akzeptiert -> Sperrt Input
-        selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);
-        selectedTeam.games.game1[0].stamp=humanReadableTimestamp;
+    for(let i=1; i<=24; i++){
+      if(selectedTeam.games[`game${i}`][0].p1<0 && selectedTeam.games[`game${i}`][0].p2<0 && selectedTeam.games[`game${i}`][0].p3<0 && selectedTeam.games[`game${i}`][0].p4<0){
+      } else if(selectedTeam.games[`game${i}`][0].p1>=0 && selectedTeam.games[`game${i}`][0].p2>=0 && selectedTeam.games[`game${i}`][0].p3>=0 && selectedTeam.games[`game${i}`][0].p4>=0){
+        switch(i){
+          case 1: gameResult1(); break;
+          default: console.log(`Game${i} Results not found.`); break;
+        }
+      } else { // Inhalte unvollständig
+        setErrorMessage(`Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME${i})`)
+        handleNotSavedOpen();
+        return; // punkte null -> kein Speichern
       }
-    } else { // Inhalte unvollständig
-      setErrorMessage("Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME1)")
-      handleNotSavedOpen();
-      return; // punkte null -> kein Speichern
+
     }
-
-    //game2
-    if((Number(selectedTeam.games.game1[0].p1) || 0)==100) selectedTeam.games.game1[0].pT+=10;
-
-
 
 
   //////////////////////////////////////////////
@@ -413,10 +420,6 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     className={`${
       selectedTeam.games[gameKey][0]?.stamp !== ""
         ? "bg-gray-100"
-        : Math.random() > 0.5
-        ? "bg-red-100"
-        : Math.random() > 0.5
-        ? "bg-green-100"
         : "bg-blue-100"
     } p-4 rounded-md shadow-md space-y-2`}
   >

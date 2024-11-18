@@ -99,12 +99,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                   onClick={() => handleInfoOpen(name)}
                 >
                   <img
-                    src={`/images/christmas_calender${Math.floor(Math.random() * 1)}.jpg`}
+                    src={`/images/christmas_calender${Math.floor(Math.random() * 4)}.jpg`}
                     alt={"Image " + (index + 1)}
                     className="w-full h-64 object-cover bg-gray-300"
                   />
                   {/* Centered Index Number */}
-                  <div className="absolute inset-0 flex items-center justify-center text-black text-5xl font-bold">
+                  <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
                     {index + 1}
                   </div>
                   {/* Game Title */}
