@@ -6,6 +6,7 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
   const signature = req.headers.get('x-hub-signature') || req.headers.get('x-hub-signature-256');
   if (!signature) return false;
 
+  
   // Read the body stream as a buffer
   const body = await req.arrayBuffer();
   const hmac = crypto.createHmac('sha1', secret);
