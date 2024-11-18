@@ -118,12 +118,12 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
           <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
             <thead>
               <tr className="bg-pink-100 dark:bg-gray-700">
-                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Rang</th>
-                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Team</th>
-                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Punkte</th>
-                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">Letztes Update</th>
+                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Rang</th>
+                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Team</th>
+                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Punkte</th>
+                <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Letztes Update</th>
               </tr>
-            </thead>
+            </thead> 
             <tbody>
               {sortedTeamData.map((team, index) => team.name!="" && team.punkte>0 && (
                 <React.Fragment key={team.name}>
@@ -131,10 +131,10 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
                     className="bg-pink-50 dark:bg-gray-900 cursor-pointer text-center"
                     onClick={() => toggleRow(team.name)}
                   >
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">#{(index+1)}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{team.name}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{team.punkte}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">{team.timestamp}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">#{(index+1)}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{team.name}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{team.punkte}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{team.timestamp}</td>
                   </tr>
                   {expandedRow === team.name && (
                     <tr className="bg-gray-100 dark:bg-gray-800">
