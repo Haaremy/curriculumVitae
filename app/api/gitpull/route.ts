@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { exec } from 'child_process';
 import https from 'https';
 import fs from 'fs';
+import { NextResponse } from 'next/server';
 
 // SSL Certificates
 const options = {
@@ -10,8 +11,13 @@ const options = {
   cert: fs.readFileSync('/etc/letsencrypt/live/haaremy.de/fullchain.pem')
 };
 
+
 const app = express();
 const PORT = 443; // Port to listen on
+
+export const GET = async () => {
+    return NextResponse.json({ message: 'Hello, Next.js Version 13!' }, { status: 200 });
+  };
 
 // Middleware to parse JSON body
 app.use(bodyParser.json());
