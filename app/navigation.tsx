@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 export default function Navigation({ filenames }: { filenames: string[] }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [isHovered, setIsHovered] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
 
     // Filter filenames
