@@ -33,4 +33,3 @@ app.post('/api/gitpull/', (req: Request, res: Response) => {
 https.createServer(options, app).listen(PORT, () => {
   console.log(`Listening for GitHub webhooks on https://localhost:${PORT}`);
 });
-
