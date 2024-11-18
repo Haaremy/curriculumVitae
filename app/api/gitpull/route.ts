@@ -11,7 +11,6 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
   const hmac = crypto.createHmac('sha1', secret);
   hmac.update(Buffer.from(body)); // Convert arrayBuffer to Buffer
   const calculatedSignature = 'sha1=' + hmac.digest('hex');
-  
   return signature === calculatedSignature;
 };
 
