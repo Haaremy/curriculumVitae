@@ -13,20 +13,28 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string, body: Arr
   return signature === calculatedSignature;
 };
 
-const deployApplication = (): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    exec(
-        'cd /var/www/haaremy.de && git pull origin master && sudo npm install && sudo npm run build && sudo pm2 restart haaremy-app',      (err, stdout, stderr) => {
+export const deployApplication = (): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const commands = [
+        'cd /var/www/haaremy.de',
+        'git pull origin master',
+        'npm install',
+        'npm run build',
+        'pm2 restart haaremy-app',
+      ];
+  
+      exec(commands.join(' && '), (err, stdout, stderr) => {
+        console.log('STDOUT:', stdout);
+        console.error('STDERR:', stderr);
+  
         if (err) {
-          reject(`Error: ${stderr}`);
+          reject(`Deployment failed: ${stderr}`);
         } else {
           resolve(stdout);
         }
-      }
-    );
-    
-  });
-};
+      });
+    });
+  };
 
 
 export async function POST(req: NextRequest) {
