@@ -1,41 +1,39 @@
-import express, { Request, Response } from 'express';
-import bodyParser from 'body-parser';
-import { exec } from 'child_process';
-import https from 'https';
-import fs from 'fs';
-import { NextResponse } from 'next/server';
+// pages/api/github-webhook.ts
 
-// SSL Certificates
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/haaremy.de/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/haaremy.de/fullchain.pem')
+import { NextApiRequest, NextApiResponse } from 'next';
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === 'POST') {
+    const payload = req.body; // The webhook payload (GitHub sends it as JSON)
+    
+    // You can check the headers or payload for additional information,
+    // for example, to verify the signature for security:
+    const githubSignature = req.headers['x-hub-signature'] || req.headers['x-hub-signature-256'];
+    const secret = process.env.GITHUB_WEBHOOK_SECRET;
+
+    if (!githubSignature || !secret) {
+      return res.status(400).json({ message: 'Signature or secret is missing' });
+    }
+
+    // Optional: Verify GitHub webhook signature here
+    // This is where you would normally verify the webhook signature using a secret key.
+    // You can use libraries like 'crypto' to compare the payload signature.
+
+    try {
+      // Process the payload as needed. Example:
+      console.log('Received GitHub webhook:', payload);
+      
+      // Do something based on the webhook data, like deploying a new version
+      // or triggering other actions.
+
+      return res.status(200).json({ message: 'Webhook received and processed' });
+    } catch (error) {
+      console.error('Error processing webhook:', error);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  } else {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 };
 
-
-const app = express();
-const PORT = 6000; // Port to listen on
-
-export const GET = async () => {
-    return NextResponse.json({ message: 'Hello, Next.js Version 13!' }, { status: 200 });
-  };
-
-// Middleware to parse JSON body
-app.use(bodyParser.json());
-
-app.post('/api/gitpull/', (req: Request, res: Response) => {
-    // Deploy code when webhook is received
-    exec('cd /var/www/haaremy.de && git pull origin master && npm install && pm2 restart haaremy-app', (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error: ${stderr}`);
-        return res.status(500).send('Deployment failed');
-      }
-  
-      console.log(stdout);
-      res.status(200).send('Deployment successful');
-    });
-  });
-
-// Create the HTTPS server with SSL
-https.createServer(options, app).listen(PORT, () => {
-  console.log(`Listening for GitHub webhooks on https://localhost:${PORT}`);
-});
+export default handler;
