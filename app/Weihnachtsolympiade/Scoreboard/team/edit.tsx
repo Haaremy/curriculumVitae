@@ -57,18 +57,16 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   const [teamQuery, setTeamQuery] = useState('');
   const [pinQuery, setPinQuery] = useState('');
   const [teamData, setTeamData] = useState<{ [key: string]: TeamData }>({});
-  const [loading, setLoading] = useState<boolean>(false);
   const [showEditor, setshowEditor] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedID, setSelectedID] = useState("");
-  const [showSaved, setShowSaved] = useState(false);
-  const [showNotSaved, setShowNotSaved] = useState(false);
+  const [selectedID, setSelectedID] = useState(""); // zum speichern der Datei
+  const [showSaved, setShowSaved] = useState(false); // Speicherbestätigung Popup
+  const [showNotSaved, setShowNotSaved] = useState(false); // Speicher fehler Popup
   const [errorMessage, setErrorMessage] = useState("");
   const handleNotSavedOpen = () => setShowNotSaved(true);
   const handleNotSavedlClose = () => setShowNotSaved(false);
   const handleSavedOpen = () => setShowSaved(true);
   const handleSavedlClose = () => setShowSaved(false);
-  const color = () => Math.random()*3;
   const [selectedTeam, setSelectedTeam] = useState<TeamData>({
     name: '',
     punkte: 0,
@@ -112,24 +110,8 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     second: '2-digit',
   });
 
-  const fetchAndSaveTeamData = async (name: string) => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const fileID = name;
-      const filePath = `/christmas/teams/${fileID}.json`;
-      setSelectedID(fileID);
-      const fileExistsResponse = await fetch(filePath, { method: 'HEAD' });
-      if (fileExistsResponse.ok) {
-        const response = await fetch(filePath);
-        const existingTeamData = await response.json();
-        setTeamData((prevData) => ({
-          ...prevData,
-          [name]: existingTeamData as TeamData,
-        }));
-      } else {
-        const newTeam: TeamData = {
+  const createTeamFile = async (name: string) => {
+    const newTeam: TeamData = {
           name: "",
           punkte: 0,
           player1: "",
@@ -173,23 +155,38 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ name: fileID, teamData: newTeam }),
+          body: JSON.stringify({ name: name, teamData: newTeam }),
         });
+  }
+
+  const fetchAndSaveTeamData = async (name: string) => {
+    setError(null);
+  
+    try {
+      const filePath = `/christmas/teams/${name}.json`;
+      setSelectedID(name);
+  
+      // Try to fetch the team data directly, if the file doesn't exist, it will throw an error
+      const response = await fetch(filePath);
+      
+      if (response.ok) {
+        // File exists, parse the JSON and update state
+        const existingTeamData = await response.json();
+  
+        // Update the state with the fetched team data
+        setTeamData((prevData) => ({
+          ...prevData,
+          [name]: existingTeamData as TeamData,
+        }));
+      } else {
+        // If the file does not exist, create a new team file
+        await createTeamFile(name);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
-    } finally {
-      setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (ids.length > 0) {
-      ids.forEach((team) => {
-        fetchAndSaveTeamData(team);
-      });
-    }
-  }, [ids]);
+  
 
   
   const handleTeamSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -200,19 +197,31 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     setPinQuery(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const teamIndex = ids.findIndex((id) => id.toLowerCase() === teamQuery.toLowerCase());
+    
     if (teamIndex !== -1 && pins[teamIndex].toLowerCase() === pinQuery.toLowerCase()) {
       const teamName = ids[teamIndex];
-      fetchAndSaveTeamData(teamName);
-      setSelectedTeam(teamData[teamName]);
-      setTeamQuery(""); // Reset input fields
+      await fetchAndSaveTeamData(teamName);  // Fetch and save team data
+  
+      setTeamQuery("");  // Reset input fields
       setPinQuery("");
       setshowEditor(true);
+      
+      // We wait for teamData to update using useEffect
     } else {
       setError('No matching ID found or PIN is incorrect');
     }
   };
+  
+  useEffect(() => {
+    // Only set the selectedTeam after the team data has been updated
+    if (teamData[selectedID]) {
+      setSelectedTeam(teamData[selectedID]);
+    }
+  }, [teamData, selectedID]); // This will run when teamData or selectedID changes
+  
+  
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, field: keyof TeamData) => {
     const { value } = event.target;
@@ -314,15 +323,16 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     field: keyof GameData[0]
   ) => {
     const { value } = event.target;
- 
   
     setSelectedTeam((prevTeam) => {
       const updatedGames = { ...prevTeam.games };
-      
+  
       // Update the specific field of the player in the game
+      const newValue = isNaN(Number(value)) ? 0 : Number(value);  // default to 0 if not a number
+  
       updatedGames[gameKey][playerIndex] = {
         ...updatedGames[gameKey][playerIndex], // Keep the previous values
-        [field]: isNaN(Number(value)) ? Number(value) : -1, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
+        [field]: newValue, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
       };
   
       return {
@@ -336,6 +346,20 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+      <div className="mb-6">
+      <a
+          href="/Weihnachtsolympiade"
+          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+        >
+          Games
+        </a>
+        <a
+          href="/Weihnachtsolympiade/Scoreboard"
+          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+        >
+          Scoreboard
+        </a>
+      </div>
       <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
 
       <div className="mt-6 flex justify-center space-x-4">
@@ -367,9 +391,9 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
         onClick={handleSubmit}
         className={`${showEditor ? "hidden" : ""} mt-6 py-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none`}
         id="loader"
-        disabled={loading}
+
       >
-        {loading ? 'Loading...' : 'Load Team'}
+      Load Team
       </button>
 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}

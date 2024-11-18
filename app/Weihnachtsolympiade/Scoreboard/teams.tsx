@@ -98,9 +98,15 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
       
       <div className="flex-1 w-full transition-all duration-300">
       <div className="mb-6">
+      <a
+          href="/Weihnachtsolympiade"
+          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+        >
+          Games
+        </a>
         <a
           href="./team"
-          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
         >
           Team Editor
         </a>

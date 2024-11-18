@@ -1,6 +1,9 @@
 "use client"; // Mark this file as a Client Component
 
 import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+
+
 
 
 export default function Navigation({ filenames }: { filenames: string[] }) {
@@ -8,6 +11,9 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
+    const [dynamicHref, setDynamicHref] = useState("/");
+    const languages = ["Deutsch"];
+
 
     // Filter filenames
     const filteredFilenames = filenames
@@ -21,6 +27,7 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
 
     // Toggle theme
     const toggleDarkMode = () => {
+        
         if (!isDarkMode) {
             document.documentElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');
@@ -34,13 +41,35 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
     // Toggle dropdown visibility
     const toggleDropdown = () => setShowDropdown(!showDropdown);
 
+    useEffect(() => {
+        const currentPath = window.location.pathname;
+        if (currentPath.startsWith("/Weihnachtsolympiade")) {
+            setDynamicHref("/Weihnachtsolympiade");
+        } else {
+            setDynamicHref("/");
+        }
+    }, []);
+    
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        console.log("Theme: "+savedTheme);
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            setIsDarkMode(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            setIsDarkMode(false);
+        }
+    }, []);
+    
+
     return (
         <main className="bg-gray-100 dark:bg-gray-900 z-50 relative">
         <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700 shadow-md z-50"
         onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}>
             <div className="container mx-auto flex items-center justify-between px-4 py-3 max-w-screen-xl">
-                <a href="/" className="inline-flex items-center">
+                <a href={dynamicHref} className="inline-flex items-center">
                     <img src="/images/Logo24.png" alt="Haaremy Logo" className="h-6 w-auto" width={24} height={24} />
                     <p className="hidden sm:inline text-lg font-semibold text-gray-800 dark:text-gray-200 ml-2">
                         Haaremy
@@ -59,8 +88,12 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
                 />
 
                 <div className="relative">
-                    <button onClick={toggleDropdown} className="p-2 rounded-full bg-gray-800 text-white dark:bg-pink-500">
-                        <span className="sr-only">Open Menu</span>
+                <button
+                    onClick={toggleDropdown}
+                    onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggleDropdown()}
+                    tabIndex={0}
+                    className="p-2 rounded-full bg-gray-800 text-white dark:bg-pink-500"
+                >                        <span className="sr-only">Open Menu</span>
                         {/* Tool wheel icon */}
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="white" viewBox="0 0 50 50" stroke="currentColor">
                             <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
@@ -78,8 +111,11 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
                             <div className="px-4 py-2">
                                 <label className="block text-gray-800 dark:text-gray-200 mb-1">Language</label>
                                 <select className="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200">
-                                    <option value="de">Deutsch</option>
-                                    {/* Add more languages here */}
+                                    {languages.map((lang) => (
+                                        <option key={lang} value={lang.toLowerCase()}>
+                                            {lang}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
