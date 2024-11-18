@@ -15,46 +15,52 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
   return signature === calculatedSignature;
 };
 
-
+// Function to deploy the application
 const deployApplication = (callback: (error: any, stdout: string, stderr: string) => void) => {
-  //exec(
-    //'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
-    //(err, stdout, stderr) => {
-     // callback(err, stdout, stderr);
-    //}
-  //);
+  exec(
+    'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
+    (err, stdout, stderr) => {
+      callback(err, stdout, stderr);
+    }
+  );
 };
 
 export async function POST(req: NextRequest) {
-  const secret = process.env.GITHUB_WEBHOOK_SECRET;
-
-  // Validate the webhook signature
-  //if (!secret) {
-  //  return NextResponse.json({ message: 'Webhook secret is missing' }, { status: 400 });
-  //}
-
-  //const isValidSignature = await verifyGitHubSignature(req, secret);
-  //if (!isValidSignature) {
-  //  return NextResponse.json({ message: 'Invalid signature' }, { status: 400 });
-  //}
-
-  try {
-    const payload = await req.json();
-    console.log('Received GitHub webhook:', payload);
-
-
-    // Run the deployment process after successful webhook validation
-    deployApplication((err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error: ${stderr}`);
-        return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
-      }
-
-      console.log(`Output: ${stdout}`);
-      return NextResponse.json({ message: 'Deployment successful' }, { status: 200 });
-    });
-  } catch (error) {
-    console.error('Error processing webhook:', error);
-    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
+    const secret = process.env.GITHUB_WEBHOOK_SECRET;
+  
+    // CORS headers
+    const headers = {
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Origin': '*', // Allow all origins
+    };
+  
+    // Validate the webhook signature
+    if (!secret) {
+      return NextResponse.json({ message: 'Webhook secret is missing' }, { status: 400, headers });
+    }
+  
+    const isValidSignature = await verifyGitHubSignature(req, secret);
+    if (!isValidSignature) {
+      return NextResponse.json({ message: 'Invalid signature' }, { status: 400, headers });
+    }
+  
+    try {
+      const payload = await req.json();
+      console.log('Received GitHub webhook:', payload);
+  
+      // Run the deployment process after successful webhook validation
+      deployApplication((err, stdout, stderr) => {
+        if (err) {
+          console.error(`Error: ${stderr}`);
+          return NextResponse.json({ message: 'Deployment failed' }, { status: 500, headers });
+        }
+  
+        console.log(`Output: ${stdout}`);
+        return NextResponse.json({ message: 'Deployment successful' }, { status: 200, headers });
+      });
+    } catch (error) {
+      console.error('Error processing webhook:', error);
+      return NextResponse.json({ message: 'Internal Server Error' }, { status: 500, headers });
+    }
   }
-}
