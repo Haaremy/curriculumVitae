@@ -17,13 +17,12 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
 
 const deployApplication = (callback: (error: any, stdout: string, stderr: string) => void) => {
   exec(
-   "",// 'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
+    'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
     (err, stdout, stderr) => {
       callback(err, stdout, stderr);
     }
   );
 };
-
 
 export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
@@ -46,7 +45,7 @@ export async function POST(req: NextRequest) {
     deployApplication((err, stdout, stderr) => {
       if (err) {
         console.error(`Error: ${stderr}`);
-        return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
+        //return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
       }
 
       console.log(`Output: ${stdout}`);
@@ -57,4 +56,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
-
