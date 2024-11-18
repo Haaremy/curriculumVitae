@@ -13,13 +13,19 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string, body: Arr
   return signature === calculatedSignature;
 };
 
-const deployApplication = (callback: (error: any, stdout: string, stderr: string) => void) => {
-  exec(
-    'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
-    (err, stdout, stderr) => {
-      callback(err, stdout, stderr);
-    }
-  );
+const deployApplication = (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    exec(
+      'cd /var/www/haaremy.de && git pull origin master && npm install && npm run build && pm2 restart haaremy-app',
+      (err, stdout, stderr) => {
+        if (err) {
+          reject(`Error: ${stderr}`);
+        } else {
+          resolve(stdout);
+        }
+      }
+    );
+  });
 };
 
 export async function POST(req: NextRequest) {
@@ -43,16 +49,12 @@ export async function POST(req: NextRequest) {
     const payload = JSON.parse(Buffer.from(body).toString());
     console.log('Received GitHub webhook:', payload);
 
-    // Run the deployment process after successful webhook validation
-    deployApplication((err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error: ${stderr}`);
-        return NextResponse.json({ message: 'Deployment failed' }, { status: 500 });
-      }
+    // Run the deployment process and wait for the result
+    const result = await deployApplication();
+    console.log(`Deployment output: ${result}`);
 
-      console.log(`Output: ${stdout}`);
-      return NextResponse.json({ message: 'Deployment successful' }, { status: 200 });
-    });
+    return NextResponse.json({ message: 'Deployment successful' }, { status: 200 });
+
   } catch (error) {
     console.error('Error processing webhook:', error);
     return NextResponse.json({ message: 'Internal Server Error', error: error.message }, { status: 500 });
