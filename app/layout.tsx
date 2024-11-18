@@ -23,15 +23,14 @@ export default function RootLayout({
   const filenames = fs.readdirSync(mainDirectory);
   return (
     <html lang="de" className="dark">
-      
       <body className={inter.className}>
         <nav>      
           <Navigation filenames={filenames} />
         </nav>
         {children}
         <nav>
-        <Footer/>
-      </nav>
+          <Footer/>
+        </nav>
       </body>
     </html>
   );

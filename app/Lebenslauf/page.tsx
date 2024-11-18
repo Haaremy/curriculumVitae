@@ -71,10 +71,9 @@ export default function Page() {
                     value={value}
                     disabled={skill.val !== value}
                     checked={skill.val === value}
-                    className="ml-2 bg-pink-400"
+                    className="ml-1 text-pink-400 dark:text-pink-600"
                     readOnly
                   />
-                  <label className="ml-1">{value}</label>
                 </div>
               ))}
             </div>
@@ -134,7 +133,7 @@ export default function Page() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+    <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 bg-white dark:bg-gray-900 border-r border-gray-300 dark:border-gray-700 shadow-md h-full ${
@@ -143,7 +142,7 @@ export default function Page() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-full max-w-screen-xl">
           {/* Icon visible when sidebar is collapsed */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -261,8 +260,8 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="overflow-x-auto mt-4">
-            <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
+          <div className="overflow-x-auto mt-4 overflow-auto">
+            <table className=" table-auto w-full min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
               <thead>
                 <tr className="bg-pink-100 dark:bg-gray-700">
                   <th className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-pink-600 dark:text-pink-400">Typ</th>
