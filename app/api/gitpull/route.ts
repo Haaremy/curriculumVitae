@@ -32,7 +32,6 @@ export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
 
   try {
-    // Read the body once and store it in a variable
     const body = await req.arrayBuffer();
 
     // Validate the webhook signature
@@ -45,17 +44,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Invalid signature' }, { status: 400 });
     }
 
-    // Parse the JSON payload from the body
     const payload = JSON.parse(Buffer.from(body).toString());
     console.log('Received GitHub webhook:', payload);
 
-    
-
-    // Run the deployment process and wait for the result
+    // Execute deployment and wait for it to finish
     const result = await deployApplication();
     console.log(`Deployment output: ${result}`);
 
-    return NextResponse.json({ message: 'Deployment successful' }, { status: 200 });
+    // Return a success response only after deployment finishes
+    return NextResponse.json({ message: 'Deployment successful', output: result }, { status: 200 });
 
   } catch (error) {
     console.error('Error processing webhook:', error);
