@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
   try {
     const payload = await req.json();
     console.log('Received GitHub webhook:', payload);
+    
 
     // Run the deployment process after successful webhook validation
     deployApplication((err, stdout, stderr) => {
