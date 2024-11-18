@@ -13,7 +13,7 @@ const options = {
 
 
 const app = express();
-const PORT = 3000; // Port to listen on
+const PORT = 6000; // Port to listen on
 
 export const GET = async () => {
     return NextResponse.json({ message: 'Hello, Next.js Version 13!' }, { status: 200 });
