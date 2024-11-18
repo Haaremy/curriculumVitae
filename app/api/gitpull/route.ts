@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
 
   try {
-    // Read the body once
+    // Read the body once and store it in a variable
     const body = await req.arrayBuffer();
 
     // Validate the webhook signature
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Invalid signature' }, { status: 400 });
     }
 
-    // Parse the JSON payload
+    // Parse the JSON payload from the body
     const payload = JSON.parse(Buffer.from(body).toString());
     console.log('Received GitHub webhook:', payload);
 
@@ -58,4 +58,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Internal Server Error', error: error.message }, { status: 500 });
   }
 }
-
