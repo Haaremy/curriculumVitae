@@ -19,7 +19,7 @@ export default function Home() {
       <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-4xl text-center mb-12">
         <h3 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-4">Service Info</h3>
         <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">
-          Die Website wurde mit NextJs erstellt. Alle Inhalte wurden von mir und mit Unterstützung von ChatGPT selber geschrieben und werden auf GitHub verwaltet.
+          Die Website wurde mit NextJs erstellt. Alle Inhalte wurden von mir und mit Unterstützung von ChatGPT selber geschrieben und werden semi-automatisch auf GitHub verwaltet.
           Die involvierten Apache2-Server auf Debain Systemen stehen bei mir zuhause und werden per CloudFlare erreicht. Die Website ist ein Node.js Service per Reverse Proxy. Der Betrieb kann nicht garantiert werden.
         </p>
       </section>
