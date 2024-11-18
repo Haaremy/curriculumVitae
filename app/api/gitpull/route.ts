@@ -6,7 +6,7 @@ const verifyGitHubSignature = async (req: NextRequest, secret: string): Promise<
   const signature = req.headers.get('x-hub-signature') || req.headers.get('x-hub-signature-256');
   if (!signature) return false;
 
-  
+
   // Read the body stream as a buffer
   const body = await req.arrayBuffer();
   const hmac = crypto.createHmac('sha1', secret);
@@ -47,21 +47,22 @@ export async function POST(req: NextRequest) {
     }
   
     try {
-      const payload = await req.json();
-      console.log('Received GitHub webhook:', payload);
-  
-      // Run the deployment process after successful webhook validation
-      deployApplication((err, stdout, stderr) => {
-        if (err) {
-          console.error(`Error: ${stderr}`);
-          return NextResponse.json({ message: 'Deployment failed' }, { status: 500, headers });
-        }
-  
-        console.log(`Output: ${stdout}`);
-        return NextResponse.json({ message: 'Deployment successful' }, { status: 200, headers });
-      });
-    } catch (error) {
-      console.error('Error processing webhook:', error);
-      return NextResponse.json({ message: 'Internal Server Error' }, { status: 500, headers });
+  const payload = await req.json();
+  console.log('Received GitHub webhook:', payload);
+
+  // Run the deployment process after successful webhook validation
+  deployApplication((err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error during deployment: ${stderr}`);
+      return NextResponse.json({ message: 'Deployment failed', error: stderr }, { status: 500 });
     }
+
+    console.log(`Deployment successful: ${stdout}`);
+    return NextResponse.json({ message: 'Deployment successful' }, { status: 200 });
+  });
+} catch (error) {
+  console.error('Error processing webhook:', error);
+  return NextResponse.json({ message: 'Internal Server Error', error: error.message }, { status: 500 });
+}
+
   }
