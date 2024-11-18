@@ -29,6 +29,7 @@ const deployApplication = (): Promise<string> => {
   });
 };
 
+
 export async function POST(req: NextRequest) {
   const secret = process.env.GITHUB_WEBHOOK_SECRET;
 
