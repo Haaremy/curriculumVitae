@@ -16,7 +16,7 @@ const PORT = 443; // Port to listen on
 // Middleware to parse JSON body
 app.use(bodyParser.json());
 
-app.post('/api/gitpull', (req: Request, res: Response) => {
+app.post('/api/gitpull/', (req: Request, res: Response) => {
     // Deploy code when webhook is received
     exec('cd /var/www/haaremy.de && git pull origin master && npm install && pm2 restart haaremy-app', (err, stdout, stderr) => {
       if (err) {
