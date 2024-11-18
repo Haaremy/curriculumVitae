@@ -224,12 +224,10 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   };
 
   const gameResult1 = () => {
-    if(selectedTeam.games.game1[0].stamp==""){ //setzt den Zeitstempel, wenn Input akzeptiert -> Auswertung & Sperrt Input
-      selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);
-      selectedTeam.games.game1[0].stamp=humanReadableTimestamp;
-      console.log("Saved Game1");
-    }
+      selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);   
   }
+
+  
 
   const getPoints = () => {
     let points: number;
@@ -238,10 +236,13 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     for(let i=1; i<=24; i++){
       if(selectedTeam.games[`game${i}`][0].p1<0 && selectedTeam.games[`game${i}`][0].p2<0 && selectedTeam.games[`game${i}`][0].p3<0 && selectedTeam.games[`game${i}`][0].p4<0){
       } else if(selectedTeam.games[`game${i}`][0].p1>=0 && selectedTeam.games[`game${i}`][0].p2>=0 && selectedTeam.games[`game${i}`][0].p3>=0 && selectedTeam.games[`game${i}`][0].p4>=0){
+        if(selectedTeam.games[`game${i}`][0].stamp==""){
+          selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
         switch(i){
           case 1: gameResult1(); break;
           default: console.log(`Game${i} Results not found.`); break;
         }
+      }
       } else { // Inhalte unvollständig
         setErrorMessage(`Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME${i})`)
         handleNotSavedOpen();
@@ -250,16 +251,6 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
 
     }
 
-
-  //////////////////////////////////////////////
-  //////////////////////////////////////////////
-  //////////////////////////////////////////////
-    
-  // Die restlichen Spieleauswertungen auf Punkte Basis
-
-  //////////////////////////////////////////////
-  //////////////////////////////////////////////
-  //////////////////////////////////////////////
 
     for (let c = 1; c <= 24; c++) {
       const gameKey = `game${c}` as keyof TeamData['games'];
@@ -331,7 +322,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
       // Update the specific field of the player in the game
       updatedGames[gameKey][playerIndex] = {
         ...updatedGames[gameKey][playerIndex], // Keep the previous values
-        [field]: !isNaN(Number(value)) ? Number(value) : -1, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
+        [field]: isNaN(Number(value)) ? Number(value) : -1, // Update the specific field (e.g., p1, p2, p3, p4, etc.)
       };
   
       return {
