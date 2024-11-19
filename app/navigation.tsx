@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 
 
+interface DirectoryInfo {
+    name: string;
+    path: string;
+}
 
-
-export default function Navigation({ filenames }: { filenames: string[] }) {
+export default function Navigation({ directories = [] }: { directories?: DirectoryInfo[] }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [isHovered, setIsHovered] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -16,13 +19,12 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
 
 
     // Filter filenames
-    const filteredFilenames = filenames
-        .filter(name => name.toLowerCase().includes(searchQuery.toLowerCase()))
-        .filter(name => !name.endsWith('.tsx'))
-        .filter(name => !name.endsWith('.css'))
-        .filter(name => !name.startsWith('api'))
-        .filter(name => !name.startsWith('blank'));
-
+    const filteredDirectories = directories
+    .filter(dir => dir.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    .filter(dir => !dir.name.endsWith('.tsx'))
+    .filter(dir => !dir.name.endsWith('.css'))
+    .filter(dir => !dir.name.startsWith('api'))
+    .filter(dir => !dir.name.startsWith('blank'));
    
 
     // Toggle theme
@@ -67,7 +69,7 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
         <main className="bg-gray-100 dark:bg-gray-900 z-50 ">
             <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700 shadow-md z-50"
                 onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseLeave={() => {setIsHovered(searchQuery!="")}}
             >
                 <div className="container mx-auto flex items-center justify-between px-4 py-3 max-w-screen-xl">
                     <a href={dynamicHref} className="inline-flex items-center">
@@ -84,7 +86,7 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
                         type="text"
                         placeholder="Navigation..."
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) => {setSearchQuery(e.target.value); setIsHovered(e.target.value!="");}}
                         className="ml-4 p-2 w-1/3  border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:focus:ring-pink-400"
                     />
 
@@ -127,18 +129,18 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
         <div
                 className={`${isHovered ? "opacity-100 pt-20 px-4 py-4 visible" : "opacity-0 invisible"} transition-opacity duration-500 fixed bg-gray-100 dark:bg-gray-900 w-full`}
                 onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseLeave={() => setIsHovered(searchQuery!="")}
             >
-                <div className={filteredFilenames.length === 0 ? "grid gap-4 grid-cols-1" : "grid gap-4 grid-cols-5"}>
-                    {filteredFilenames.length === 0 ? (
+                <div className={filteredDirectories.length === 0 ? "grid gap-4 grid-cols-1" : "grid gap-4 grid-cols-5"}>
+                    {filteredDirectories.length === 0 ? (
                         <p className="text-center text-gray-500 dark:text-gray-400">Keinen Eintrag gefunden.</p>
-                    ) : filteredFilenames.length > 5 ? (
-                        <p className="text-center text-gray-500 dark:text-gray-400">Tippe...</p>
+                    ) : filteredDirectories.length > 5 ? (
+                        <p className="text-center text-gray-500 dark:text-gray-400">Zu viele Einträge.</p>
                     ) : (
-                        filteredFilenames.map(name => (
+                        filteredDirectories.map(({name, path}) => (
                             <a
                                 key={name}
-                                href={`/${name}`}
+                                href={`https://haaremy.de/${path}`}
                                 className="block p-3 bg-white border border-gray-200 rounded-lg shadow-sm transition-colors hover:bg-gray-100 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                                 target="_self"
                                 rel="noopener noreferrer"

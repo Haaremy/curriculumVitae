@@ -49,7 +49,7 @@ export default function Footer() {
                         </p>
                     </a>
                     
-                    <div className="relative" ref={dropdownRef}>
+                    <div className="relative" ref={dropdown3Ref} onMouseLeave={toggleDropdown3}>
                         {/* Trigger button */}
                         <button
                             onClick={toggleDropdown3}
@@ -84,7 +84,7 @@ export default function Footer() {
                             </div>
                         )}
                     </div>
-                    <div className="relative" ref={dropdownRef}>
+                    <div className="relative" ref={dropdownRef} onMouseLeave={toggleDropdown}>
                         {/* Trigger button */}
                         <button
                             onClick={toggleDropdown}
@@ -128,10 +128,9 @@ export default function Footer() {
                             </div>
                         )}
                     </div>
-                    <div className="relative" ref={dropdown2Ref}>
+                    <div className="relative" ref={dropdown2Ref} onMouseLeave={toggleDropdown2}>
                         {/* Trigger button */}
                         <button
-                            onClick={toggleDropdown2}
                             onMouseEnter={toggleDropdown2}
                             aria-expanded={isDropdown2Open}
                             className="inline-flex items-center justify-center p-2 rounded-full bg-gray-800 text-white"
