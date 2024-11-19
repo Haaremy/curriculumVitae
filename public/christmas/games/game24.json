@@ -1,10 +1,10 @@
 {
-    "title": "Beschwerung",
-    "story": "Im ganzen Trubel mit der Lieferung, wurden die Beschriftungen vergessen - für wen ist denn welches Geschenk? Die #4 #Geschenke haben je einen Inhalt der Wunschliste und ihr müsst raten welcher es ist.",
-    "shortstory":"Die Geschenke wurden vertauscht? Was ist wohl drin?",
-    "user":"Multiple Teams",
-    "content": "Ihr dürft die Geschenke hochheben, schütteln, drehen und wenden, aber nicht öffnen.",
-    "points": "Tragt in das #Feld des #Geschenks die Zahl vom Wunschzettelartikel ein.",
-    "location": "Obergeschoss 1 - Foyer",
+    "title": "Alarmgesichert",
+    "story": "Heiligabend ist im vollen Gange. Schon seit Jahrhunderten beliefert Santa die Kinder, aber noch nie war es sos schwer wie heutzutage. Alarmanlagen und SmartHome-Überwachung sind überall. Und dann noch dieser Zeitdruck...",
+    "shortstory":"Die Alarmanlage wurde scharfgestellt, aber die Geschenke warten.",
+    "user":"1 Team",
+    "content": "Ihr braucht 1 Zeit-Stopper und 1 bis 3 Elfen/Weihnachtsmänner. Der Stopper gibt das Signal zum Start und das Beschwerungteam muss durch die Parkor. In der Mitte sind 3 Zahlen, welchen einem #Feld zugeordnet sind. Wenn alle wieder über der Start/Ziellinie sind, wird die Zeit gestoppt.",
+    "points": "In #Feld 1 wird die Zeit in Sekunden eingetragen. In #Feld 2 bis 4 die entsprechende Lösung.",
+    "location": "Obergeschoss 1 - Raum 210",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }
