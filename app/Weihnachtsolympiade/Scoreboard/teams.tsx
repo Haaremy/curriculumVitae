@@ -94,11 +94,11 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
   const sortedTeamData = Object.values(teamData).sort(sortByPoints);
 
   return (
-    <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+    <main className="flex min-h-screen flex-col p-0 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       
       <div className="flex-1 w-full transition-all duration-300">
       
-        <div className="p-4">
+        <div className="sm:p-4 p-1">
         <div className="mb-6">
       <a
           href="/Weihnachtsolympiade"

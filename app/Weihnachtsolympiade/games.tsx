@@ -69,12 +69,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
   );
 
   return (
-    <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+    <main className="flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       
 
       <div className="flex-1 w-full transition-all duration-300">
       
-        <div className="p-4">
+        <div className="sm:p-4">
         <div className="mb-6">
         <a
           href="./Scoreboard"
@@ -96,7 +96,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
           />
-          <h1 className="text-lg mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-kalender</h1>
+          <h1 className="text-xl mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-kalender</h1>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
             {loading && <p className="text-blue-500 text-center col-span-full">Loading...</p>}
             {error && <p className="text-red-500 text-center col-span-full">{error}</p>}

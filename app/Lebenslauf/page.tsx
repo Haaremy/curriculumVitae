@@ -133,11 +133,11 @@ export default function Page() {
   });
 
   return (
-    <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+    <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between sm:p-2 p-0 pt-20 bg-pink-50 dark:bg-gray-900">
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 bg-white dark:bg-gray-900 border-r border-gray-300 dark:border-gray-700 shadow-md h-full ${
-          isHovered ? 'w-64' : 'w-16'
+        className={`fixed visible top-20 rounded-lg sm:top-0 right-0 sm:left-0 bg-white dark:bg-gray-900 border-r border-gray-300 dark:border-gray-700 shadow-md  ${
+          isHovered ? 'w-48 h-full ' : 'w-10 h-10 sm:h-full'
         } transition-all duration-300 ease-in-out z-30`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -160,7 +160,7 @@ export default function Page() {
           </svg>
 
           {/* Content visible when sidebar is hovered */}
-          <div className={`flex flex-col items-center ${isHovered ? 'flex' : 'hidden'} transition-all duration-300`}>
+          <div className={`flex flex-col items-center ${isHovered ? 'sm:flex' : 'hidden'} transition-all duration-300`}>
             <ul className="space-y-4 mt-4 w-full px-2 ">
               <li>
                 <a
@@ -207,8 +207,8 @@ export default function Page() {
         </div>
       </aside>
 
-      <div className={` ${isHovered ? 'pl-64' : 'pl-16'} flex-1 w-full transition-all duration-300`}>
-        <div id="about" className="mb-12">
+      <div className={` sm:pl-10  flex-1 w-full transition-all duration-300`}>
+        <div id="about" className="mb-12 sm:mt-16">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-4">Abriss</h1>
             <h2 className="text-xl text-gray-700 dark:text-gray-300">Jeremy Becker</h2>
@@ -272,9 +272,9 @@ export default function Page() {
               <tbody>
                 {filteredData.map((item, index) => (
                   <tr key={index} className="bg-pink-50 dark:bg-gray-900">
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.type}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.date}</td>
-                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">{item.description}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base">{item.type}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base">{item.date}</td>
+                    <td className="py-3 px-4 border-b border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base">{item.description}</td>
                   </tr>
                 ))}
               </tbody>
