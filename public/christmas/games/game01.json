@@ -1,10 +1,10 @@
 {
-    "title": "Titel1",
-    "story": " cahjckb kj akck asbbcdskjaf chsgdfjhgsdfjhasgjf hjsah gj gjhsag fjhgsjhafg sjagfjhsa jhsdgfj sajfgjh agjhagf jhsgajfgsjhgfjs gfjsgjf gsajgfjksagfjasgfg jsfjh gsaj fgjsg jsgfjh saggfsjhgjsgjhsg fdjh  asgfja gsjh f gjasfgjhsagfjh sagfjhgsajhfgjsdgfjhsg fjhsgafjhasgfjkgsjfgsajhdfg jshag fhjs gjfhg jhfgasjf gsjdakgf sajgf ewjag fuzewgfjhs agfjkzgazefg ajg fjkshgfuzasg fjbesjh fg asjkfgueazgf  jhsadgf jkageukzwgfu gdshjafgkua ezgfugafjhsgfkuzawgefuagbhd jfgsakufzegauwkfghj sagfagtefuzwgafjhgasjkf guewlzfglawhg fkzagefoazuegfi gfjhsdgfkuzetglia ugfhdjsglzewg fug wefgl wzgfilu glie gei giuz giufgjhsg ljuzeg uzlfe lu bgvwulizfg izlueg fljhb wjg ilwzg cahjckb kj akck asbbcdskjaf chsgdfjhgsdfjhasgjf hjsah gj gjhsag fjhgsjhafg sjagfjhsa jhsdgfj sajfgjh agjhagf jhsgajfgsjhgfjs gfjsgjf gsajgfjksagfjasgfg jsfjh gsaj fgjsg jsgfjh saggfsjhgjsgjhsg fdjh  asgfja gsjh f gjasfgjhsagfjh sagfjhgsajhfgjsdgfjhsg fjhsgafjhasgfjkgsjfgsajhdfg jshag fhjs gjfhg jhfgasjf gsjdakgf sajgf ewjag fuzewgfjhs agfjkzgazefg ajg fjkshgfuzasg fjbesjh fg asjkfgueazgf  jhsadgf jkageukzwgfu gdshjafgkua ezgfugafjhsgfkuzawgefuagbhd jfgsakufzegauwkfghj sagfagtefuzwgafjhgasjkf guewlzfglawhg fkzagefoazuegfi gfjhsdgfkuzetglia ugfhdjsglzewg fug wefgl wzgfilu glie gei giuz giufgjhsg ljuzeg uzlfe lu bgvwulizfg izlueg fljhb wjg ilwzg ",
-    "shortstory": "Story 1",
-    "user":"2 Teams, abwechselnd",
-    "content": "Spielbeschreibung 1.",
-    "points": "Je Spieler pro Treffer 10 Punkte. Maximal 50 Punkte.",
-    "location": "OG1 - Flur",
+    "title": "Bäckerei",
+    "story": "Es ist der erste Tag im Dezember und das Haus riecht noch nicht nach Keksen, Stollen und Gewürzen? Na wie auch, wenn keiner die Behälter beschriftet und die Gewürze zum Ratespiel werden. Wir wissen zwar noch welche wir irgendwann mal hatten, aber nicht mehr welche noch da sind.",
+    "shortstory":"Die Gewürze wurden vertauscht. Welches Gewürz ist in welchem Behälter?",
+    "user":"Multiple Teams",
+    "content": "Auf dem Tisch stehen 4 Gewürze (#1 - #4). Davor liegen mögliche Beschriftungen der Behälter. Besprecht euch im Team, welche Beschriftung (1 - 12) zu welchem Behälter passt. ",
+    "points": "Tragt im entsprechenden #Feld die Lösungszahl der Beschriftung ein.",
+    "location": "Obergeschoss 1 - Foyer",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }
