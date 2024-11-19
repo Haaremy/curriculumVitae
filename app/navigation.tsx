@@ -85,7 +85,7 @@ export default function Navigation({ filenames }: { filenames: string[] }) {
                         placeholder="Navigation..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="ml-4 p-2 w-1/3 sm:w-1 md:w-1/3 lg:w-1/4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:focus:ring-pink-400"
+                        className="ml-4 p-2 w-1/3  border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:focus:ring-pink-400"
                     />
 
                     <div className="relative">
