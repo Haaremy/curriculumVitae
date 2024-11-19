@@ -113,7 +113,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                     className="w-full h-64 object-cover bg-gray-300"
                   />
                   <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
-                    {index + 1}
+                    {name.substring(4,6)}
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                     <h2 className="text-xl font-semibold">{gameData[name].title}</h2>
