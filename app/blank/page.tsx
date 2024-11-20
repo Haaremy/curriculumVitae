@@ -31,9 +31,6 @@ export default function Page() {
     fetchFiles();
   }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between sm:p-2 p-0 pt-20 bg-pink-50 dark:bg-gray-900">
