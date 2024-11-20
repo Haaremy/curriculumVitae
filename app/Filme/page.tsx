@@ -28,7 +28,7 @@ export default async function Page() {
 
         const data: MovieItem[] = res.data; // Specify the type of data returned by the API
         filenames = data.map((item: MovieItem) => item.name);
-        const response = await fetch("/api/read-files/dir=/mnt/10TB");
+        const response = await fetch("/api/read-files/dir=/mnt/");
         filenames = await response.json();
     } catch (error) {
         console.error('Fetch error:', error);
