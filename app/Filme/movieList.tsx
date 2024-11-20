@@ -34,70 +34,69 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
     setFilteredFilenames(results);
   }, [searchQuery, filenames]);
 
-  useEffect(() => {
-    const fetchAndSaveMovieData = async (name: string) => {
-      setLoading(true);
-      setError(null);
-    
-      try {
-        const fileID = name.split("+").slice(1); // Remove file extension from name
-        const filePath = `/jsons/movie/${fileID}.json`; // Construct the file path
-        //const filePath = `https://stream.haaremy.de:2053/Media/MovieInfo/${fileID}.json` //Server 2 Filepath
-
-        // Check if file exists on server
-        const fileExistsResponse = await fetch(filePath, { method: 'HEAD' });
-        if (fileExistsResponse.ok) {
-          // If file exists, fetch its content
-          const response = await fetch(filePath);
-          const existingMovieData = await response.json();
+  const fetchAndSaveMovieData = async (name: string) => {
+    try {
+      const fileID = name.split("+").slice(1).join("+"); // Correctly handle multi-part IDs
+      const filePath = `/jsons/movie/${fileID}.json`; // Construct the file path for your local server
+      
+      // Step 1: Check if the file exists locally by making a HEAD request
+      const fileExistsResponse = await fetch(`/api/read-files?dir=${encodeURIComponent(filePath)}`, { method: 'HEAD' });
+  
+      if (fileExistsResponse.ok) {
+        // Step 2: If file exists locally, fetch its content
+        const response = await fetch(`/api/read-files?dir=${encodeURIComponent(filePath)}`);
+        const existingMovieData = await response.json();
+        
+        // Update the movie data state
+        setMovieData(prevData => ({
+          ...prevData,
+          [name]: existingMovieData,
+        }));
+      } else {
+        // Step 3: If file doesn't exist, fetch movie data from the external API (The Movie Database)
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${encodeURIComponent(fileID)}?language=de-DE&api_key=2e42a5a77d2dc620a46cd7276da47403`
+        );
+        const data = await response.json();
+  
+        if (data) {
+          // Step 4: Handle genres with a default empty string if genres are not available
+          const genres = data.genres ? data.genres.map((genre: { name: string }) => genre.name).join(' - ') : 'Unknown';
+  
+          const movieInfo = {
+            title: data.title,
+            overview: data.overview,
+            poster: data.poster_path,
+            release: data.release_date,
+            genre: genres, // Concatenate genres into a string
+          };
+  
+          // Update the movie data state with fetched movie info
           setMovieData(prevData => ({
             ...prevData,
-            [name]: existingMovieData,
+            [name]: movieInfo,
           }));
-        } else {
-          // If file does not exist, fetch from API
-          const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${encodeURIComponent(fileID[0])}?language=de-DE&api_key=2e42a5a77d2dc620a46cd7276da47403`
-          );
-          const data = await response.json();
-
-          if (data) {
-            // Handle genres with a default empty string if genres are not available
-            const genres = data.genres ? data.genres.map((genre: { name: string }) => genre.name).join(' - ') : 'Unknown';
-
-            const movieInfo = {
-              title: data.title,
-              overview: data.overview,
-              poster: data.poster_path,
-              release: data.release_date,
-              genre: genres, // Concatenate genres into a string
-            };
-        
-            setMovieData(prevData => ({
-              ...prevData,
-              [name]: movieInfo,
-            }));
-        
-            // Call the API to save the data to a local file
-            //await fetch('https://stream.haaremy.de:2053/Media/MovieInfo/saveMovieData.php', {
-              await fetch('/api/saveMovieData.php', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ name: fileID, movieData: movieInfo }),
-            });
-          }
+  
+          // Step 5: Save the fetched movie data to the local server
+          await fetch('/api/saveMovieData', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: fileID, movieData: movieInfo }),
+          });
         }
-      
-      } catch (error) {
-        setError('Fehler beim Speichern/Laden der Filmdetails');
-        console.error(error); // Log the error for debugging
-      } finally {
-        setLoading(false);
       }
-    };
-
+    } catch (error) {
+      setError('Fehler beim Speichern/Laden der Filmdetails');
+      console.error(error); // Log the error for debugging
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Assuming filteredFilenames is the array of file names you want to process
+  useEffect(() => {
     filteredFilenames.forEach(name => {
       fetchAndSaveMovieData(name); // Fetch and save data for each filtered filename
     });
