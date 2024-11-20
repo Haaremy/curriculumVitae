@@ -21,7 +21,8 @@ export default async function Page() {
 
     try {
         // Fetch filenames from the external API using axios
-        const res = await axios.get('https://stream.haaremy.de:2053/Media/Movies/', {
+        //const res = await axios.get('https://stream.haaremy.de:2053/Media/Movies/', {
+        const res = await axios.get('https://haaremy.de/api/read-files/dir=/mnt/10TB/Media/Movies/', {
             httpsAgent: agent, // Pass the custom agent to bypass the certificate issue
         });
 
