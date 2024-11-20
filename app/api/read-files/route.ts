@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
   try {
     // Extract the 'dir' query parameter from the URL
-    const { searchParams } = new URL(request.url);
-    const directoryPath = searchParams.get('dir'); // Get the 'dir' parameter
+    //const { searchParams } = new URL(request.url);
+    const directoryPath = request.url.split("dir")[1]; // Get the 'dir' parameter
     console.log(directoryPath);
     // Validate the directoryPath
     if (!directoryPath) {
