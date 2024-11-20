@@ -20,19 +20,23 @@ export default async function Page() {
     let filenames: string[] = [];
 
     try {
-        // Fetch filenames from the external API using axios
-        const res = await axios.get('https://stream.haaremy.de:2053/Media/Movies/', {
-            httpsAgent: agent, // Pass the custom agent to bypass the certificate issue
-        });
-        
-
-        const data: MovieItem[] = res.data; // Specify the type of data returned by the API
-        filenames = data.map((item: MovieItem) => item.name);
-        const response = await fetch("/api/read-files/dir=/mnt/");
-        filenames = await response.json();
+        const dir = '/mnt/'; // Replace with your desired directory
+    
+        // Construct the URL properly with a '?' for query parameters
+        const response = await fetch(`https://haaremy.de/api/read-files?dir=${encodeURIComponent(dir)}`);
+    
+        if (!response.ok) {
+            throw new Error(`Error fetching files: ${response.statusText}`);
+        }
+    
+        const data = await response.json();
+    
+        // Assuming the API response returns { files: [...] }
+        filenames = data.files;
     } catch (error) {
         console.error('Fetch error:', error);
     }
+
 
     // Return the page component with the MovieList component
     return (

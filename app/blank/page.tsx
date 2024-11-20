@@ -4,6 +4,7 @@ import { useState, useEffect  } from 'react';
 
 export default function Page() {
   const [isHovered, setIsHovered] = useState(false);
+  const [error, setError] = useState(null);
   
 
   const [files, setFiles] = useState([]);
@@ -11,16 +12,28 @@ export default function Page() {
   useEffect(() => {
     // Fetch the files from the API route
     const fetchFiles = async () => {
+      const dir = '/mnt/'; // Replace with your desired directory
       try {
-        const response = await fetch("/api/read-files/dir=/");
+        const response = await fetch(`/api/read-files/dir=${encodeURIComponent(dir)}`);
         const data = await response.json();
-        setFiles(data.files || []);
-      } catch (error) {
-        console.error("Error fetching files:", error);
+
+        if (response.ok) {
+          setFiles(data.files);
+        } else {
+          setError(data.error);
+        }
+      } catch (err) {
+        setError('An unexpected error occurred');
+        console.error(err);
       }
     };
+
     fetchFiles();
   }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between sm:p-2 p-0 pt-20 bg-pink-50 dark:bg-gray-900">
