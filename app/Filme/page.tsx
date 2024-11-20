@@ -20,8 +20,8 @@ export default async function Page() {
     let filenames: string[] = [];
 
     try {
-        const dir = '/mnt/'; // Replace with your desired directory
-    
+        const dir = '/mnt/10TB/Media/Movies'; // Replace with your desired directory
+        
         // Construct the URL properly with a '?' for query parameters
         const response = await fetch(`https://haaremy.de/api/read-files?dir=${encodeURIComponent(dir)}`);
     
@@ -32,10 +32,14 @@ export default async function Page() {
         const data = await response.json();
     
         // Assuming the API response returns { files: [...] }
-        filenames = data.files;
+        // Filter out files that end with ".php"
+        const filenames = data.files.filter((file: string) => !file.endsWith('.php') && !file.startsWith('.'));
+    
+        console.log(filenames); // Use the filtered filenames as needed
     } catch (error) {
         console.error('Fetch error:', error);
     }
+    
 
 
     // Return the page component with the MovieList component
