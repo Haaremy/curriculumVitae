@@ -6,7 +6,7 @@ export async function GET(request: Request) {
     // Extract the 'dir' query parameter from the URL
     const { searchParams } = new URL(request.url);
     const directoryPath = searchParams.get('dir'); // Get the 'dir' parameter
-
+    console.log(directoryPath);
     // Validate the directoryPath
     if (!directoryPath) {
       return NextResponse.json(
