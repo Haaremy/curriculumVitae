@@ -12,7 +12,7 @@ export default function Page() {
   useEffect(() => {
     // Fetch the files from the API route
     const fetchFiles = async () => {
-      const dir = '/mnt/10TB/Medie/Movies'; // Replace with your desired directory
+      const dir = '/mnt/10TB/Media/Movies'; // Replace with your desired directory
       try {
         const response = await fetch(`/api/read-files?dir=${encodeURIComponent(dir)}`);
         const data = await response.json();
