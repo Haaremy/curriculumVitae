@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect } from 'react';
+import {useState, useEffect } from 'react';
 import MoviePlayer from "./movieplayer";
+import Image from 'next/image'
 
 
 export default function MovieList({ filenames }: { filenames: string[] }) {
@@ -12,7 +13,18 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
   const [error, setError] = useState<string | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<string | null>(null);
-  const [isPlayback, setIsPlayback] = useState(false);
+  const [playerIsOpen, setPlayerIsOpen] = useState<boolean>(false);
+  const onClose = () => {
+    setPlayerIsOpen(false)
+    
+  }
+
+  const getMovieProgress = (name) => {
+    const t1 = parseFloat(localStorage.getItem(`tothttps://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`))
+    const t2 = parseFloat(localStorage.getItem(`currhttps://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`))
+    const prog = Math.floor((t2/t1)*100);
+    return prog;
+  }
 
   useEffect(() => {
     // Filter filenames based on search query in searchbar
@@ -91,9 +103,7 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
     });
   }, [filteredFilenames]);
 
-  const handlePause = () => {
-    setIsPlayback(false); // Update state
-  };
+
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
@@ -161,13 +171,15 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
                     className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer"
                     onClick={() => {
                       setSelectedMovie(`https://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`);
-                      setIsPlayback(true);
+                      setPlayerIsOpen(true);
                     }}
                   >
-                    <img
+                    <Image
                       src={`https://image.tmdb.org/t/p/w500/${movieData[name].poster}`}
                       alt={movieData[name].title}
                       className="w-full h-64 object-cover"
+                      width={50}
+                      height={75}
                     />
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                       <h2 className="text-xl font-semibold">{movieData[name].title}</h2>
@@ -177,16 +189,27 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
                     <div className="absolute inset-0 bg-black bg-opacity-60 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       <p className="text-sm">{movieData[name].overview}</p>
                     </div>
+                    <input
+                    className='z-10 disabled:bg-red-500 ml-5 mr-5'
+                    disabled
+                    min="0"
+                    max="100"
+                    type="range"
+                    value={getMovieProgress(name)}
+                    />
+                   
                   </div>
                 )
               ))}
+              
             </div>
+            
           )}
         </div>
       </div>
       
-      {selectedMovie && (
-        <MoviePlayer movie={selectedMovie} onClose={handlePause} /> // Übergibt Link an movieplayer
+      {selectedMovie && playerIsOpen && (
+        <MoviePlayer movie={selectedMovie} onClose={onClose}/> // Übergibt Link an movieplayer
       )}
     </main>
   );

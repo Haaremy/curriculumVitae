@@ -1,6 +1,7 @@
 "use client"; // Mark this file as a Client Component
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image'
 
 export default function Footer() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function Footer() {
             <footer className="bottom-0 left-0 w-full bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700 shadow-md z-50">
                 <div className="container mx-auto flex items-center justify-between px-4 py-3  max-w-screen-xl">
                     <a href='/' className='inline-flex items-center'>
-                        <img src="/images/Logo24.png" className="h-6 w-auto"  width={24} height={24} />
+                        <Image alt="Logo" src="/images/Logo24.png" className="h-6 w-auto"  width={24} height={24} />
                         <p className="hidden sm:inline text-lg font-semibold text-gray-800 dark:text-gray-200 ml-2">
                             Haaremy
                             <span>&nbsp;

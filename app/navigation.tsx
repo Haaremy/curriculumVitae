@@ -1,7 +1,7 @@
 "use client"; // Mark this file as a Client Component
 
 import { useState, useEffect } from 'react';
-import { useRouter } from "next/router";
+import Image from 'next/image'
 
 
 interface DirectoryInfo {
@@ -73,7 +73,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
             >
                 <div className="container mx-auto flex items-center justify-between px-4 py-3 max-w-screen-xl">
                     <a href={dynamicHref} className="inline-flex items-center">
-                        <img src="/images/Logo24.png" alt="Haaremy Logo" className="h-6 w-auto" width={24} height={24} />
+                        <Image src="/images/Logo24.png" alt="Haaremy Logo" className="h-6 w-auto" width={24} height={24} />
                         <p className="hidden sm:inline text-lg font-semibold text-gray-800 dark:text-gray-200 ml-2">
                             Haaremy
                             <span className="">&nbsp;

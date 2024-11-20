@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import InfoBox from "./info";
+import Image from 'next/image'
 
 export default function GamesList({ filenames }: { filenames: string[] }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,7 +63,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
     };
 
     fetchFilteredGames();
-  }, [searchQuery, filenames]); // Fetch whenever searchQuery or filenames change
+  }, [searchQuery, filenames, gameData]); // Fetch whenever searchQuery or filenames change
 
   const filteredGames = Object.keys(gameData).filter((key) =>
     key.toLowerCase().includes(searchQuery.toLowerCase())
@@ -108,10 +109,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                   className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-transform transform hover:scale-105"
                   onClick={() => handleInfoOpen(name)}
                 >
-                  <img
+                  <Image
                     src={`/images/christmas_calender${Math.floor(Math.random() * 4)}.jpg`}
                     alt={"Image " + (index + 1)}
                     className="w-full h-64 object-cover bg-gray-300"
+                    width={50}
+                    height={50}
                   />
                   <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
                     {name.substring(4,6)}

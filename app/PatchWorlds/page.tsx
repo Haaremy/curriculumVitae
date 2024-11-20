@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 export default function Page() {
-  const [toggleType, setToggleType] = useState([true, true, true]);
   const [isHovered, setIsHovered] = useState(false);
 
   return (

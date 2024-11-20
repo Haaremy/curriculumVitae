@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image'
 
 export default function SeriesList({ filenames }: { filenames: string[] }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -97,13 +98,13 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
     setSelectedSeries(seriesName);
     setIsPopupOpen(true);
 
-    try {
-      const response = await fetch(`/api/getSeasonEpisodes?series=${encodeURIComponent(seriesName)}`);
-      const data = await response.json();
-      setSeasons(data.fullSeries || []);
-    } catch (error) {
-      setError('Error fetching seasons and episodes.');
-    }
+    //try {
+    //  const response = await fetch(`/api/getSeasonEpisodes?series=${encodeURIComponent(seriesName)}`);
+    //  const data = await response.json();
+    //  setSeasons(data.fullSeries || []);
+    //} catch (error) {
+    //  setError('Error fetching seasons and episodes.');
+    //}
   };
 
   const handleEpisodeClick = (episodeUrl: string) => {
@@ -172,11 +173,12 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
                     className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer"
                     onClick={() => handleSeriesClick(name)}
                   >
-                    <img
+                    <Image
                       src={`https://image.tmdb.org/t/p/w500/${movieData[name].poster}`}
                       alt={movieData[name].title}
                       className="w-full h-64 object-cover"
-
+                      width={50}
+                      height={50}
                     />
                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                       <h2 className="text-xl font-semibold">{movieData[name].title}</h2>
@@ -243,9 +245,12 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
 
             {/* Main content area */}
             <div className="flex-1 ml-4">
-            <img
+            <Image
+                      alt="Poster of Movie"
                       src={`https://image.tmdb.org/t/p/w500/${movieData[selectedSeries ||  235598].poster}`}
                       className="w-full h-64 object-cover"
+                      width={50}
+                      height={50}
                     />
               <h2 className="text-xl font-semibold mb-4">{selectedSeries?.split("+")[0]}</h2>
               {/* Content to display series overview or other details */}
@@ -336,5 +341,5 @@ export default function SeriesList({ filenames }: { filenames: string[] }) {
       )}
     </main>
   );
-}
+  }
 

@@ -1,17 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
 import Hls from 'hls.js';
-import fs from 'fs';
-import path from 'path';
-import https from 'https';
 
-interface MoviePlayerProps {
-  movie: string;
-  onClose: () => void;
+interface ModalProps {
+    movie: string;
+    onClose: () => void;
 }
 
-const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, onClose }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+const MoviePlayer: React.FC<ModalProps> = ({ movie, onClose }) => {
+
+const videoRef = useRef<HTMLVideoElement | null>(null);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,11 +23,8 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, onClose }) => {
         URL.revokeObjectURL(videoSrc);
       }
     };
-  }, [movie]);
+  }, [movie, videoSrc]);
 
-
-
-  // Function to fetch the movie data
   const fetchMovie = async (movie: string) => {
     try {
       // Check if the movie is an HLS stream (e.g., .m3u8)
@@ -55,6 +50,10 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, onClose }) => {
         hls.loadSource(videoSrc);
         hls.attachMedia(videoRef.current);
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          const savedTime = localStorage.getItem("curr"+movie);
+          if (videoRef.current && savedTime) {
+            videoRef.current.currentTime = parseFloat(savedTime);
+          }
           videoRef.current?.play();
         });
 
@@ -64,49 +63,55 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, onClose }) => {
       } else if (videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
         // For Safari and iOS devices that support HLS natively
         videoRef.current.src = videoSrc;
+        
       }
     }
   }, [videoSrc]);
 
   const handlePause = () => {
     if (videoRef.current) {
+      const { currentTime } = videoRef.current;
       videoRef.current.pause();
+      localStorage.setItem("curr"+movie, currentTime.toString());
+      const duration = videoRef.current.duration; // Total duration of the video in seconds
+      if (!isNaN(duration)) {
+        localStorage.setItem("tot" + movie, duration.toString());
+      }
     }
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-      {videoSrc && (
-        <video
-          ref={videoRef}
-          controls
-          className="w-full max-w-4xl max-h-[80vh] mx-auto"
-          onEnded={handlePause}
-          autoPlay
-        />
-      )}
-      <button
-        onClick={handlePause}
-        className="absolute top-2 right-2 bg-white text-black p-2 rounded-full hover:bg-gray-200"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-    </div>
-  );
+    return (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+            <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-1 rounded-lg shadow-lg w-full max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
+                {/* Modal Header (Close Button + Title) */}
+                <div className="flex justify-between items-start mb-4">
+                    <button
+                        onClick={handlePause}
+                        className="px-4 py-1 bg-pink-500 text-white rounded-lg hover:bg-pink-600"
+                    >
+                        Close
+                    </button>
+                </div>
+
+                {/* Modal Content */}
+                <div className="overflow-y-auto max-h-[70vh]">   
+                    {/* Responsive Video */}
+                    <div className="aspect-w-16 aspect-h-9 mb-4">
+                        {videoSrc && (
+                        <video
+                            ref={videoRef}
+                            controls
+                            className="w-full max-w-4xl max-h-[80vh] mx-auto"
+                            onEnded={handlePause}
+                            autoPlay
+                        />
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default MoviePlayer;

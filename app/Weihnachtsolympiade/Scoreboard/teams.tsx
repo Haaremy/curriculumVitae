@@ -39,22 +39,15 @@ type TeamData = {
 };
 
 export default function TeamList({ filenames }: { filenames: string[] }) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredFilenames, setFilteredFilenames] = useState<string[]>([]);
   const [teamData, setTeamData] = useState<{ [key: string]: TeamData }>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
 
-  useEffect(() => {
-    const results = filenames.filter(name =>
-      name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredFilenames(results);
-  }, [searchQuery, filenames]);
+
 
   useEffect(() => {
-    if (filteredFilenames.length === 0) return;
+    if (filenames.length === 0) return;
 
     const fetchAndSaveTeamData = async (name: string) => {
       try {
@@ -74,12 +67,12 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
     const fetchAllData = async () => {
       setLoading(true);
       setError(null);
-      await Promise.all(filteredFilenames.map(name => fetchAndSaveTeamData(name)));
+      await Promise.all(filenames.map(name => fetchAndSaveTeamData(name)));
       setLoading(false);
     };
 
     fetchAllData();
-  }, [filteredFilenames]);
+  }, [filenames]);
 
   const toggleRow = (name: string) => {
     setExpandedRow(prev => (prev === name ? null : name));
@@ -147,7 +140,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
                             const scores = team.games[gameKey as keyof typeof team.games];
                             if (!Array.isArray(scores) || scores.length === 0 || !scores.some(score => score.pT > 0)) {
                               return null;
-                            } else if (index==1){ // wenn Spiel aus Lösungen besteht
+                            } else if (index==1){ // wenn Spiel aus Lösungen besteht, bspw Spiel 2 = index 1
                               return (
                                 <div key={gameKey} className="mb-4">
                                   <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow mb-2">

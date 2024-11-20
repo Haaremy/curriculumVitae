@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Saved from './saved';
 
-type GameKeys = 'game1' | 'game2' | 'game3' | 'game4' | 'game5';
 type GameData = {
   p1: number;
   p2: number;
