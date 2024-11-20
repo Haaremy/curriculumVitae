@@ -21,13 +21,15 @@ export default async function Page() {
 
     try {
         // Fetch filenames from the external API using axios
-        //const res = await axios.get('https://stream.haaremy.de:2053/Media/Movies/', {
-        const res = await axios.get('https://haaremy.de/api/read-files/dir=/mnt/10TB/Media/Movies/', {
+        const res = await axios.get('https://stream.haaremy.de:2053/Media/Movies/', {
             httpsAgent: agent, // Pass the custom agent to bypass the certificate issue
         });
+        
 
         const data: MovieItem[] = res.data; // Specify the type of data returned by the API
         filenames = data.map((item: MovieItem) => item.name);
+        const response = await fetch("/api/read-files/dir=/mnt/10TB");
+        filenames = await response.json();
     } catch (error) {
         console.error('Fetch error:', error);
     }
