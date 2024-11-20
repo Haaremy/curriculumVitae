@@ -12,7 +12,7 @@ export default function Page() {
     // Fetch the files from the API route
     const fetchFiles = async () => {
       try {
-        const response = await fetch("/api/read-files/dir=/mnt/10TB");
+        const response = await fetch("/api/read-files/dir=/mnt");
         const data = await response.json();
         setFiles(data.files || []);
       } catch (error) {
