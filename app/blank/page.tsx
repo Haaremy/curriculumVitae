@@ -14,7 +14,7 @@ export default function Page() {
     const fetchFiles = async () => {
       const dir = '/'; // Replace with your desired directory
       try {
-        const response = await fetch(`/api/read-files/dir=${encodeURIComponent(dir)}`);
+        const response = await fetch(`/api/read-files?dir=${encodeURIComponent(dir)}`);
         const data = await response.json();
 
         if (response.ok) {
