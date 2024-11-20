@@ -1,10 +1,10 @@
 {
-    "title": "Airhockey?",
-    "story": "Das Spiel kennt jeder, aber in der Werkstatt des Weihnachtsmanns ist der Strom ausgefallen. Die Elfen mussten Kreativ werden, wie man ohne Strom dieses blitzschnelle Spiel nutzen kann. Warum nicht gleich ein neues Spiel drauß machen?",
-    "shortstory":"Airhockey neu aufegelegt.",
-    "user":"2x 1 Team",
-    "content": "Jeder Spieler nimmt sich 1 Ballon und pustet ihn auf. Der Ballon wird mit dem Ende durch die CD gesteckt. Die CD, mit dem Ende nach Unten, wird auf den Tich gelegt und der Ballon geöffnet. Er wird vorsichtig richtung Tischende geschoben. Jeder Spieler hat 3 versuche und darf den Ballon danach behalten (nicht die CD)",
-    "points": "Auf dem Tisch sind Markierungen. Wo der Ballon liegen bleibt, wird die Punktzahl in das #Feld des Spielers eingetragen. Die Beste Wertung zählt.",
-    "location": "Obergeschoss 2 - Flur Ostflügel.",
+    "title": "Zielen und Feuer.",
+    "story": "Eigentlich wolten sie Boccia spielen, aber die Elfen hatten kein verschiedenfarbigen Schnee und den gelben wollte keiner anfassen. Jetzt haben sie gelbe Markierungen in den Schnee gemalt und versuchen sich an Zielwerfen.",
+    "shortstory":"Statt Boccia werfen wir auf Kreise.",
+    "user":"1 Team",
+    "content": "Jeder Spieler hat 3 Versuche. Die höchste geworfene Zahl wird gewertet.",
+    "points": "Tragt die größte Zahl aus den Versuchen in euer #Feld ein.",
+    "location": "Obergeschoss 2 - Flur Westflügel",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }
