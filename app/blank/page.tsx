@@ -1,9 +1,26 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 
 export default function Page() {
   const [isHovered, setIsHovered] = useState(false);
+  
+
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    // Fetch the files from the API route
+    const fetchFiles = async () => {
+      try {
+        const response = await fetch("/api/read-files");
+        const data = await response.json();
+        setFiles(data.files || []);
+      } catch (error) {
+        console.error("Error fetching files:", error);
+      }
+    };
+    fetchFiles();
+  }, []);
 
   return (
     <main className="w-full flex min-h-screen min-w-screen flex-col items-center justify-between sm:p-2 p-0 pt-20 bg-pink-50 dark:bg-gray-900">
@@ -50,7 +67,11 @@ export default function Page() {
 
 
       <div className={` ${isHovered ? 'pl-64' : 'pl-16'} flex-1 w-full transition-all duration-300`}>
-        Content
+      <ul>
+          {files.map((file, index) => (
+            <li key={index}>{file}</li>
+          ))}
+        </ul>
       </div>
     </main>
   );
