@@ -3,18 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const dir  = searchParams.get('dir');
-
-    if (!dir) {
-        return NextResponse.json(
-          { error: 'Directory path is required' },
-          { status: 400 }
-        );
-      }
-
-    const files = fs.readdirSync(dir );
-
+    
+    const directoryPath = request.url; // Change to your desired directory
+    const files = fs.readdirSync(directoryPath);
     return NextResponse.json({ files });
   } catch (error) {
     console.error('Error reading directory:', error);
