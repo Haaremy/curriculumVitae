@@ -231,72 +231,63 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     }));
   };
 
-  const gameResults = (i: number) => {
-  selectedTeam.games[`game${i}`].pT = (Number(selectedTeam.games[`game${i}`][0].p1) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p2) || 0) + (Number(selectedTeam.games[`game${i}`][0].p3) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p4) || 0);   
+  const gameResults = (i: number, m:number) => { // Standard Numbers with multiplier || points or hits*pointscala
+  selectedTeam.games[`game${i}`].pT = (Number(selectedTeam.games[`game${i}`][0].p1)*m || 0) +  (Number(selectedTeam.games[`game${i}`][0].p2)*m || 0) + (Number(selectedTeam.games[`game${i}`][0].p3)*m || 0) +  (Number(selectedTeam.games[`game${i}`][0].p4)*m || 0);   
   }
 
-  const gameResult1 = () => { // Bäckerei mit Lösungszahl
-      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p1==0 ? 10 : 0; 
-      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p2==0 ? 10 : 0;
-      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p3==0 ? 10 : 0;
-      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p4==0 ? 10 : 0;   
+  const gameResultAnswer = (i:number, a:number[]) => { // Lösungszahl i=gameId a[]=answers
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p1==a[0] ? 10 : 0; 
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p2==a[1] ? 10 : 0;
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p3==a[2] ? 10 : 0;
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p4==a[3] ? 10 : 0;   
   }
 
-  const gameResult2 = () => { // Passwort mit Lösungszahl
-    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p1==0 ? 10 : 0;
-    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p2==0 ? 10 : 0;
-    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p3==0 ? 10 : 0;
-    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p4==0 ? 10 : 0;   
-}
+ 
 
-const gameResult4 = () => { // Schnitzeljagd mit Lösungszahl
-  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p1==0 ? 10 : 0;
-  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p2==0 ? 10 : 0;
-  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p3==0 ? 10 : 0;
-  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p4==0 ? 10 : 0;   
-}
-
-const gameResult7 = () => { //Schneeball mit Zeitlimit
+const gameResultTime = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
   for(let i=1; i<=4; i++){
-    if(selectedTeam.games.game7[0].p1<30){ // < Zeitlimit
-      selectedTeam.games.game7[0].pT += 10;
-    } else if(selectedTeam.games.game7[0][`p${i}`]<40){
-      selectedTeam.games.game7[0].pT += 8;
-    } else if(selectedTeam.games.game7[0][`p${i}`]<50){
-      selectedTeam.games.game7[0].pT += 6;
-    } else if(selectedTeam.games.game7[0][`p${i}`]<60){
-      selectedTeam.games.game7[0].pT += 4;
-    } else if(selectedTeam.games.game7[0][`p${i}`]<70){
-      selectedTeam.games.game7[0].pT += 2;
-    }
+    if(selectedTeam.games[`game${g}`][0].p1<limits[0]){ // < Zeitlimit
+      selectedTeam.games[`game${g}`][0].pT += 10;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[1])){
+      selectedTeam.games[`game${g}`][0].pT += 9;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[2])){
+      selectedTeam.games[`game${g}`][0].pT += 8;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[3])){
+      selectedTeam.games[`game${g}`][0].pT += 7;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[4])){
+      selectedTeam.games[`game${g}`][0].pT += 6;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[5])){
+      selectedTeam.games[`game${g}`][0].pT += 5;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[6])){
+      selectedTeam.games[`game${g}`][0].pT += 4;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[7])){
+      selectedTeam.games[`game${g}`][0].pT += 3;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[8])){
+      selectedTeam.games[`game${g}`][0].pT += 2;
+    } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[9])){
+      selectedTeam.games[`game${g}`][0].pT += 1;
+    } 
     
   }
 }
 
-const gameResult8 = () => { // 22,23,24 mit Schätzenwert
-    const numAns = [72,0,0,0]; // Werters Bonbons , Brezeln , Kaffeebohnen , Würfel
+const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen mit Abweichung
 
     for(let i=1; i<=4; i++){
-      if(selectedTeam.games.game8[0].p1==numAns[i]){ // < Zeitlimit
-        selectedTeam.games.game8[0].pT += 10;
-      } else if(selectedTeam.games.game7[0][`p${i}`]==(numAns[i]+(numAns[i]*0.1))){
-        selectedTeam.games.game8[0].pT += 8;
-      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.2))){
-        selectedTeam.games.game8[0].pT += 6;
-      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.3))){
-        selectedTeam.games.game8[0].pT += 4;
-      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.4))){
-        selectedTeam.games.game8[0].pT += 2;
+      if(selectedTeam.games[`game${g}`][0].p1==numAns[i]){
+        selectedTeam.games[`game${g}`][0].pT += 10;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]==(numAns[i]+(numAns[i]*0.1))){
+        selectedTeam.games[`game${g}`][0].pT += 8;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(numAns[i]+(numAns[i]*0.2))){
+        selectedTeam.games[`game${g}`][0].pT += 6;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(numAns[i]+(numAns[i]*0.3))){
+        selectedTeam.games[`game${g}`][0].pT += 4;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(numAns[i]+(numAns[i]*0.4))){
+        selectedTeam.games[`game${g}`][0].pT += 2;
       } 
     }
   }
 
-  const gameResult9 = () => { // Schnitzeljagd mit Lösungszahl
-    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p1*2;
-    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p2*2;
-    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p3*2;
-    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p4*2;   
-  }
 
 const gameResult24 = () => {
   if(selectedTeam.games.game24[0].p1<30){ // <Zeitlimit i Feld 1
@@ -328,15 +319,33 @@ const gameResult24 = () => {
         if(selectedTeam.games[`game${i}`][0].stamp==""){
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
         switch(i){ // 10 fehlt
-          case 3: case 4:case 6: case 11: case 12: gameResults(i); break;
-          case 1: gameResult1(); break;
-          case 2: gameResult2(); break;
-          case 4: gameResult4(); break;
-          case 7: gameResult7(); break;
-          case 8: gameResult8(); break;
-          case 9: gameResult9(); break;
+          
+            
+          case 1: gameResultAnswer(i,[0,0,0,0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
+          case 2: gameResultAnswer(i,[0,0,0,0]); break; //
+          case 3: gameResults(i,1); break; //
+          case 4: gameResultAnswer(i,[0,0,0,0]); break; //
+          case 5:  break;
+          case 6:break; //
+          case 7: gameResultTime(i, [0,0,0,0,0,0,0,0,0,0]); break; //
+          case 8: gameResultGuess(i, []); break; // Süßes [Werters, Kaffe, Brezeln, Würfel]
+          case 9: gameResults(i,2); break; // Dosenwerfen Punkte=2*Dose
+          case 10:  break;
+          case 11:break;
+          case 12:  break;
+          case 13:  break;
+          case 14:  break;
+          case 15:  break;
+          case 16:  break;
+          case 17:  break;
+          case 18:  break;
+          case 19:  break;
+          case 20:  break;
+          case 21:  break;
+          case 22:  break;
+          case 23:  break;
           case 24: gameResult24(); break;
-          default: console.log(`Game${i} Results not found.`); break;
+          default: console.log(`Game${i} Results not possible.`); break;
         }
       }
       } else { // Inhalte unvollständig
