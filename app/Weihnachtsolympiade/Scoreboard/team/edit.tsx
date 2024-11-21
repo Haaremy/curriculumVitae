@@ -231,9 +231,85 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     }));
   };
 
-  const gameResult1 = () => {
-      selectedTeam.games.game1[0].pT = (Number(selectedTeam.games.game1[0].p1) || 0) +  (Number(selectedTeam.games.game1[0].p2) || 0) + (Number(selectedTeam.games.game1[0].p3) || 0) +  (Number(selectedTeam.games.game1[0].p4) || 0);   
+  const gameResults = (i: number) => {
+  selectedTeam.games[`game${i}`].pT = (Number(selectedTeam.games[`game${i}`][0].p1) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p2) || 0) + (Number(selectedTeam.games[`game${i}`][0].p3) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p4) || 0);   
   }
+
+  const gameResult1 = () => {
+      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p1==0 ? 10 : 0;
+      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p2==0 ? 10 : 0;
+      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p3==0 ? 10 : 0;
+      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p4==0 ? 10 : 0;   
+  }
+
+  const gameResult2 = () => {
+    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p1==0 ? 10 : 0;
+    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p2==0 ? 10 : 0;
+    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p3==0 ? 10 : 0;
+    selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p4==0 ? 10 : 0;   
+}
+
+const gameResult4 = () => {
+  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p1==0 ? 10 : 0;
+  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p2==0 ? 10 : 0;
+  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p3==0 ? 10 : 0;
+  selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p4==0 ? 10 : 0;   
+}
+
+const gameResult7 = () => {
+  for(let i=1; i<=4; i++){
+    if(selectedTeam.games.game7[0].p1<30){ // < Zeitlimit
+      selectedTeam.games.game7[0].pT += 10;
+    } else if(selectedTeam.games.game7[0][`p${i}`]<40){
+      selectedTeam.games.game7[0].pT += 8;
+    } else if(selectedTeam.games.game7[0][`p${i}`]<50){
+      selectedTeam.games.game7[0].pT += 6;
+    } else if(selectedTeam.games.game7[0][`p${i}`]<60){
+      selectedTeam.games.game7[0].pT += 4;
+    } else if(selectedTeam.games.game7[0][`p${i}`]<70){
+      selectedTeam.games.game7[0].pT += 2;
+    }
+    
+  }
+}
+
+const gameResult8 = () => {
+    const numAns = [0,0,0,0];
+
+    for(let i=1; i<=4; i++){
+      if(selectedTeam.games.game8[0].p1==numAns[i]){ // < Zeitlimit
+        selectedTeam.games.game8[0].pT += 10;
+      } else if(selectedTeam.games.game7[0][`p${i}`]==(numAns[i]+(numAns[i]*0.1))){
+        selectedTeam.games.game8[0].pT += 8;
+      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.2))){
+        selectedTeam.games.game8[0].pT += 6;
+      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.3))){
+        selectedTeam.games.game8[0].pT += 4;
+      } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.4))){
+        selectedTeam.games.game8[0].pT += 2;
+      }
+      
+    }
+
+  }
+
+const gameResult24 = () => {
+  if(selectedTeam.games.game24[0].p1<30){ // <Zeitlimit i Feld 1
+    selectedTeam.games.game24[0].pT += 10;
+  } else if(selectedTeam.games.game24[0].p1<40){
+    selectedTeam.games.game24[0].pT += 8;
+  } else if(selectedTeam.games.game24[0].p1<50){
+    selectedTeam.games.game24[0].pT += 6;
+  } else if(selectedTeam.games.game24[0].p1<60){
+    selectedTeam.games.game24[0].pT += 4;
+  } else if(selectedTeam.games.game24[0].p1<70){
+    selectedTeam.games.game24[0].pT += 2;
+  }
+  
+  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p2==0 ? 10 : 0;
+  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p3==0 ? 10 : 0;
+  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p4==0 ? 10 : 0;   
+}
 
   
 
@@ -247,7 +323,13 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
         if(selectedTeam.games[`game${i}`][0].stamp==""){
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
         switch(i){
+          case 3: case 4:case 6: gameResults(i); break;
           case 1: gameResult1(); break;
+          case 2: gameResult2(); break;
+          case 4: gameResult4(); break;
+          case 7: gameResult7(); break;
+          case 8: gameResult8(); break;
+          case 24: gameResult24(); break;
           default: console.log(`Game${i} Results not found.`); break;
         }
       }
