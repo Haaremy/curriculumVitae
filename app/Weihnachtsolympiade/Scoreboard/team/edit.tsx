@@ -235,28 +235,28 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   selectedTeam.games[`game${i}`].pT = (Number(selectedTeam.games[`game${i}`][0].p1) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p2) || 0) + (Number(selectedTeam.games[`game${i}`][0].p3) || 0) +  (Number(selectedTeam.games[`game${i}`][0].p4) || 0);   
   }
 
-  const gameResult1 = () => {
-      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p1==0 ? 10 : 0;
+  const gameResult1 = () => { // Bäckerei mit Lösungszahl
+      selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p1==0 ? 10 : 0; 
       selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p2==0 ? 10 : 0;
       selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p3==0 ? 10 : 0;
       selectedTeam.games.game1[0].pT += selectedTeam.games.game1[0].p4==0 ? 10 : 0;   
   }
 
-  const gameResult2 = () => {
+  const gameResult2 = () => { // Passwort mit Lösungszahl
     selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p1==0 ? 10 : 0;
     selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p2==0 ? 10 : 0;
     selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p3==0 ? 10 : 0;
     selectedTeam.games.game2[0].pT += selectedTeam.games.game2[0].p4==0 ? 10 : 0;   
 }
 
-const gameResult4 = () => {
+const gameResult4 = () => { // Schnitzeljagd mit Lösungszahl
   selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p1==0 ? 10 : 0;
   selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p2==0 ? 10 : 0;
   selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p3==0 ? 10 : 0;
   selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p4==0 ? 10 : 0;   
 }
 
-const gameResult7 = () => {
+const gameResult7 = () => { //Schneeball mit Zeitlimit
   for(let i=1; i<=4; i++){
     if(selectedTeam.games.game7[0].p1<30){ // < Zeitlimit
       selectedTeam.games.game7[0].pT += 10;
@@ -273,8 +273,8 @@ const gameResult7 = () => {
   }
 }
 
-const gameResult8 = () => {
-    const numAns = [0,0,0,0];
+const gameResult8 = () => { // 22,23,24 mit Schätzenwert
+    const numAns = [72,0,0,0]; // Werters Bonbons , Brezeln , Kaffeebohnen , Würfel
 
     for(let i=1; i<=4; i++){
       if(selectedTeam.games.game8[0].p1==numAns[i]){ // < Zeitlimit
@@ -287,10 +287,15 @@ const gameResult8 = () => {
         selectedTeam.games.game8[0].pT += 4;
       } else if(selectedTeam.games.game7[0][`p${i}`]<(numAns[i]+(numAns[i]*0.4))){
         selectedTeam.games.game8[0].pT += 2;
-      }
-      
+      } 
     }
+  }
 
+  const gameResult9 = () => { // Schnitzeljagd mit Lösungszahl
+    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p1*2;
+    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p2*2;
+    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p3*2;
+    selectedTeam.games.game4[0].pT += selectedTeam.games.game4[0].p4*2;   
   }
 
 const gameResult24 = () => {
@@ -322,13 +327,14 @@ const gameResult24 = () => {
       } else if(selectedTeam.games[`game${i}`][0].p1>=0 && selectedTeam.games[`game${i}`][0].p2>=0 && selectedTeam.games[`game${i}`][0].p3>=0 && selectedTeam.games[`game${i}`][0].p4>=0){
         if(selectedTeam.games[`game${i}`][0].stamp==""){
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
-        switch(i){
-          case 3: case 4:case 6: gameResults(i); break;
+        switch(i){ // 10 fehlt
+          case 3: case 4:case 6: case 11: case 12: gameResults(i); break;
           case 1: gameResult1(); break;
           case 2: gameResult2(); break;
           case 4: gameResult4(); break;
           case 7: gameResult7(); break;
           case 8: gameResult8(); break;
+          case 9: gameResult9(); break;
           case 24: gameResult24(); break;
           default: console.log(`Game${i} Results not found.`); break;
         }
