@@ -234,11 +234,21 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     }));
   };
 
-  const gameResults = (i: number, m:number) => { // Standard Numbers with multiplier || points or hits*pointscala
-    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p1*m; 
-    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p2*m;
-    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p3*m;
-    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p4*m;  
+  const gameResults = (i: number, m:number, cap:number) => { // Standard Numbers with multiplier || points or hits*pointscala || max points reachable
+    const capExceededPoints = 9.5;
+    
+    if(selectedTeam.games[`game${i}`][0].p1<cap){
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p1*m; 
+    } else selectedTeam.games[`game${i}`][0].pT += capExceededPoints;
+    if(selectedTeam.games[`game${i}`][0].p2<cap){
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p2*m; 
+    } else selectedTeam.games[`game${i}`][0].pT += capExceededPoints;
+    if(selectedTeam.games[`game${i}`][0].p3<cap){
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p3*m; 
+    } else selectedTeam.games[`game${i}`][0].pT += capExceededPoints;
+    if(selectedTeam.games[`game${i}`][0].p4<cap){
+      selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p4*m; 
+    } else selectedTeam.games[`game${i}`][0].pT += capExceededPoints; 
   }
 
   const gameResultAnswer = (i:number, a:number[]) => { // Lösungszahl i=gameId a[]=answers
@@ -279,6 +289,7 @@ const gameResultTime = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
 
 const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen mit Abweichung
 
+    
     for(let i=1; i<=4; i++){
       if(selectedTeam.games[`game${g}`][0].p1==numAns[i]){
         selectedTeam.games[`game${g}`][0].pT += 10;
@@ -294,7 +305,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     }
   }
 
-  const gameResultTimeAnswer = (g:number, limits:number[], a:number[]) => { //Spiel mit Zeitlimit
+  const gameResultTimeAnswer = (g:number, limits:number[], a:number[]) => { //Spiel mit Zeitlimit und Lösungszahlen
 
       if(selectedTeam.games[`game${g}`][0].p1<=limits[0]){ // < Zeitlimit
         selectedTeam.games[`game${g}`][0].pT += 10;
@@ -343,27 +354,27 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
             
           case 1: gameResultAnswer(i,[0,0,0,0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
           case 2: gameResultAnswer(i,[0,0,0,0]); break; //Kreuzwort
-          case 3: gameResults(i,1); break; //DO Re Mi
+          case 3: gameResults(i,1,10); break; //DO Re Mi
           case 4: gameResultAnswer(i,[0,0,0,0]); break; // SChnitzeljagd
-          case 5: gameResults(i,1); break; // Schleife hält = 10P
-          case 6: gameResults(i,1); break; // Mini-Curling mit Punkte eintragen
+          case 5: gameResults(i,1,10); break; // Schleife hält = 10P
+          case 6: gameResults(i,1,10); break; // Mini-Curling mit Punkte eintragen
           case 7: gameResultTime(i, [0,0,0,0,0,0,0,0,0,0]); break; //
           case 8: gameResultGuess(i, [0,0,0,0]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
-          case 9: gameResults(i,2); break; // Dosenwerfen Punkte=2*Dose
+          case 9: gameResults(i,2,5); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
           case 10:  break;
-          case 11: gameResults(i,1); break; // Schneeball Boccia
-          case 12: gameResults(i,1); break; // Bowling mit Punkte eintragen
+          case 11: gameResults(i,1,10); break; // Schneeball Boccia
+          case 12: gameResults(i,1,10); break; // Bowling mit Punkte eintragen
           case 13: gameResultGuess(i, [0,0,0,0]); break; //Suchbild mit Streuwert zur korrekten Antwort
-          case 14: gameResults(i,1); break; // Schneeflocken basteln
-          case 15: gameResults(i,1); break; // Zuckerstangen angeln
-          case 16: gameResults(i,1); break; // Marschmallow Turm
-          case 17: gameResults(i,2); break; // Hockeytor 5x schießen a 2P
+          case 14: gameResults(i,1,25); break; // Schneeflocken basteln max 25 Flocken
+          case 15: gameResults(i,1,25); break; // Zuckerstangen angeln max 25 Stangen
+          case 16: gameResults(i,1,25); break; // Marschmallow Turm, max 25 Mallows
+          case 17: gameResults(i,2,5); break; // Hockeytor 5x schießen a 2P, max 5 Treffer
           case 18: gameResultTime(i, [1,2,3,4,5,6,7,8,9,10]); break; //Mario Kart mit Platzierung absteigend
-          case 19: gameResults(i,4); break; //Glühwein Pong mit Becher = P4
+          case 19: gameResults(i,4,10); break; //Glühwein Pong mit Becher = P4, max 10 Treffer
           case 20: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break; // SChlitten ziehen auf Zeit
           case 21: gameResultAnswer(i,[0,0,0,0]); break; //Geschenke raten
-          case 22: gameResults(i,2); break; // Rentier Ringe jeder Treffer 2P
-          case 23: gameResults(i,1); break; // Begriffe Zeichen je 1P
+          case 22: gameResults(i,2,5); break; // Rentier Ringe jeder Treffer 2P, max 5 Treffer
+          case 23: gameResults(i,1,10); break; // Begriffe Zeichen je 1P
           case 24: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break;
           default: console.log(`Game${i} Results not possible.`); break;
         }
