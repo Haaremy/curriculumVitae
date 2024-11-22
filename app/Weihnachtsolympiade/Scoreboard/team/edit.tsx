@@ -288,24 +288,37 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     }
   }
 
+  const gameResultTimeAnswer = (g:number, limits:number[], a:number[]) => { //Spiel mit Zeitlimit
 
-const gameResult24 = () => {
-  if(selectedTeam.games.game24[0].p1<30){ // <Zeitlimit i Feld 1
-    selectedTeam.games.game24[0].pT += 10;
-  } else if(selectedTeam.games.game24[0].p1<40){
-    selectedTeam.games.game24[0].pT += 8;
-  } else if(selectedTeam.games.game24[0].p1<50){
-    selectedTeam.games.game24[0].pT += 6;
-  } else if(selectedTeam.games.game24[0].p1<60){
-    selectedTeam.games.game24[0].pT += 4;
-  } else if(selectedTeam.games.game24[0].p1<70){
-    selectedTeam.games.game24[0].pT += 2;
+      if(selectedTeam.games[`game${g}`][0].p1<=limits[0]){ // < Zeitlimit
+        selectedTeam.games[`game${g}`][0].pT += 10;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[1])){
+        selectedTeam.games[`game${g}`][0].pT += 9;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[2])){
+        selectedTeam.games[`game${g}`][0].pT += 8;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[3])){
+        selectedTeam.games[`game${g}`][0].pT += 7;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[4])){
+        selectedTeam.games[`game${g}`][0].pT += 6;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[5])){
+        selectedTeam.games[`game${g}`][0].pT += 5;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[6])){
+        selectedTeam.games[`game${g}`][0].pT += 4;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[7])){
+        selectedTeam.games[`game${g}`][0].pT += 3;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[8])){
+        selectedTeam.games[`game${g}`][0].pT += 2;
+      } else if(selectedTeam.games[`game${g}`][0].p1<=(limits[9])){
+        selectedTeam.games[`game${g}`][0].pT += 1;
+      }
+      
+      selectedTeam.games[`game${g}`][0].pT += selectedTeam.games[`game${g}`][0].p2==a[1] ? 10 : 0;
+      selectedTeam.games[`game${g}`][0].pT += selectedTeam.games[`game${g}`][0].p3==a[2] ? 10 : 0;
+      selectedTeam.games[`game${g}`][0].pT += selectedTeam.games[`game${g}`][0].p4==a[3] ? 10 : 0;
+      
+    
   }
-  
-  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p2==0 ? 10 : 0;
-  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p3==0 ? 10 : 0;
-  selectedTeam.games.game24[0].pT += selectedTeam.games.game24[0].p4==0 ? 10 : 0;   
-}
+
 
   
 
@@ -322,29 +335,29 @@ const gameResult24 = () => {
           
             
           case 1: gameResultAnswer(i,[0,0,0,0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
-          case 2: gameResultAnswer(i,[0,0,0,0]); break; //
-          case 3: gameResults(i,1); break; //
-          case 4: gameResultAnswer(i,[0,0,0,0]); break; //
-          case 5:  break;
-          case 6:break; //
+          case 2: gameResultAnswer(i,[0,0,0,0]); break; //Kreuzwort
+          case 3: gameResults(i,1); break; //DO Re Mi
+          case 4: gameResultAnswer(i,[0,0,0,0]); break; // SChnitzeljagd
+          case 5: gameResults(i,1); break; // Schleife hält = 10P
+          case 6: gameResults(i,1); break; // Mini-Curling mit Punkte eintragen
           case 7: gameResultTime(i, [0,0,0,0,0,0,0,0,0,0]); break; //
-          case 8: gameResultGuess(i, []); break; // Süßes [Werters, Kaffe, Brezeln, Würfel]
+          case 8: gameResultGuess(i, [0,0,0,0]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
           case 9: gameResults(i,2); break; // Dosenwerfen Punkte=2*Dose
           case 10:  break;
-          case 11:break;
-          case 12:  break;
-          case 13:  break;
-          case 14:  break;
-          case 15:  break;
-          case 16:  break;
-          case 17:  break;
-          case 18:  break;
-          case 19:  break;
-          case 20:  break;
-          case 21:  break;
-          case 22:  break;
-          case 23:  break;
-          case 24: gameResult24(); break;
+          case 11: gameResults(i,1); break; // Schneeball Boccia
+          case 12: gameResults(i,1); break; // Bowling mit Punkte eintragen
+          case 13: gameResultGuess(i, [0,0,0,0]); break; //Suchbild mit Streuwert zur korrekten Antwort
+          case 14: gameResults(i,1); break; // Schneeflocken basteln
+          case 15: gameResults(i,1); break; // Zuckerstangen angeln
+          case 16: gameResults(i,1); break; // Marschmallow Turm
+          case 17: gameResults(i,2); break; // Hockeytor 5x schießen a 2P
+          case 18: gameResultTime(i, [12,11,10,9,8,7,6,5,4,3,2]); break; //Mario Kart mit Platzierung absteigend
+          case 19: gameResults(i,4); break; //Glühwein Pong mit Becher = P4
+          case 20: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break; // SChlitten ziehen auf Zeit
+          case 21: gameResultAnswer(i,[0,0,0,0]); break; //Geschenke raten
+          case 22: gameResults(i,2); break; // Rentier Ringe jeder Treffer 2P
+          case 23: gameResults(i,1); break; // Begriffe Zeichen je 1P
+          case 24: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break;
           default: console.log(`Game${i} Results not possible.`); break;
         }
       }
