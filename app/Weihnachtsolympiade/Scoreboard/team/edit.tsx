@@ -18,6 +18,7 @@ interface TeamData {
   player2: string;
   player3: string;
   player4: string;
+  played: number;
   games: {
     game1: GameData;
     game2: GameData;
@@ -73,6 +74,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
     player2: '',
     player3: '',
     player4: '',
+    played: 0,
     games: {
       game1: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
             game2: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
@@ -117,6 +119,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
           player2: "",
           player3: "",
           player4: "",
+          played: 0,
           games: {
             game1: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
             game2: [{ p1: -1, p2: -1, p3: -1, p4: -1, pT: 0, stamp: '' }],
@@ -232,7 +235,10 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
   };
 
   const gameResults = (i: number, m:number) => { // Standard Numbers with multiplier || points or hits*pointscala
-  selectedTeam.games[`game${i}`].pT = (Number(selectedTeam.games[`game${i}`][0].p1)*m || 0) +  (Number(selectedTeam.games[`game${i}`][0].p2)*m || 0) + (Number(selectedTeam.games[`game${i}`][0].p3)*m || 0) +  (Number(selectedTeam.games[`game${i}`][0].p4)*m || 0);   
+    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p1*m; 
+    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p2*m;
+    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p3*m;
+    selectedTeam.games[`game${i}`][0].pT += selectedTeam.games[`game${i}`][0].p4*m;  
   }
 
   const gameResultAnswer = (i:number, a:number[]) => { // Lösungszahl i=gameId a[]=answers
@@ -325,11 +331,12 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
   const getPoints = () => {
     let points: number;
     points = 0;
-
     for(let i=1; i<=24; i++){
       if(selectedTeam.games[`game${i}`][0].p1<0 && selectedTeam.games[`game${i}`][0].p2<0 && selectedTeam.games[`game${i}`][0].p3<0 && selectedTeam.games[`game${i}`][0].p4<0){
+      // Spielvorraussetzung nicht erfüllt -> -1
       } else if(selectedTeam.games[`game${i}`][0].p1>=0 && selectedTeam.games[`game${i}`][0].p2>=0 && selectedTeam.games[`game${i}`][0].p3>=0 && selectedTeam.games[`game${i}`][0].p4>=0){
         if(selectedTeam.games[`game${i}`][0].stamp==""){
+          selectedTeam.played++;
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
         switch(i){ // 10 fehlt
           
@@ -351,7 +358,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           case 15: gameResults(i,1); break; // Zuckerstangen angeln
           case 16: gameResults(i,1); break; // Marschmallow Turm
           case 17: gameResults(i,2); break; // Hockeytor 5x schießen a 2P
-          case 18: gameResultTime(i, [12,11,10,9,8,7,6,5,4,3,2]); break; //Mario Kart mit Platzierung absteigend
+          case 18: gameResultTime(i, [1,2,3,4,5,6,7,8,9,10]); break; //Mario Kart mit Platzierung absteigend
           case 19: gameResults(i,4); break; //Glühwein Pong mit Becher = P4
           case 20: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break; // SChlitten ziehen auf Zeit
           case 21: gameResultAnswer(i,[0,0,0,0]); break; //Geschenke raten
@@ -368,11 +375,12 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       }
 
     }
-
+    
 
     for (let c = 1; c <= 24; c++) {
       const gameKey = `game${c}` as keyof TeamData['games'];
       points += selectedTeam.games[gameKey][0].pT || 0; // Add pT, default to 0 if undefined
+      if(selectedTeam.played==24)points+=40;
     }
     return points;
   }
