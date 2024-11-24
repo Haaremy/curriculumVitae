@@ -361,7 +361,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           case 7: gameResultTime(i, [0,0,0,0,0,0,0,0,0,0]); break; //
           case 8: gameResultGuess(i, [0,0,0,0]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
           case 9: gameResults(i,2,5); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
-          case 10:  break;
+          case 10: gameResultAnswer(i,[0,0,0,0]); break; //Logikrätsel mit Lösungen
           case 11: gameResults(i,1,10); break; // Schneeball Boccia
           case 12: gameResults(i,1,10); break; // Bowling mit Punkte eintragen
           case 13: gameResultGuess(i, [0,0,0,0]); break; //Suchbild mit Streuwert zur korrekten Antwort
@@ -480,6 +480,12 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
+        </a>
+        <a
+          href="./Karte"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+        >
+          Karte
         </a>
         <a
           href="/Weihnachtsolympiade/Scoreboard"

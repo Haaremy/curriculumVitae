@@ -78,6 +78,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
         <div className="sm:p-4">
         <div className="mb-6">
         <a
+          href="./Karte"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+        >
+          Karte
+        </a>
+        <a
           href="./Scoreboard"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
