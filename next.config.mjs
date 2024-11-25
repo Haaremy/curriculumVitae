@@ -5,9 +5,7 @@ const nextConfig = {
     images: {
       unoptimized: true, // Disable image optimization for static export
     },
-    trailingSlash: true, // Add trailing slashes to URLs
-    //output: 'export',    // Set output mode to export for static sites
-    
+    trailingSlash: false, // Disable trailing slashes
     distDir: 'build',
   };
   export default nextConfig;
