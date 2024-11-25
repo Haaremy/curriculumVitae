@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import {gamesEG, gamesOG} from "../../../common/mapPos";
+
 
 // MapSection Component
 function MapSection({
@@ -63,14 +65,6 @@ export default function Home() {
       setSearchQuery(gameQuery); // Setting the search query from URL
     }
   }, []);
-
-  const gamesEG = [
-    { id: 0, top: 50, left: 50, color: 'bg-pink-600' },
-  ];
-
-  const gamesOG = [
-    { id: 0, top: 50, left: 50, color: 'bg-blue-600' },
-  ];
 
   return (
     <main className="sm:mt-12 flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">

@@ -4,31 +4,30 @@ import { useState, useEffect, useMemo } from "react";
 import InfoBox from "./info";
 import Image from "next/image";
 
+type GameData = {
+  title: string;
+  shortstory: string;
+  story: string;
+  user: string;
+  content: string;
+  points: string;
+  location: string;
+  url: string;
+  gameref: string;
+};
+
 export default function GamesList({ filenames }: { filenames: string[] }) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [gameData, setGameData] = useState<
-    Record<
-      string,
-      {
-        title: string;
-        shortstory: string;
-        story: string;
-        user: string;
-        content: string;
-        points: string;
-        location: string;
-        url: string;
-        gameref: string;
-      }
-    >
-  >({});
+  const [gameData, setGameData] = useState<Record<string, GameData>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showInfo, setShowInfo] = useState(false);
-  const [selectedGame, setSelectedGame] = useState<typeof gameData[string] | null>(null);
+  const [selectedGame, setSelectedGame] = useState<GameData | null>(null);
 
-  const handleInfoOpen = (name: string) => {
-    setSelectedGame(gameData[name]);
+
+  const handleInfoOpen = (name: string, gameref: string) => {
+    const game = { ...gameData[name], gameref };
+    setSelectedGame(game);
     setShowInfo(true);
   };
 
@@ -43,46 +42,35 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
       setError(null);
 
       try {
-        // Filter filenames to include only valid JSON files
         const validFiles = filenames.filter((file) => /^game\d+\.json$/i.test(file));
-
-        // Avoid refetching already cached data
-        const filesToFetch = validFiles.filter((file) => !gameData[file]);
-
-        if (filesToFetch.length === 0) {
-          setLoading(false); // No fetches required
-          return;
-        }
-
-        const fetchedData: Record<string, any> = {};
+        const fetchedData: Record<string, GameData> = {};
 
         await Promise.all(
-          filesToFetch.map(async (file) => {
-            try {
-              const response = await fetch(`/christmas/de/games/${file}`);
-              if (!response.ok) throw new Error(`Failed to fetch ${file}`);
-              const data = await response.json();
-              fetchedData[file] = data;
-            } catch (err) {
-              console.error(`Error fetching ${file}:`, err);
+          validFiles.map(async (file) => {
+            if (!gameData[file]) {
+              try {
+                const response = await fetch(`/christmas/de/games/${file}`);
+                if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+                const data = await response.json();
+                fetchedData[file] = data;
+              } catch (err) {
+                console.error(`Error fetching ${file}:`, err);
+              }
             }
           })
         );
 
-        // Batch update state
         setGameData((prev) => ({ ...prev, ...fetchedData }));
       } catch (err) {
         setError("Error fetching games. Please try again later.");
-        console.error(err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchGames();
-  }, [filenames, gameData]); // Refetch only when filenames or gameData change
+  }, [filenames]);
 
-  // Filter games based on search query
   const filteredGames = useMemo(() => {
     return Object.keys(gameData).filter((key) =>
       key.toLowerCase().includes(searchQuery.toLowerCase())
@@ -95,10 +83,10 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
         <div className="pt-8">
           <nav className="mb-6 flex gap-4 mt-8">
             <a
-              href="./Weihnachtsolympiade/Karte"
+              href="./Weihnachtsolympiade/Map"
               className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
             >
-              Karte
+              Map
             </a>
             <a
               href="./Weihnachtsolympiade/Scoreboard"
@@ -123,18 +111,19 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
         />
         <h1 className="text-xl mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-kalender</h1>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-          {loading && <p className="text-blue-500 text-center col-span-full">Loading...</p>}
+          {loading && <p className="text-blue-500 text-center col-span-full">Laden...</p>}
           {error && <p className="text-red-500 text-center col-span-full">{error}</p>}
 
           {filteredGames.map((name, index) => {
             const game = gameData[name];
             const gameref = name.charAt(4) !== "0" ? name.substring(4, 6) : name.substring(5, 6);
+
             return (
               game && (
                 <div
                   key={name}
                   className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-transform transform hover:scale-105"
-                  onClick={() => handleInfoOpen(name)}
+                  onClick={() => handleInfoOpen(name, gameref)}
                 >
                   <Image
                     src={`/images/christmas_calender${index % 5}.jpg`}
