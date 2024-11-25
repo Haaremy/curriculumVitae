@@ -1,0 +1,6 @@
+page -> games : rendert alle Spiele in public/christmas/games
+
+/Scoreboard page -> teams : rendert alle Teams in public/christmas/teams und erstellt neue Teams anhand der Liste in page
+Object.keys(team.games).map else index=zahl versteckt die Lösungen des SPIELS(zahl) (ca Zeile 150)
+
+/team -> page -> edit : öffnet den Team Content Editor

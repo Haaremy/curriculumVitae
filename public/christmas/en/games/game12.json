@@ -1,0 +1,10 @@
+{
+    "title": "X-Mas Bowling",
+    "story": "Hast du dich schon mal klein gefühlt? Dann schätze doch, wie es für einen Elfen sein muss!! Jeden Tag müssen sie Spielzeug herstellen, dass teilweise größer ist, als sie selbst. Zudem müssen auch alle Spielzeuge den Spieletest durchlaufen, wodurch Bowling ganz neue Ausmaße bekommt. Die Kugel ist zudem viel zu schwer, aber dafür haben sie einen Trick.",
+    "shortstory":"Bowling ist in den Augen von Elfen vielleicht doch schwerer als gedacht. Zumindest größer...",
+    "user":"Solo Team",
+    "content": "Jeder Spieler hat 2 Würfe. Der Spieler stellt sich vor die Markierung und wirf die Weihnachtsbaum-Kugel. Die Kugel muss dabei so viele Kegel umwerfen wie möglich. Nach den 2 Würfen wird das Feld für den nächsten Spieler wieder aufgestellt.",
+    "points": "Strike (alle im 1. Wurf): 10 Punkte, Spare (alle im 2. Wurf): 8 Punkte, Ansonsten 1 Punkt pro Kegel",
+    "location": "Obergeschoss 1 - Flur Ostflügel",
+    "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
+}
