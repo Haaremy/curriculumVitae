@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ModalProps {
-    message: { title: string; user: string; story: string; content: string; points: string; location: string; url: string; };
+    message: { title: string; user: string; story: string; content: string; points: string; location: string; url: string; gameref: string;};
     onClose: () => void;
 }
 
@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ message, onClose }) => {
                     <p className="text-sm">{message.user}</p><br />
                     <p className="text-sm">{message.content}</p><br />
                     <p className="text-sm">{message.points}</p><br />
-                    <p className="text-sm">{message.location}</p><br />
+                    <p className="text-sm"><a href={`/Weihnachtsolympiade/Karte?gameQuery=${message.gameref}`}>{message.location}</a></p><br />
                     <p className="text-sm">Tutorial:</p>
                     
                     {/* Responsive Video */}

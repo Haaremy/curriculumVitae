@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function GamesList({ filenames }: { filenames: string[] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [gameData, setGameData] = useState<{
-    [key: string]: { title: string; shortstory: string; story: string; user: string; content: string; points: string; location: string; url: string; };
+    [key: string]: { title: string; shortstory: string; story: string; user: string; content: string; points: string; location: string; url: string; gameref: string;};
   }>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -20,6 +20,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
     points: string;
     location: string;
     url: string;
+    gameref: string;
   }>(null);
 
   const handleInfoOpen = (name: string) => {
@@ -76,28 +77,29 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
       <div className="flex-1 w-full transition-all duration-300">
       
         <div className="sm:p-4">
-        <div className="mb-6">
+        <nav className="mb-6 flex gap-4">
         <a
-          href="./Karte"
+          href="/Weihnachtsolympiade"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Karte
+          Games
         </a>
         <a
-          href="./Scoreboard"
+          href="/Weihnachtsolympiade/Scoreboard"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Scoreboard
         </a>
         <a
-          href="./Scoreboard/team"
-          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+          href="/Weihnachtsolympiade/Scoreboard/team"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Team Editor
         </a>
+      </nav>
       </div>
           <input
-            type="text"
+            type="number"
             placeholder="Suche nach Spielnummer..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -123,7 +125,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                     height={50}
                   />
                   <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
-                    {name.substring(4,6)}
+                  {gameData[name].gameref = name.charAt(4) !== "0" ? name.substring(4, 6) : name.substring(5, 6)}
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                     <h2 className="text-xl font-semibold">{gameData[name].title}</h2>
@@ -131,12 +133,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                   <div className="absolute inset-0 bg-black bg-opacity-60 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <p className="text-sm">{gameData[name].shortstory}</p>
                   </div>
+                  
                 </div>
               )
             ))}
           </div>
         </div>
-      </div>
       {showInfo && selectedGame && (
         <InfoBox message={selectedGame} onClose={handleInfoClose} />
       )}
