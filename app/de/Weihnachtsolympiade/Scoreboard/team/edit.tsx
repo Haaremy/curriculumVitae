@@ -474,7 +474,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
-      <nav className="mb-6 flex gap-4">
+      <nav className="mb-6 flex gap-4 mt-8">
         <a
           href="../"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
@@ -482,10 +482,10 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           Spiele
         </a>
         <a
-          href="../Karte"
+          href="../Map"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Karte
+          Map
         </a>
         <a
           href="./"
@@ -494,7 +494,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           Scoreboard
         </a>
       </nav>
-      <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Team</h1>
+      <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
 
       <div className="mt-6 flex justify-center space-x-4">
       <input
@@ -527,13 +527,13 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
         id="loader"
 
       >
-      Team Laden
+      Load Team
       </button>
 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}
 
       {selectedTeam && (
-        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Team Editieren</h2>
+        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Edit Team</h2>
 
           {/* Edit team name */}
           <input
@@ -559,7 +559,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
             onClick={handleSave}
             className="mt-4 py-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none"
           >
-            Speichern
+            Save Changes
           </button>
           {/* Edit game data */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -573,7 +573,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     } p-4 rounded-md shadow-md space-y-2`}
   >
     <h3 className="text-lg font-semibold text-gray-800">
-      Eintrag {gameKey.toUpperCase()}
+      Entry {gameKey.toUpperCase()}
     </h3>
 
     {/* Map through each playerData for the current game */}

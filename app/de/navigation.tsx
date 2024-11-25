@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation"; // Stelle sicher, dass der Hook richtig importiert ist
 import { useState, useEffect} from 'react';
 import Image from 'next/image'
+import {handleLanguageChange, toggleTheme} from "../common/navigation"
 
 
 interface DirectoryInfo {
@@ -20,26 +21,6 @@ export default function Navigation({ directories = [] }: { directories?: Directo
     const languages = ["Deutsch", "English"];
 
 
-    // Function to handle language change
-    const handleLanguageChange = (lang: string) => {
-        localStorage.setItem('lang', lang.toLowerCase());
-
-        switch (lang) {
-            case "deutsch":
-                setcurrLang("de");
-                router.push("/de/");
-                break;
-            case "english":
-                setcurrLang("en");
-                router.push("/en/");
-                break;
-            default:
-                setcurrLang("de");
-                router.push("/de/");
-                break;
-        }
-    };
-
     const filteredDirectories = directories
     .filter(dir => dir.name.toLowerCase().includes(searchQuery.toLowerCase()))
     .filter(dir => !dir.name.endsWith('.tsx'))
@@ -47,21 +28,11 @@ export default function Navigation({ directories = [] }: { directories?: Directo
     .filter(dir => !dir.name.startsWith('api'))
     .filter(dir => !dir.name.startsWith('blank'));
    
-
-
-
-    // Toggle theme
     const toggleDarkMode = () => {
-        
-        if (!isDarkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        }
+        toggleTheme(isDarkMode); // Verwende die ausgelagerte Funktion
         setIsDarkMode(!isDarkMode);
-    };
+      };
+
 
     // Toggle dropdown visibility
     const toggleDropdown = () => setShowDropdown(!showDropdown);
@@ -138,7 +109,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                     <label className="block text-gray-800 dark:text-gray-200 mb-1">Language</label>
                                     <select 
                                         className="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                                        onChange={(e) => handleLanguageChange(e.target.value)}
+                                        onChange={(e) => handleLanguageChange(e.target.value, router)}
                                     >
                                         {languages.map((lang) => (
                                             <option key={lang} value={lang.toLowerCase()}>

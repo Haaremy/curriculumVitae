@@ -4,8 +4,8 @@
   "player1": "P1",
   "player2": "Player2",
   "player3": "Jerry",
-  "player4": "Santa C.",
-  "played": 2,
+  "player4": "Santa Clause",
+  "played": 3,
   "games": {
     "game1": [
       {
@@ -19,12 +19,12 @@
     ],
     "game2": [
       {
-        "p1": -1,
-        "p2": -1,
-        "p3": -1,
-        "p4": -1,
+        "p1": 2,
+        "p2": 2,
+        "p3": 24,
+        "p4": 4,
         "pT": 0,
-        "stamp": ""
+        "stamp": "25.11., 23:23:10"
       }
     ],
     "game3": [
@@ -248,5 +248,5 @@
       }
     ]
   },
-  "timestamp": "25.11., 16:03:00"
+  "timestamp": "25.11., 23:23:10"
 }
