@@ -456,7 +456,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       const updatedGames = { ...prevTeam.games };
   
       // Update the specific field of the player in the game
-      const newValue = isNaN(Number(value)) ? 0 : Number(value);  // default to 0 if not a number
+      const newValue = value!="" ? Number(value) : -1 ;  // default -1 if not a number
   
       updatedGames[gameKey][playerIndex] = {
         ...updatedGames[gameKey][playerIndex], // Keep the previous values
@@ -474,26 +474,26 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
-      <div className="mb-6">
-      <a
+      <nav className="mb-6 flex gap-4">
+        <a
           href="/Weihnachtsolympiade"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
         </a>
         <a
-          href="./Karte"
+          href="/Weihnachtsolympiade/Karte"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Karte
         </a>
         <a
           href="/Weihnachtsolympiade/Scoreboard"
-          className="bg-pink-500 text-white px-4 py-2 m-2 rounded hover:bg-pink-600 transition"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Scoreboard
         </a>
-      </div>
+      </nav>
       <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
 
       <div className="mt-6 flex justify-center space-x-4">

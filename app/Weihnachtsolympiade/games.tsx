@@ -76,13 +76,13 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
 
       <div className="flex-1 w-full transition-all duration-300">
       
-        <div className="sm:p-4">
-        <nav className="mb-6 flex gap-4">
+      <div className="pt-8">
+      <nav className="mb-6 flex gap-4">
         <a
-          href="/Weihnachtsolympiade"
+          href="/Weihnachtsolympiade/Karte"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Games
+          Karte
         </a>
         <a
           href="/Weihnachtsolympiade/Scoreboard"
@@ -118,8 +118,8 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                   onClick={() => handleInfoOpen(name)}
                 >
                   <Image
-                    src={`/images/christmas_calender${Math.floor(Math.random() * 4)}.jpg`}
-                    alt={"Image " + (index + 1)}
+                    src={`/images/christmas_calender${index%5}.jpg`}
+                    alt={"Türchen Cover"}
                     className="w-full h-64 object-cover bg-gray-300"
                     width={50}
                     height={50}

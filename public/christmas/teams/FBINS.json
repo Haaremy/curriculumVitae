@@ -4,7 +4,7 @@
   "player1": "P1",
   "player2": "Player2",
   "player3": "Jerry",
-  "player4": "Santa",
+  "player4": "Santa C.",
   "played": 2,
   "games": {
     "game1": [
@@ -248,5 +248,5 @@
       }
     ]
   },
-  "timestamp": "22.11., 09:16:51"
+  "timestamp": "25.11., 16:03:00"
 }
