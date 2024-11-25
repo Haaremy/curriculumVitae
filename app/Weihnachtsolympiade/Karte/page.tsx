@@ -1,4 +1,5 @@
-'use client';
+'use client';  // Ensure this component is client-side
+
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -20,8 +21,8 @@ function MapSection({
   );
 
   return (
-    filteredGames.length > 0 && (
-      <section className="bg-white dark:bg-gray-800 p-1 sm:p-6 rounded-lg shadow-lg w-full text-center mb-10">
+  
+      <section className={`bg-white dark:bg-gray-800 p-1 sm:p-6 rounded-lg shadow-lg w-full text-center mb-10 ${filteredGames.length!=0 ? "visible" : "hidden"}`}>
         <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-4">{title}</h1>
 
         <div className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-transform transform">
@@ -49,13 +50,19 @@ function MapSection({
           ))}
         </div>
       </section>
-    )
   );
 }
 
 // Main Component
-export default function Home({ gameQuery }: { gameQuery?: string }) {
+export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  
+  useEffect(() => {
+    const gameQuery = new URLSearchParams(window.location.search).get('gameQuery');
+    if (gameQuery) {
+      setSearchQuery(gameQuery); // Setting the search query from URL
+    }
+  }, []);
 
   const gamesEG = [
     { id: 1, top: 20, left: 30, color: 'bg-pink-600' },
@@ -70,14 +77,6 @@ export default function Home({ gameQuery }: { gameQuery?: string }) {
     { id: 7, top: 60, left: 20, color: 'bg-pink-600' },
     { id: 8, top: 10, left: 70, color: 'bg-pink-600' },
   ];
-
-  // Set initial search query if `gameQuery` is provided
-  useEffect(() => {
-    if (gameQuery) {
-      setSearchQuery(gameQuery);
-      //console.log(gameQuery)
-    }
-  }, [gameQuery]);
 
   return (
     <main className="sm:mt-12 flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">

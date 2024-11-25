@@ -23,10 +23,10 @@ const Modal: React.FC<ModalProps> = ({ message, onClose }) => {
                 {/* Modal Content */}
                 <div className="overflow-y-auto max-h-[70vh]">
                     <p className="text-sm">{message.story}</p><br />
-                    <p className="text-sm">{message.user}</p><br />
-                    <p className="text-sm">{message.content}</p><br />
-                    <p className="text-sm">{message.points}</p><br />
-                    <p className="text-sm"><a href={`/Weihnachtsolympiade/Karte?gameQuery=${message.gameref}`}>{message.location}</a></p><br />
+                    <p className="text-sm">Kapazität für:<br />{message.user}</p><br />
+                    <p className="text-sm">Anleitung:<br />{message.content}</p><br />
+                    <p className="text-sm">Punkte:<br />{message.points}</p><br />
+                    <p className="text-sm text-pink-500"><a href={`/Weihnachtsolympiade/Karte?gameQuery=${message.gameref}`}>Karte:<br />&#x1F50D; {message.location} &#x1F517;</a></p><br />
                     <p className="text-sm">Tutorial:</p>
                     
                     {/* Responsive Video */}
