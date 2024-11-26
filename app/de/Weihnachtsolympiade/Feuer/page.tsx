@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Fire from "./Fire";
-import "./Page.css";
+import "./page.css";
 import Image from "next/image";
 
 const Page: React.FC = () => {
