@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Saved from './saved';
+import { pointSettings } from '../../../../common/editPointSettings';
 
 type GameData = {
   p1: number;
@@ -349,35 +350,35 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
         if(selectedTeam.games[`game${i}`][0].stamp==""){
           selectedTeam.played++;
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
-        switch(i){ // 10 fehlt
+          switch(i){
           
             
-          case 1: gameResultAnswer(i,[0,0,0,0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
-          case 2: gameResultAnswer(i,[0,0,0,0]); break; //Kreuzwort
-          case 3: gameResults(i,1,10); break; //DO Re Mi
-          case 4: gameResultAnswer(i,[0,0,0,0]); break; // SChnitzeljagd
-          case 5: gameResults(i,1,10); break; // Schleife hält = 10P
-          case 6: gameResults(i,1,10); break; // Mini-Curling mit Punkte eintragen
-          case 7: gameResultTime(i, [0,0,0,0,0,0,0,0,0,0]); break; //
-          case 8: gameResultGuess(i, [0,0,0,0]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
-          case 9: gameResults(i,2,5); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
-          case 10: gameResultAnswer(i,[0,0,0,0]); break; //Logikrätsel mit Lösungen
-          case 11: gameResults(i,1,10); break; // Schneeball Boccia
-          case 12: gameResults(i,1,10); break; // Bowling mit Punkte eintragen
-          case 13: gameResultGuess(i, [0,0,0,0]); break; //Suchbild mit Streuwert zur korrekten Antwort
-          case 14: gameResults(i,1,25); break; // Schneeflocken basteln max 25 Flocken
-          case 15: gameResults(i,1,25); break; // Zuckerstangen angeln max 25 Stangen
-          case 16: gameResults(i,1,25); break; // Marschmallow Turm, max 25 Mallows
-          case 17: gameResults(i,2,5); break; // Hockeytor 5x schießen a 2P, max 5 Treffer
-          case 18: gameResultTime(i, [1,2,3,4,5,6,7,8,9,10]); break; //Mario Kart mit Platzierung absteigend
-          case 19: gameResults(i,4,10); break; //Glühwein Pong mit Becher = P4, max 10 Treffer
-          case 20: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break; // SChlitten ziehen auf Zeit
-          case 21: gameResultAnswer(i,[0,0,0,0]); break; //Geschenke raten
-          case 22: gameResults(i,2,5); break; // Rentier Ringe jeder Treffer 2P, max 5 Treffer
-          case 23: gameResults(i,1,10); break; // Begriffe Zeichen je 1P
-          case 24: gameResultTimeAnswer(i,[0,0,0,0,0,0,0,0,0,0],[0,0,0]); break;
-          default: console.log(`Game${i} Results not possible.`); break;
-        }
+            case 1: gameResultAnswer(i,pointSettings[0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
+            case 2: gameResultAnswer(i,pointSettings[1]); break; //Kreuzwort
+            case 3: gameResults(i,pointSettings[2][0],pointSettings[2][1]); break; //DO Re Mi
+            case 4: gameResultAnswer(i,pointSettings[3]); break; // SChnitzeljagd
+            case 5: gameResults(i,pointSettings[4][0],pointSettings[4][1]); break; // Schleife hält = 10P
+            case 6: gameResults(i,pointSettings[5][0],pointSettings[5][1]); break; // Mini-Curling mit Punkte eintragen
+            case 7: gameResultTime(i, pointSettings[6]); break; //
+            case 8: gameResultGuess(i, pointSettings[7]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
+            case 9: gameResults(i,pointSettings[8][0],pointSettings[8][1]); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
+            case 10: gameResultAnswer(i,pointSettings[9]); break; //Logikrätsel mit Lösungen
+            case 11: gameResults(i,pointSettings[10][0],pointSettings[10][1]); break; // Schneeball Boccia
+            case 12: gameResults(i,pointSettings[11][0],pointSettings[11][1]); break; // Bowling mit Punkte eintragen
+            case 13: gameResultGuess(i, pointSettings[12]); break; //Suchbild mit Streuwert zur korrekten Antwort
+            case 14: gameResults(i,pointSettings[13][0],pointSettings[13][1]); break; // Schneeflocken basteln max 25 Flocken
+            case 15: gameResults(i,pointSettings[14][0],pointSettings[14][1]); break; // Zuckerstangen angeln max 25 Stangen
+            case 16: gameResults(i,pointSettings[15][0],pointSettings[15][1]); break; // Marschmallow Turm, max 25 Mallows
+            case 17: gameResults(i,pointSettings[16][0],pointSettings[16][1]); break; // Hockeytor 5x schießen a 2P, max 5 Treffer
+            case 18: gameResultTime(i,  pointSettings[17]); break; //Mario Kart mit Platzierung absteigend
+            case 19: gameResults(i,pointSettings[18][0],pointSettings[18][1]); break; //Glühwein Pong mit Becher = P4, max 10 Treffer
+            case 20: gameResultTimeAnswer(i,pointSettings[19],pointSettings[20]); break; // SChlitten ziehen auf Zeit
+            case 21: gameResultAnswer(i,pointSettings[21]); break; //Geschenke raten
+            case 22: gameResults(i,pointSettings[22][0],pointSettings[22][1]); break; // Rentier Ringe jeder Treffer 2P, max 5 Treffer
+            case 23: gameResults(i,pointSettings[23][0],pointSettings[23][1]); break; // Begriffe Zeichen je 1P
+            case 24: gameResultTimeAnswer(i,pointSettings[24],pointSettings[25]); break;
+            default: console.log(`Game${i} Results not possible.`); break;
+          }
       }
       } else { // Inhalte unvollständig
         setErrorMessage(`Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME${i})`)

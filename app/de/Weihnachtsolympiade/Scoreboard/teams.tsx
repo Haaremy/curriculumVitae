@@ -62,7 +62,15 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
         setError('Error fetching Team data.');
         console.error(error);
       }
+      const interval = setInterval(() => {
+        fetchAndSaveTeamData(name); // Fetch data every 60 seconds
+      }, 60000);
+  
+      return () => clearInterval(interval);
     };
+
+
+  
 
     const fetchAllData = async () => {
       setLoading(true);
