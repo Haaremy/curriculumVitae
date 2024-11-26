@@ -169,7 +169,7 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
                     key={name}
                     className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer"
                     onClick={() => {
-                      setSelectedMovie(`https://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`);
+                      setSelectedMovie(`https://stream.haaremy.de/Media/Movies/${name}/movie.m3u8`);
                       setPlayerIsOpen(true);
                     }}
                   >
