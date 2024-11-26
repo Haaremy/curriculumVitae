@@ -64,8 +64,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
       }
 
       const interval = setInterval(() => {
-        //fetchAndSaveTeamData(name); // Fetch data every 60 seconds
-        window.location.reload()
+        fetchAndSaveTeamData(name); // Fetch data every 60 seconds
       }, 10000);
   
       return () => clearInterval(interval);
