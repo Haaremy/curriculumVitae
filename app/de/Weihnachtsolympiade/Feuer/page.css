@@ -1,0 +1,125 @@
+.page-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('/images/map_eg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 2s ease, filter 2s ease; /* Smooth transition */
+  }
+  
+  .page-container.fire-off {
+    filter: brightness(0.1); /* Almost black at the start */
+  }
+  
+  .page-container.fire-on {
+    filter: brightness(1); /* Gradually brightens when fire starts */
+  }
+  
+  .click-prompt {
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    animation: blink 1.5s infinite;
+    pointer-events: none; /* Ensure prompt doesn't block click */
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  
+.fire-placeholder {
+    width: 100%; /* Ensure full width to prevent layout shift */
+    height: 200px; /* Match the approximate height of the Fire component */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Click passes through placeholder */
+  }
+  
+  .firepit-container {
+    position: absolute;
+    bottom: 20px; /* Adjust for visual balance */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .firepit-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .firepit-image:hover {
+    transform: scale(1.2); /* Add a hover effect for interactivity */
+  }
+
+  .page-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('/images/map_eg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 2s ease, filter 2s ease; /* Smooth transition */
+  }
+  
+  .page-container.fire-off {
+    filter: brightness(0.1); /* Almost black at the start */
+  }
+  
+  .page-container.fire-on {
+    filter: brightness(1); /* Gradually brightens when fire starts */
+  }
+  
+
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  
+.fire-placeholder {
+    width: 100%; /* Ensure full width to prevent layout shift */
+    height: 200px; /* Match the approximate height of the Fire component */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Click passes through placeholder */
+  }
+  
+  .firepit-container {
+    position: absolute;
+    bottom: 20px; /* Adjust for visual balance */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .firepit-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .firepit-image:hover {
+    transform: scale(1.2); /* Add a hover effect for interactivity */
+  }

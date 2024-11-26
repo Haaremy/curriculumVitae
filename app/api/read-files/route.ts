@@ -12,7 +12,7 @@ export async function GET(request: Request) {
       return NextResponse.json(
         { error: 'Directory path is required' },
         { status: 400 }
-      );
+      ); 
     }
 
     // Read the directory contents
