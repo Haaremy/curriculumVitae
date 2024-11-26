@@ -381,7 +381,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           }
       }
       } else { // Inhalte unvollständig
-        setErrorMessage(`Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (GAME${i})`)
+        setErrorMessage(`Error: Entry is not complete or contains other characters than numbers. (GAME${i})`)
         handleNotSavedOpen();
         return; // punkte null -> kein Speichern
       }
@@ -430,7 +430,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           } else {
             // Handle errors if the response is not successful
             console.error('Failed to save team data:', response.statusText);
-            setErrorMessage("Fehler: Es gabe ein Serverproblem! (POST)")
+            setErrorMessage("Error: Server Error! (POST)")
             handleNotSavedOpen();
           }
         } catch (error) {

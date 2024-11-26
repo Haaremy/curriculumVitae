@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     // Execute deployment and wait for it to finish
     const stdout = await new Promise<string>((resolve, reject) => {
         exec(
-          'cd /var/www/haaremy.de && git pull origin master && npm run build && pm2 restart haaremy-app',
+          'cd /var/www/haaremy.de && git stash && git pull origin master && npm run build && pm2 restart haaremy-app',
           (err, stdout, stderr) => {
             if (err) {
               reject(`Deployment failed: ${stderr}`);

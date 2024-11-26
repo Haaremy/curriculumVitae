@@ -31,13 +31,26 @@ export default function Page() {
   ];
 
   const workSkills = [
-    { name: "Project Management", val: 4, des: "Man" },
-    { name: "Team Leadership", val: 5, des: "Team" },
+    { name: "Project-Management", val: 4, des: "Events, Veranstaltungen, Projektarbeiten." },
+    { name: "Team-Management", val: 4, des: "Gruppen, wie beispielsweise zur Arbeitsaufteilung." },
+    { name: "Alleinarbeit", val: 4, des: "Individulle Arbeit an Projekten." },
+    { name: "Kommunikation", val: 3, des: "Mehr Absprache mit Teammitgliedern und ich rede undeutlich." },
+    { name: "Verlässlichkeit", val: 5, des: "Zugetragene Aufgaben arbeite ich gewissenhaft ab." },
+    { name: "Pünktlichkeit", val: 5, des: "Eher zu früh." },
+    { name: "Zeit-Management", val: 4, des: "In der Regel gut getaktet." },
+    { name: "Auswendiglernen", val: 2, des: "Anfangen ist der schwerste Part." },
   ];
 
   const languageSkills = [
     { name: "Deutsch", val: 5, des: "Muttersprache" },
     { name: "Englisch", val: 4, des: "Unterricht von Klasse 2 bis 12 sowie Modul im Studium" },
+    { name: "Französisch", val: 2, des: "Unterricht von Klasse 7 bis 12 sowie Abiturprüfung" },
+    { name: "Java", val: 2, des: "2 Semstester Modul laut Studienordnung." },
+    { name: "JS", val: 3, des: "Ein Modul im Studium sowie Private Projekte." },
+    { name: "Python", val: 2, des: "Module im Studium, aber nutze ich ungern." },
+    { name: "Typescript", val: 3, des: "Private Projekte, wie diese Website." },
+    { name: "Delphi", val: 1, des: "Oberstufe im Unterricht. Veraltet." },
+    { name: "C#", val: 2, des: "Spieleentwicklung. Siehe Hexagrow" },
   ];
 
   const SkillGroup = ({ title, skills }: { title: string; skills: { name: string; val: number; des: string }[] }) => {
@@ -85,9 +98,9 @@ export default function Page() {
   };
 
   const refs = [
-    {name: "Hexagrow", des: "Eine Gruppenarbeit aus dem Modul Spieleentwicklung.", link: "https://haaremy.de/Hexagrow"},
-    {name: (<>Zertifikat:<br/> Praktikum 2018</>), des: "Pflichtpraktikum bei Computer e.K. Bereiche: Kunden und Software.", link: "https://stream.haaremy.de/docs/pRKC.pdf"},
-    {name: (<>Zertifikat:<br/> Sprachenaustausch</>), des: "Sprachenaustausch Frankreich. Wiederholung in den folgenden zwei Jahren.", link: "https://stream.haaremy.de/docs/austausch.pdf"},
+    {name: "Hexagrow", des: "Eine Gruppenarbeit aus dem Modul Spieleentwicklung.", link: "https://haaremy.de/de/Hexagrow"},
+    {name: (<>Zertifikat:<br/> Praktikum 2018</>), des: "Pflichtpraktikum bei Computer e.K. Bereiche: Kunden und Software.", link: ""},
+    {name: (<>Zertifikat:<br/> Sprachenaustausch</>), des: "Sprachenaustausch Frankreich. Wiederholung in den folgenden zwei Jahren.", link: ""},
     {name: "Eislaufen für Anfänger", des: ( <> <iframe width="100%" height="auto" src="https://www.youtube.com/embed/GrbLsjwcS2A?si=nfczhFwNKG63tkjr"title="YouTube video player"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"referrerPolicy="strict-origin-when-cross-origin"allowFullScreen></iframe></>),link: "https://youtu.be/GrbLsjwcS2A?si=sFPINSf28BQCFev9"},
     {name: "Modul Präsentation MSV", des: ( <> <iframe width="100%" height="auto" src="https://www.youtube.com/embed/kgvFVA__XBo?si=KFxETdKIrwOAdp74"title="YouTube video player"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"referrerPolicy="strict-origin-when-cross-origin"allowFullScreen></iframe></>),link: "https://youtu.be/GrbLsjwcS2A?si=sFPINSf28BQCFev9"},
 
