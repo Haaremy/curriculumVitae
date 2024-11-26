@@ -1,7 +1,6 @@
 import https from 'https';
 import fs from 'fs';
 import path from 'path';
-import axios from 'axios'; // Use axios instead of fetch
 import Movielist from './movieList'; // Import the Client Component
 
 // Define a type for the data returned by the API
@@ -30,10 +29,8 @@ export default async function Page() {
         }
     
         const data = await response.json();
-    
-        // Assuming the API response returns { files: [...] }
-        // Filter out files that end with ".php"
-        const filenames = data.files.filter((file: string) => !file.endsWith('.php') && !file.startsWith('.'));
+
+        filenames = data.files.filter((file: string) => !file.endsWith('.php') && !file.startsWith('.'));
     
         console.log(filenames); // Use the filtered filenames as needed
     } catch (error) {
@@ -45,7 +42,6 @@ export default async function Page() {
     // Return the page component with the MovieList component
     return (
         <div>
-            <h1>Video Collection</h1>
             <Movielist filenames={filenames} /> {/* Pass filenames to the Client Component */}
         </div>
     );

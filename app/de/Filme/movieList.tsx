@@ -20,8 +20,8 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
   }
 
   const getMovieProgress = (name) => {
-    const t1 = parseFloat(localStorage.getItem(`tothttps://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`))
-    const t2 = parseFloat(localStorage.getItem(`currhttps://stream.haaremy.de:2053/Media/Movies/${name}/movie.m3u8`))
+    const t1 = parseFloat(localStorage.getItem(`tothttps://haaremy.de/api/read-files?dir=Media/Movies/${name}/movie.m3u8`))
+    const t2 = parseFloat(localStorage.getItem(`currhttps://haaremy.de/api/read-files?dir=Media/Movies/${name}/movie.m3u8`))
     const prog = Math.floor((t2/t1)*100);
     return prog;
   }
@@ -37,7 +37,7 @@ export default function MovieList({ filenames }: { filenames: string[] }) {
   const fetchAndSaveMovieData = async (name: string) => {
     try {
       const fileID = name.split("+").slice(1).join("+"); // Correctly handle multi-part IDs
-      const filePath = `/jsons/movie/${fileID}.json`; // Construct the file path for your local server
+      const filePath = `/mnt/10TB/Media/MovieInfo/${fileID}.json`; // Construct the file path for your local server
       
       // Step 1: Check if the file exists locally by making a HEAD request
       const fileExistsResponse = await fetch(`/api/read-files?dir=${encodeURIComponent(filePath)}`, { method: 'HEAD' });

@@ -1,8 +1,7 @@
-// src/app/api/saveMovieData/route.ts
-
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+
 
 export async function POST(request: Request) {
   try {
@@ -10,18 +9,16 @@ export async function POST(request: Request) {
     const { name, movieData } = await request.json();
 
     // Define the path to save the JSON file
-    const filePathJsons = path.join(process.cwd(), './public/jsons/movie', `${name}.json`);
-    
-    // Create 'jsons' directory if it does not exist
-    if (!fs.existsSync(path.dirname(filePathJsons))) {
-      fs.mkdirSync(path.dirname(filePathJsons), { recursive: true });
+    const dirPath = '/mnt/10TB/Media/MovieInfo';
+    const filePath = path.join(dirPath, `${name}.json`);
+
+    // Ensure the directory exists
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
     }
 
-
-
     // Save the movie data to a local JSON file
-    fs.writeFileSync(filePathJsons, JSON.stringify(movieData, null, 2));
-
+    fs.writeFileSync(filePath, JSON.stringify(movieData, null, 2));
 
     // Return a successful response
     return NextResponse.json({ message: 'Series data saved successfully' });
