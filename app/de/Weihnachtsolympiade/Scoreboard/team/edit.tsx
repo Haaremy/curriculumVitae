@@ -162,15 +162,23 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
         });
   }
 
+  const allNew = () => {
+    teams.ids.forEach(element => {
+      createTeamFile(element);
+  });
+  }
+
   const fetchAndSaveTeamData = async (name: string) => {
     setError(null);
   
     try {
+      //const filePath = `/christmas/teams/${name}.json`;
       const filePath = `/christmas/teams/${name}.json`;
+      
       setSelectedID(name);
   
       // Try to fetch the team data directly, if the file doesn't exist, it will throw an error
-      const response = await fetch(filePath);
+      const response = await fetch(filePath); 
       
       if (response.ok) {
         // File exists, parse the JSON and update state
