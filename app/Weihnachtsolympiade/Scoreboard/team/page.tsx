@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/de/Weihnachtsolympiade");
+    router.push("/de/Weihnachtsolympiade/Scoreboard/team");
   }, [router]);
 
   return (
