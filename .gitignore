@@ -7,7 +7,7 @@
 .yarn/install-state.gz
 
 # edited Data of Teams
-#/public/christmas/teams
+/public/christmas/teams
 
 # testing
 /coverage
