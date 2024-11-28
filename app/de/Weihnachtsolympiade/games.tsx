@@ -107,7 +107,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
           placeholder="Suche nach Spielnummer..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+          className="text-black mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
         />
         <h1 className="text-xl mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-kalender</h1>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">

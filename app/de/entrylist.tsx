@@ -25,7 +25,7 @@ export default function Entrylist({ filenames }: { filenames: string[] }) {
 
     return (
     
-        <div className="flex flex-col items-center mb-32 w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center mb-32 w-full px-8 sm:px-6 lg:px-4">
             <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-6 w-full col-span-2">
                 {randomizedFilenames.map((name, index) => (
                     <a
@@ -37,7 +37,7 @@ export default function Entrylist({ filenames }: { filenames: string[] }) {
                         target="_self"
                         rel="noopener noreferrer"
                     >
-                        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">{name}</h2>
+                        <h2 className="text-xl px-2 font-semibold text-gray-800 dark:text-gray-200">{name}</h2>
                     </a>
                 ))}
             </div>

@@ -56,7 +56,7 @@ export default function Footer() {
                             onClick={toggleDropdown3}
                             onMouseEnter={toggleDropdown3}
                             aria-expanded={isDropdown3Open}
-                            className="inline-flex items-center justify-center p-2 rounded-full bg-gray-800 text-white"
+                            className="inline-flex items-center justify-center p-2 rounded-full  text-gray-700 dark:text-gray-300 "
                         >
                             Kontakt
                         </button>
@@ -91,7 +91,7 @@ export default function Footer() {
                             onClick={toggleDropdown}
                             onMouseEnter={toggleDropdown}
                             aria-expanded={isDropdownOpen}
-                            className="inline-flex items-center justify-center p-2 rounded-full bg-gray-800 text-white"
+                            className="inline-flex items-center justify-center p-2 rounded-full text-gray-700 dark:text-gray-300 "
                         >
                             Netzwerke
                         </button>
@@ -134,7 +134,7 @@ export default function Footer() {
                         <button
                             onMouseEnter={toggleDropdown2}
                             aria-expanded={isDropdown2Open}
-                            className="inline-flex items-center justify-center p-2 rounded-full bg-gray-800 text-white"
+                            className="inline-flex items-center justify-center p-2 rounded-full text-gray-700 dark:text-gray-300 "
                         >
                             Rechtliches
                         </button>

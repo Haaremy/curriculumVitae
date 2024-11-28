@@ -87,7 +87,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                             onClick={toggleDropdown}
                             onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggleDropdown()}
                             tabIndex={0}
-                            className="p-2 rounded-full bg-gray-800 text-white dark:bg-pink-500"
+                            className="p-2 rounded bg-gray-800 text-white dark:bg-pink-500"
                         >
                             <span className="sr-only">Open Menu</span>
                             {/* Tool wheel icon */}
@@ -108,11 +108,11 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                 <div className="px-4 py-2">
                                     <label className="block text-gray-800 dark:text-gray-200 mb-1">Language</label>
                                     <select 
-                                        className="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                                        className="w-full text-gray-800 dark:text-gray-200 p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                                         onChange={(e) => handleLanguageChange(e.target.value, router)}
                                     >
                                         {languages.map((lang) => (
-                                            <option key={lang} value={lang.toLowerCase()}>
+                                            <option key={lang} value={lang.toLowerCase()} className="text-gray-800 dark:text-gray-200">
                                                 {lang}
                                             </option>
                                         ))}
