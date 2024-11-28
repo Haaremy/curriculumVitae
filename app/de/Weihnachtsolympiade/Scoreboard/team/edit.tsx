@@ -382,7 +382,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       case 2: gameResultAnswer(i,pointSettings[1]); break; //Kreuzwort
       case 3: gameResults(i,pointSettings[2][0],pointSettings[2][1]); break; //DO Re Mi
       case 4: gameResultAnswer(i,pointSettings[3]); break; // SChnitzeljagd
-      case 5: gameResults(i,pointSettings[4][0],pointSettings[4][1]); break; // Schleife hält = 10P
+      case 5: gameResultAnswer(i,pointSettings[4]); break; // Schleife hält = 10P
       case 6: gameResults(i,pointSettings[5][0],pointSettings[5][1]); break; // Mini-Curling mit Punkte eintragen
       case 7: gameResultTime(i, pointSettings[6]); break; //
       case 8: gameResultGuess(i, pointSettings[7]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]

@@ -1,10 +1,10 @@
 {
     "title": "Eishockey",
-    "story": "Unser lieblings Eishockeyteam die &bdquo;INS-ICE-Pythons&ldquo; haben uns ihre geheimen Trainingstipps verraten. Wir nutzen die Gelegenheit und teilen unser Wissen mit euch (natürlich mit Erlaubnis). An den Weihnachtsfeiertagen haben wir dann ein wichtiges Spiel gegen die Nordpolar-Bären.",
-    "shortstory":"Die Geheimen Trainingstipps der &bdquo;INS-ICE-Pythons&bdquo;.",
+    "story": "Unser lieblings Eishockeyteam die 'INS-ICE-Pythons' haben uns ihre geheimen Trainingstipps verraten. Wir nutzen die Gelegenheit und teilen unser Wissen mit euch (natürlich mit Erlaubnis). An den Weihnachtsfeiertagen haben wir dann ein wichtiges Spiel gegen die Nordpolar-Bären.",
+    "shortstory":"Die Geheimen Trainingstipps der 'INS-ICE-Pythons'.",
     "user":"2 Teams",
     "content": "Vor euch ist ein Tor aufgebaut vor dem Hindernisse stehen. Stellt euch in die Startmarkierung und schießt auf das Tor. Jeder Schießt 5 Mal.",
-    "points": "Tragt eure Trefferzahl in euer #Feld ein.",
-    "location": "Obergeschoss 2 - Foyer",
+    "points": "Das vordere Tor gibt 1 Punkt, das hintere 2 Punkte. Tragt eure Punktzahl in euer #Feld ein.",
+    "location": "Obergeschoss - Foyer",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

@@ -83,10 +83,10 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
         <div className="pt-8">
           <nav className="mb-6 flex gap-4 mt-8">
             <a
-              href="./Weihnachtsolympiade/Map"
+              href="./Weihnachtsolympiade/Karte"
               className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
             >
-              Map
+              Karte
             </a>
             <a
               href="./Weihnachtsolympiade/Scoreboard"
