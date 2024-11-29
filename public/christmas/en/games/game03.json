@@ -1,10 +1,10 @@
 {
    "title": "Do Re Miiiiii",
-    "story": "Die Schallplatten des Elfenchors wurden zerkratzt! Die ganzen Aufnahmen des Hit-Albums 'Elf on its self' sind ruiniert und keiner weiß mehr welches Lied nun welches ist! Helft den Elfen sich uz erinnern.",
-    "shortstory": "Der Elfenchor hat die Titel seiner Weihnachtslieder vergessen.",
+    "story": "The records of the Elf Choir have been scratched! All the recordings of the hit album 'Elf on itself' are ruined and nobody knows which song is which anymore! Help the elves to remember.",
+    "shortstory": "The Elf Choir has forgotten the titles of its Christmas carols.",
     "user":"1 Team",
-    "content": "Es gibt einen Stationsleiter! Ihr erhaltet Tipps zum Lied ",
-    "points": "Ihr erhaltet 10 Punkte pro #Lied. Jeder Tipp gibt -2 Punkte.",
-    "location": "1 Stock - Computer Pool",
+    "content": "Listen to the station coordinator! You will receive tips on the song. ",
+    "points": "You will receive 10 points per #song. Each tip is worth -2 points.",
+    "location": "Second Floor – Computer Pool",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

@@ -1,10 +1,10 @@
 {
     "title": "Packaging",
-    "story": "Der Geschenke Bondage-Kurs ist ein Modul an der Santa-Universität. Prüfungsleistung ist es, alle Geschenke in der Zeit mit einer Schleife zu versehen.",
-    "shortstory":"Geschenke brauchen eine hübsche Verpackung.",
+    "story": "The Gifts Bondage Course is a module at Santa University. The exam task is to tie all the gifts with a ribbon within the given time.",
+    "shortstory":"Gifts need pretty packaging.",
     "user":"1 Team",
-    "content": "Jedes Mitglied sucht sich 1 Gegenstand aus. Ihr stoppt die Zeit für 30 Sekunden. Anschließend wird die Schleife wieder entfernt.",
-    "points": " Jeder Spieler mit einer Schleife (die hält), erhält 10 Punkte.",
-    "location": "Obergeschoss 1 - Raum 216",
+    "content": "Each member chooses 1 item. You stop the time for 30 seconds. Remove the ribbon afterwards.",
+    "points": " Each player with a ribbon (that stays on) receives 10 points.",
+    "location": "Second Floor – Room 216",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

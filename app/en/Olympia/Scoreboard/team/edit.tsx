@@ -162,15 +162,23 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
         });
   }
 
+  const allNew = () => {
+    teams.ids.forEach(element => {
+      createTeamFile(element);
+  });
+  }
+
   const fetchAndSaveTeamData = async (name: string) => {
     setError(null);
   
     try {
+      //const filePath = `/christmas/teams/${name}.json`;
       const filePath = `/christmas/teams/${name}.json`;
+      
       setSelectedID(name);
   
       // Try to fetch the team data directly, if the file doesn't exist, it will throw an error
-      const response = await fetch(filePath);
+      const response = await fetch(filePath); 
       
       if (response.ok) {
         // File exists, parse the JSON and update state
@@ -338,7 +346,125 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
   }
 
 
-  
+  const game20 = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
+    for(let i=1; i<=4; i++){
+      if(selectedTeam.games[`game${g}`][0].p1<limits[0]){ // < Zeitlimit
+        selectedTeam.games[`game${g}`][0].pT += 40;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[1])){
+        selectedTeam.games[`game${g}`][0].pT += 39;
+      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[2])){
+        selectedTeam.games[`game${g}`][0].pT += 38;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[3])){
+        selectedTeam.games[`game${g}`][0].pT += 37;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[4])){
+        selectedTeam.games[`game${g}`][0].pT += 36;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[5])){
+        selectedTeam.games[`game${g}`][0].pT += 35;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[6])){
+        selectedTeam.games[`game${g}`][0].pT += 34;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[7])){
+        selectedTeam.games[`game${g}`][0].pT += 33;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[8])){
+        selectedTeam.games[`game${g}`][0].pT += 32;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[9])){
+        selectedTeam.games[`game${g}`][0].pT += 31;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[10])){
+        selectedTeam.games[`game${g}`][0].pT += 30;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[11])){
+        selectedTeam.games[`game${g}`][0].pT += 29;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[12])){
+        selectedTeam.games[`game${g}`][0].pT += 28;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[13])){
+        selectedTeam.games[`game${g}`][0].pT += 27;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[14])){
+        selectedTeam.games[`game${g}`][0].pT += 26;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[15])){
+        selectedTeam.games[`game${g}`][0].pT += 25;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[16])){
+        selectedTeam.games[`game${g}`][0].pT += 24;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[17])){
+        selectedTeam.games[`game${g}`][0].pT += 23;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[18])){
+        selectedTeam.games[`game${g}`][0].pT += 22;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[19])){
+        selectedTeam.games[`game${g}`][0].pT += 21;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[20])){
+        selectedTeam.games[`game${g}`][0].pT += 20;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[21])){
+        selectedTeam.games[`game${g}`][0].pT += 19;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[22])){
+        selectedTeam.games[`game${g}`][0].pT += 18;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[23])){
+        selectedTeam.games[`game${g}`][0].pT += 17;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[24])){
+        selectedTeam.games[`game${g}`][0].pT += 16;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[25])){
+        selectedTeam.games[`game${g}`][0].pT += 15;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[26])){
+        selectedTeam.games[`game${g}`][0].pT += 14;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[27])){
+        selectedTeam.games[`game${g}`][0].pT += 13;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[28])){
+        selectedTeam.games[`game${g}`][0].pT += 12;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[29])){
+        selectedTeam.games[`game${g}`][0].pT += 11;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[30])){
+        selectedTeam.games[`game${g}`][0].pT += 10;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[31])){
+        selectedTeam.games[`game${g}`][0].pT += 9;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[32])){
+        selectedTeam.games[`game${g}`][0].pT += 8;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[33])){
+        selectedTeam.games[`game${g}`][0].pT += 7;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[34])){
+        selectedTeam.games[`game${g}`][0].pT += 6;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[35])){
+        selectedTeam.games[`game${g}`][0].pT += 5;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[36])){
+        selectedTeam.games[`game${g}`][0].pT += 4;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[37])){
+        selectedTeam.games[`game${g}`][0].pT += 3;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[38])){
+        selectedTeam.games[`game${g}`][0].pT += 2;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[39])){
+        selectedTeam.games[`game${g}`][0].pT += 1;
+      }
+      
+    }
+  }
+
+
+  const switchPoints = (i: number) => {
+    switch(i){
+          
+            
+      case 1: gameResultAnswer(i,pointSettings[0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
+      case 2: gameResultAnswer(i,pointSettings[1]); break; //Kreuzwort
+      case 3: gameResults(i,pointSettings[2][0],pointSettings[2][1]); break; //DO Re Mi
+      case 4: gameResultAnswer(i,pointSettings[3]); break; // SChnitzeljagd
+      case 5: gameResultAnswer(i,pointSettings[4]); break; // Schleife hält = 10P
+      case 6: gameResults(i,pointSettings[5][0],pointSettings[5][1]); break; // Mini-Curling mit Punkte eintragen
+      case 7: gameResultTime(i, pointSettings[6]); break; //
+      case 8: gameResultGuess(i, pointSettings[7]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
+      case 9: gameResults(i,pointSettings[8][0],pointSettings[8][1]); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
+      case 10: gameResultAnswer(i,pointSettings[9]); break; //Logikrätsel mit Lösungen
+      case 11: gameResults(i,pointSettings[10][0],pointSettings[10][1]); break; // Schneeball Boccia
+      case 12: gameResults(i,pointSettings[11][0],pointSettings[11][1]); break; // Bowling mit Punkte eintragen
+      case 13: gameResultGuess(i, pointSettings[12]); break; //Suchbild mit Streuwert zur korrekten Antwort
+      case 14: gameResults(i,pointSettings[13][0],pointSettings[13][1]); break; // Schneeflocken basteln max 25 Flocken
+      case 15: gameResults(i,pointSettings[14][0],pointSettings[14][1]); break; // Zuckerstangen angeln max 25 Stangen
+      case 16: gameResults(i,pointSettings[15][0],pointSettings[15][1]); break; // Marschmallow Turm, max 25 Mallows
+      case 17: gameResults(i,pointSettings[16][0],pointSettings[16][1]); break; // Hockeytor 5x schießen a 2P, max 5 Treffer
+      case 18: gameResultTime(i,  pointSettings[17]); break; //Mario Kart mit Platzierung absteigend
+      case 19: gameResults(i,pointSettings[18][0],pointSettings[18][1]); break; //Glühwein Pong mit Becher = P4, max 10 Treffer
+      case 20: game20(i,pointSettings[19]); break; // SChlitten ziehen auf Zeit
+      case 21: gameResultAnswer(i,pointSettings[20]); break; //Geschenke raten
+      case 22: gameResults(i,pointSettings[21][0],pointSettings[21][1]); break; // Rentier Ringe jeder Treffer 2P, max 5 Treffer
+      case 23: gameResults(i,pointSettings[22][0],pointSettings[22][1]); break; // Begriffe Zeichen je 1P
+      case 24: gameResultTimeAnswer(i,pointSettings[23],pointSettings[24]); break;
+      default: console.log(`Game${i} Results not possible.`); break;
+    }
+  }
 
   const getPoints = () => {
     let points: number;
@@ -350,38 +476,10 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
         if(selectedTeam.games[`game${i}`][0].stamp==""){
           selectedTeam.played++;
           selectedTeam.games[`game${i}`][0].stamp=humanReadableTimestamp; 
-          switch(i){
-          
-            
-            case 1: gameResultAnswer(i,pointSettings[0]); break; //Bäckerei [Zimt #12, kardamom #3, Muskat #6, Nelke #9]
-            case 2: gameResultAnswer(i,pointSettings[1]); break; //Kreuzwort
-            case 3: gameResults(i,pointSettings[2][0],pointSettings[2][1]); break; //DO Re Mi
-            case 4: gameResultAnswer(i,pointSettings[3]); break; // SChnitzeljagd
-            case 5: gameResults(i,pointSettings[4][0],pointSettings[4][1]); break; // Schleife hält = 10P
-            case 6: gameResults(i,pointSettings[5][0],pointSettings[5][1]); break; // Mini-Curling mit Punkte eintragen
-            case 7: gameResultTime(i, pointSettings[6]); break; //
-            case 8: gameResultGuess(i, pointSettings[7]); break; // Menge der Süßigkeiten [Werters, Kaffe, Brezeln, Würfel]
-            case 9: gameResults(i,pointSettings[8][0],pointSettings[8][1]); break; // Dosenwerfen Punkte=2*Dose, max 5 Treffer
-            case 10: gameResultAnswer(i,pointSettings[9]); break; //Logikrätsel mit Lösungen
-            case 11: gameResults(i,pointSettings[10][0],pointSettings[10][1]); break; // Schneeball Boccia
-            case 12: gameResults(i,pointSettings[11][0],pointSettings[11][1]); break; // Bowling mit Punkte eintragen
-            case 13: gameResultGuess(i, pointSettings[12]); break; //Suchbild mit Streuwert zur korrekten Antwort
-            case 14: gameResults(i,pointSettings[13][0],pointSettings[13][1]); break; // Schneeflocken basteln max 25 Flocken
-            case 15: gameResults(i,pointSettings[14][0],pointSettings[14][1]); break; // Zuckerstangen angeln max 25 Stangen
-            case 16: gameResults(i,pointSettings[15][0],pointSettings[15][1]); break; // Marschmallow Turm, max 25 Mallows
-            case 17: gameResults(i,pointSettings[16][0],pointSettings[16][1]); break; // Hockeytor 5x schießen a 2P, max 5 Treffer
-            case 18: gameResultTime(i,  pointSettings[17]); break; //Mario Kart mit Platzierung absteigend
-            case 19: gameResults(i,pointSettings[18][0],pointSettings[18][1]); break; //Glühwein Pong mit Becher = P4, max 10 Treffer
-            case 20: gameResultTimeAnswer(i,pointSettings[19],pointSettings[20]); break; // SChlitten ziehen auf Zeit
-            case 21: gameResultAnswer(i,pointSettings[21]); break; //Geschenke raten
-            case 22: gameResults(i,pointSettings[22][0],pointSettings[22][1]); break; // Rentier Ringe jeder Treffer 2P, max 5 Treffer
-            case 23: gameResults(i,pointSettings[23][0],pointSettings[23][1]); break; // Begriffe Zeichen je 1P
-            case 24: gameResultTimeAnswer(i,pointSettings[24],pointSettings[25]); break;
-            default: console.log(`Game${i} Results not possible.`); break;
-          }
+          switchPoints(i);
       }
       } else { // Inhalte unvollständig
-        setErrorMessage(`Error: Entry is not complete or contains other characters than numbers. (GAME${i})`)
+        setErrorMessage(`Error: Entry is empty or contains invalid Characters. (GAME${i})`)
         handleNotSavedOpen();
         return; // punkte null -> kein Speichern
       }
@@ -430,7 +528,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           } else {
             // Handle errors if the response is not successful
             console.error('Failed to save team data:', response.statusText);
-            setErrorMessage("Error: Server Error! (POST)")
+            setErrorMessage("Error: Server Problems! (POST)")
             handleNotSavedOpen();
           }
         } catch (error) {
@@ -477,23 +575,29 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       <nav className="mb-6 flex gap-4 mt-8">
         <a
-          href="./Olympia"
+          href="../"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
         </a>
         <a
-          href="./Olympia/Map"
+          href="../Map"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Map
         </a>
         <a
-          href="./Olympia/Scoreboard"
+          href="./"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Scoreboard
         </a>
+        <button
+            onClick={handleSave}
+            className="fixed py-2 right-8 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200 focus:outline-none"
+          >
+            Save
+          </button>
       </nav>
       <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
 
@@ -534,7 +638,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}
 
       {selectedTeam && (
-        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Edit Team</h2>
+        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Team Editor</h2>
 
           {/* Edit team name */}
           <input
@@ -556,12 +660,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
               className="w-full px-4 py-2 border-2 border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
             />
           ))}
-          <button
-            onClick={handleSave}
-            className="mt-4 py-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none"
-          >
-            Save Changes
-          </button>
+          
           {/* Edit game data */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {(Object.keys(selectedTeam.games) as Array<keyof TeamData['games']>).map((gameKey) => (
@@ -574,7 +673,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     } p-4 rounded-md shadow-md space-y-2`}
   >
     <h3 className="text-lg font-semibold text-gray-800">
-      Entry {gameKey.toUpperCase()}
+      Eintrag {gameKey.toUpperCase()}
     </h3>
 
     {/* Map through each playerData for the current game */}

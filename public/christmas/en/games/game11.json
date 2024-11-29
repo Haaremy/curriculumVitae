@@ -1,10 +1,10 @@
 {
     "title": "Aim and Fire",
-    "story": "Eigentlich wollten sie Boccia spielen, aber die Elfen hatten kein verschiedenfarbigen Schnee und den gelben wollte keiner anfassen. Jetzt haben sie gelbe Markierungen in den Schnee gemalt und versuchen sich an Zielwerfen.",
-    "shortstory":"Statt Boccia werfen wir auf Kreise.",
+    "story": "They actually wanted to play bocce, but the elves didn’t have snow in different colors, and no one wanted to touch the yellow one. Now they have drawn yellow markings in the snow and are trying their hand at target throwing.",
+    "shortstory":"Instead of bocce, we throw circles.",
     "user":"1 Team",
-    "content": "Jeder Spieler hat 3 Versuche. Die höchste geworfene Zahl wird gewertet.",
-    "points": "Tragt die größte Zahl aus den Versuchen in euer #Feld ein.",
-    "location": "Obergeschoss 2 - Flur Westflügel",
+    "content": "Each player has 3 attempts. The highest number thrown is scored.",
+    "points": "Enter the largest number from the attempts in your #field.",
+    "location": "Upper floor 2 – West wing corridor",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

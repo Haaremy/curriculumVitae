@@ -1,10 +1,10 @@
 {
     "title": "Sweet Tower of Pisa",
-    "story": "Überall bauen Kinder hübsch verzierte Lebkuchenhäuser, aber die sind hier ja standard. Am Nordpol bauen wir Marshmallow-Türme und versuchen damit so hoch zu kommen wie es geht.",
-    "shortstory":"Türme aus Marshmallow statt Lebkuchenhäuser.",
-    "user":"Multiple Teams",
-    "content": "Jeder Spieler baut einen Türm aus Marshmallow. Ihr stapelt immer 1 auf einen anderen. Das spiel ist beendet, wenn der Turm fällt.",
-    "points": "Tragt die Anzahl der Marshmallow-Etagen in euer jeweiliges #Feld.",
-    "location": "Obergeschoss 1 - Raum 216",
+    "story": "Children everywhere make beautifully decorated gingerbread houses, but here they are standard. At the North Pole, we build marshmallow towers and try to get as high as we can.",
+    "shortstory":"Marshmallow towers instead of gingerbread houses.",
+    "user":"Multiple teams",
+    "content": "Each player builds a marshmallow tower. You always stack 1 on top of another. The game is over when the tower falls.",
+    "points": "Enter the number of marshmallow layers in your respective #field.",
+    "location": "Second Floor – Room 216",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

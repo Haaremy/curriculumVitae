@@ -1,10 +1,10 @@
 {
-    "title": "Password forgotten?",
-    "story": "Die Wunschliste wurde vor ein paar Jahren digitalisert. Alle Briefe an den Nordpol werden gescannt und mit der Datenbank von Gut und Böse abgeglichen. Daraufhin wird der Wunsch auf die Liste gepackt. Beim Abrufen der diesjährigen Liste, kann sich der Weihnachtsmann nicht mehr an sein Passwort erinnen, aber hat sich eine Erinnerung geschriben.",
-    "shortstory":"Das Passwort für den digitalen Wunschzettel wurde verlegt. ",
-    "user":"Multiple Teams",
-    "content": "Vor euch liegen Buchstaben und ihr müsst damit die 4 Wort-Kästchen (gedanklich) ausfüllen. Hierfür habt ihr wie bei einem Kreuzworträtsel hinweise neben den Kästchen. Besprecht euch im Team.",
-    "points": "Die Buchstaben haben Zahlwerte. Tragt den Zahlenwert in das entsprechende #Feld ein, auf dem der Buchstabe liegt.",
-    "location": "Obergeschoss 1 - Foyer",
+    "title": "Forgot your password?",
+    "story": "Santa’s wishlist was digitized a few years ago. All letters to the North Pole are scanned and cross-referenced with the Naughty and Nice database. The wish is then added to the list.  When retrieving this year's list, Santa can no longer remember his password! Luckily, he has left himself a clue.",
+    "shortstory":"The password for Santa’s digital wishlist has been misplaced. ",
+    "user":"Multiple teams",
+    "content": "There are letters in front of you and you have to fill in the 4 word-boxes (in your head). There are clues next to the boxes, just like in a crossword puzzle. Discuss as a team.",
+    "points": "The letters have numerical values. Enter the numerical value in the corresponding #field of the letter.",
+    "location": "Second Floor – Foyer",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

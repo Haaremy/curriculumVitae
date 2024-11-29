@@ -65,7 +65,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
             <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700 shadow-md z-50">
                 <div className="container mx-auto flex items-center justify-between px-4 py-3 max-w-screen-xl">
                     <a href={dynamicHref} className="inline-flex items-center">
-                        <Image src="/images/Logo24.png" alt="Haaremy Logo" className="h-6 w-auto" width={24} height={24} />
+                        <Image src={!isDarkMode ? `/images/Logo_1124.svg` : "/images/Logo_1124.svg"} alt="Haaremy Logo" className="h-6 w-auto" width={24} height={24} />
                         <p className="hidden sm:inline text-lg font-semibold text-gray-800 dark:text-gray-200 ml-2">
                             Haaremy
                             <span className="">&nbsp;

@@ -1,10 +1,10 @@
 {
-    "title": "Mullet-Wine-Pong",
-    "story": "Die Jahreszeit gibt es vor: es wird immer kälter. Am Nordpol ist es immer eisig und klassische Partyspiele wollen dem entgegenwirken. Glühwein-Pong ist ein vollkomenn neus, individuell und einzigartiges Spiel, was es nur hier gibt.",
-    "shortstory":"Statt Bier gibts Wein, aber eigentlich nur heißes Wasser...",
-    "user":"2x 2 Teams",
-    "content": "Das Spiel benötigt ein Gegenerteam. Die Wasser gefüllten Becher werden auf die Pyramiden Markierung gestellt. Die Teams und Spieler werfen abwechselnd. Gilt ein Becher als getroffen, wird dieser beiseite gestellt. Sind alle Becher eines Teams getroffen, ist das Spiel beendet.",
-    "points": "Jeder Spieler trägt die vom ihm getroffenen Becher in sein #Feld ein.",
-    "location": "Obergeschoss 1 - Flur Westflügel",
+    "title": "Mulled Wine Pong",
+    "story": "The season dictates: it's getting colder and colder. At the North Pole, it’s always freezing, and classic party games are designed to counteract that. Mulled Wine Pong is a completely new, individual and unique game that is only available here.",
+    "shortstory":"Instead of beer there is wine, but actually only hot water...",
+    "user":"2x 2 teams",
+    "content": "The game requires an opposing team. The water-filled cups are placed on the pyramid marker. The teams and players take turns throwing. If a cup is deemed to have been hit, it is set aside. Once all of a team's cups have been hit, the game is over.",
+    "points": "Each player enters the cups they have hit in their #field.",
+    "location": "Second Floor - West wing corridor",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

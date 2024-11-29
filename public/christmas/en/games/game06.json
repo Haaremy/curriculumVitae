@@ -1,10 +1,10 @@
 {
-    "title": "Mini-Curling",
-    "story": "Die Elfen des Weihnachtsmannes haben deinen Wunsch gelesen und der Gewerkschaft gemeldet. 5 Curlingsteine?! Der Sack des Weihnachtsmannes ist zwar magisch, aber die armen Elfen müssen auf ihre Gesundheit achten. Sie schenken dir gütiger Weise eines ihrer Curling-Sets. Das ist zwar nicht ganz so groß, wie ein normales, aber macht dennoch großen Spaß. Einen Besen brauchst du dafür auch nicht.",
-    "shortstory":"Die Elfen des Weihnachtsmannes schenken dir eines ihrer Curling-Sets.",
+    "title": "Mini Curling",
+    "story": "Santa's elves have read your wishlist and passed it on to the Union. 5 curling stones?! Santa's sack may be magical, but the poor elves have to watch out for their health. They kindly give you one of their curling sets. It's not quite as big as a normal one, but it's still great fun. You don't need a broom for this either.",
+    "shortstory":"Santa's elves kindly gift you one of their curling sets.",
     "user":"Solo Team",
-    "content": "Jeder Spieler hat 5 Schuss und es wird nacheinander gespielt. Der Spieler stellt oder hockt sich vor die Markierung und versucht, den Kreis zu treffen, indem er den Puck über den Boden schiebt.",
-    "points": "Jeder Treffer im äußeren Kreis sind 1 Punkt, der innere Kreis gibt 2 Punkte. Rechnet eure Punkte zusammen und tragt Sie in euer #Feld ein.",
-    "location": "Erdgeschoss - Flur Westseite",
+    "content": "Each player has 5 shots and the game is played in succession. The player kneels or crouches in front of the mark and tries to hit the circle by sliding the puck along the floor.",
+    "points": "Each hit in the outer circle is worth 1 point, the inner circle is worth 2 points. Add up your points and enter them in your #field.",
+    "location": "First floor – West wing corridor",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

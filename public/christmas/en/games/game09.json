@@ -1,10 +1,10 @@
 {
     "title": "Snowballfight",
-    "story": "Kokosmakronen sind die Besten! - Nein, Vanille-Kipferl! : Die Elfen haben sich in 2 Parteien gespalten, was die besten Kekse sind und bekriegen sich nun mit Schneebällen (hoffentlich ohne Steine).",
-    "shortstory":"Ein Krieg um Kekse.",
+    "story": "Coconut macaroons are the best! – No, vanilla crescents! The elves have split into two parties over which are the best cookies and are now fighting each other with snowballs (hopefully without stones).",
+    "shortstory":"A war over cookies.",
     "user":"1 Team",
-    "content": "Jeder Spieler hat 5 Würfe. Ihr werft auf die Dosen auf dem Tisch (Elfen). Nach der Runde wird für den nächsten Spieler aufgebaut.",
-    "points": "Tragt die Anzahl der vom Tisch gefallenen Dosen in das entsprechende #Feld.",
-    "location": "Erdgeschoss - Foyer",
+    "content": "Each player has 5 throws. You throw at the cans on the table (elves). After the round, the game is set up for the next player.",
+    "points": "Enter the number of cans that have fallen off the table in the corresponding #field.",
+    "location": "First Floor - Foyer",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

@@ -103,14 +103,14 @@ export default function Home() {
 
         {/* Map Sections */}
         <MapSection
-          title="Erdgeschoss"
+          title="Ground Floor"
           imageSrc="/images/map_eg.jpg"
           games={gamesEG}
           searchQuery={searchQuery}
         />
 
         <MapSection
-          title="Obergeschoss"
+          title="First Floor"
           imageSrc="/images/map_og.jpg"
           games={gamesOG}
           searchQuery={searchQuery}

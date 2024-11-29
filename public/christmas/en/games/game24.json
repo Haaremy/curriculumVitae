@@ -1,10 +1,10 @@
 {
     "title": "Intruder Alert",
-    "story": "Heiligabend ist im vollen Gange. Schon seit Jahrhunderten beliefert Santa die Kinder, aber noch nie war es so schwer wie heutzutage. Alarmanlagen und SmartHome-Überwachung sind überall. Und dann noch dieser Zeitdruck...",
-    "shortstory":"Die Alarmanlage wurde scharfgestellt, aber die Geschenke warten.",
+    "story": "Christmas Eve is in full swing. For centuries, Santa has been delivering gifts to children, but it has never been as difficult as it is today. Alarm systems and smart home monitoring are everywhere. And then there's the time pressure...",
+    "shortstory":"The alarm system has been activated, but the gifts are waiting.",
     "user":"1 Team",
-    "content": "Ihr braucht 1 Zeit-Stopper und 1 bis 3 Elfen/Weihnachtsmänner. Der Stopper gibt das Signal zum Start und das Bescherungteam muss durch die Parkour. In der Mitte sind 3 Zahlen, welchen einem #Feld zugeordnet sind. Wenn alle wieder über der Start/Ziellinie sind, wird die Zeit gestoppt.",
-    "points": "In #Feld 1 wird die Zeit in Sekunden eingetragen. In #Feld 2 bis 4 die entsprechende Lösung.",
-    "location": "Obergeschoss 1 - Raum 210",
+    "content": "You need 1 time stopper and 1 to 3 elves/Santa Clauses. The stopper gives the signal to start, and the gift-giving team must navigate through the parkour. In the center are 3 numbers, which are assigned to a #field. When everyone has crossed the start/finish line again, the time is stopped.",
+    "points": "The time in seconds is entered in #Field 1. In #Field 2 to 4 the corresponding answers.",
+    "location": "Second Floor – Room 210",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

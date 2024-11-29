@@ -1,10 +1,10 @@
 {
     "title": "Snowball Run",
-    "story": "Am Nordpol schon mal Hühner gesehen? Nein? Liegt vielleicht daran, dass es keine gibt. Entsprechend gibt es auch kein Frühstücksei und noch weniger Eier für Spiele. Die Elfen haben beim Austauschprogramm zur Osterhasen-Schule Eierlauf kennengelernt und jetzt für sich entdeckt.",
-    "shortstory":"Statt Eier haben wir Frühstücksschnee.",
-    "user":"1 bis 2 Teams",
-    "content": "Jeder Spieler hat einen Versuch. Währenddessen stoppt einer die Zeit. ",
-    "points": "Trag den Zeitwert des Spielers in Sekunden in das entsprechende #Feld.",
-    "location": "Obergeschoss 2 - Flur Westflügel",
+    "story": "Ever seen chickens at the North Pole? No? Maybe it's because there aren't any. So no eggs for breakfast, and even fewer eggs for games. The elves discovered the egg-and-spoon race during the exchange program at the Easter Bunny School and have now taken a liking to it.",
+    "shortstory":"Instead of eggs, we have breakfast snow.",
+    "user":"1 to 2 teams",
+    "content": "Each player has one attempt. Meanwhile, someone stops the time. ",
+    "points": "Enter the player's time value in seconds in the corresponding #field.",
+    "location": "Upper floor 2 – West wing corridor",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

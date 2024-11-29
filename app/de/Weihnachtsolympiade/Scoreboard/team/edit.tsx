@@ -221,7 +221,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
       
       // We wait for teamData to update using useEffect
     } else {
-      setError('No matching ID found or PIN is incorrect');
+      setError('ID oder Pin inkorrekt.');
     }
   };
   
@@ -349,26 +349,86 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
   const game20 = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
     for(let i=1; i<=4; i++){
       if(selectedTeam.games[`game${g}`][0].p1<limits[0]){ // < Zeitlimit
-        selectedTeam.games[`game${g}`][0].pT += 10;
+        selectedTeam.games[`game${g}`][0].pT += 40;
       } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[1])){
-        selectedTeam.games[`game${g}`][0].pT += 9;
+        selectedTeam.games[`game${g}`][0].pT += 39;
       } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[2])){
+        selectedTeam.games[`game${g}`][0].pT += 38;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[3])){
+        selectedTeam.games[`game${g}`][0].pT += 37;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[4])){
+        selectedTeam.games[`game${g}`][0].pT += 36;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[5])){
+        selectedTeam.games[`game${g}`][0].pT += 35;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[6])){
+        selectedTeam.games[`game${g}`][0].pT += 34;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[7])){
+        selectedTeam.games[`game${g}`][0].pT += 33;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[8])){
+        selectedTeam.games[`game${g}`][0].pT += 32;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[9])){
+        selectedTeam.games[`game${g}`][0].pT += 31;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[10])){
+        selectedTeam.games[`game${g}`][0].pT += 30;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[11])){
+        selectedTeam.games[`game${g}`][0].pT += 29;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[12])){
+        selectedTeam.games[`game${g}`][0].pT += 28;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[13])){
+        selectedTeam.games[`game${g}`][0].pT += 27;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[14])){
+        selectedTeam.games[`game${g}`][0].pT += 26;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[15])){
+        selectedTeam.games[`game${g}`][0].pT += 25;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[16])){
+        selectedTeam.games[`game${g}`][0].pT += 24;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[17])){
+        selectedTeam.games[`game${g}`][0].pT += 23;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[18])){
+        selectedTeam.games[`game${g}`][0].pT += 22;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[19])){
+        selectedTeam.games[`game${g}`][0].pT += 21;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[20])){
+        selectedTeam.games[`game${g}`][0].pT += 20;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[21])){
+        selectedTeam.games[`game${g}`][0].pT += 19;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[22])){
+        selectedTeam.games[`game${g}`][0].pT += 18;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[23])){
+        selectedTeam.games[`game${g}`][0].pT += 17;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[24])){
+        selectedTeam.games[`game${g}`][0].pT += 16;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[25])){
+        selectedTeam.games[`game${g}`][0].pT += 15;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[26])){
+        selectedTeam.games[`game${g}`][0].pT += 14;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[27])){
+        selectedTeam.games[`game${g}`][0].pT += 13;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[28])){
+        selectedTeam.games[`game${g}`][0].pT += 12;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[29])){
+        selectedTeam.games[`game${g}`][0].pT += 11;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[30])){
+        selectedTeam.games[`game${g}`][0].pT += 10;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[31])){
+        selectedTeam.games[`game${g}`][0].pT += 9;
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[32])){
         selectedTeam.games[`game${g}`][0].pT += 8;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[3])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[33])){
         selectedTeam.games[`game${g}`][0].pT += 7;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[4])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[34])){
         selectedTeam.games[`game${g}`][0].pT += 6;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[5])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[35])){
         selectedTeam.games[`game${g}`][0].pT += 5;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[6])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[36])){
         selectedTeam.games[`game${g}`][0].pT += 4;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[7])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[37])){
         selectedTeam.games[`game${g}`][0].pT += 3;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[8])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[38])){
         selectedTeam.games[`game${g}`][0].pT += 2;
-      } else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[9])){
+      }else if(selectedTeam.games[`game${g}`][0][`p${i}`]<(limits[39])){
         selectedTeam.games[`game${g}`][0].pT += 1;
-      } 
+      }
       
     }
   }
@@ -521,10 +581,10 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
           Spiele
         </a>
         <a
-          href="../Map"
+          href="../Karte"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Map
+          Karte
         </a>
         <a
           href="./"
@@ -572,7 +632,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
         id="loader"
 
       >
-      Load Team
+      Team laden...
       </button>
 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}

@@ -1,10 +1,10 @@
 {
     "title": "Ice Fishing",
-    "story": "Der Weihnachtsmann mag es entspannt. In seiner begrenzten Freizeit geht er auf den gefrorenen See, schneidet ein Loch hinein und angelt. Eisfischen ist zwar kalt, aber was alles in den verborgenen Seen des Nordpols schwimmt, davon kann man hier nur träumen.",
-    "shortstory":"Wir angeln heute besondere Fische.",
+    "story": "Santa likes it relaxed. In his limited free time, he goes to the frozen lake, cuts a hole and goes fishing. Ice fishing may be cold, but you can only dream of what swims in the hidden lakes of the North Pole.",
+    "shortstory":"We are fishing for special fish today.",
     "user":"1 Team",
-    "content": "Startet einen Timer für 30 Sekunden und versucht mit euren Angeln die Zuckerstangen aus dem Pool zu fischen.",
-    "points": "Jeder trägt sich die gefangenen Zuckerstangen in sein #Feld ein.",
-    "location": "Obergeschoss 2 - Foyer",
+    "content": "Start a timer for 30 seconds and try to fish the candy canes out of the pool with your fishing rods.",
+    "points": "Everyone enters the candy canes they have caught in their #field.",
+    "location": "Third Floor - Foyer",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }

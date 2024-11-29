@@ -1,10 +1,10 @@
 {
     "title": "Modern Art",
-    "story": "Die Weihnachtswerkstatt ist in Aufruhr! Die Elfen haben ein neues Kommunikationsspiel entwickelt, um sicherzustellen, dass alle Geschenke auch wirklich richtig zugeordnet werden. Doch die Zeichnungen von Elf Nr. 21 sorgen immer wieder für Verwirrung – ist das ein Rentier oder ein Kuchen?! Jetzt liegt es an deinem Team, die richtigen Begriffe zu entschlüsseln und die Geschenklisten zu retten!",
-    "shortstory": "Die Elfen der Weihnachtswerkstatt versuchen sich an einem neuen Kommunikationsstil.",
+    "story": "The Christmas workshop is in turmoil! The elves have developed a new communication game to ensure that all the gifts are actually allocated correctly. But the drawings from Elf No. 21 cause constant confusion – is that a reindeer or a cake?! Now it's up to your team to decipher the correct terms and save the gift lists!",
+    "shortstory": "The elves of the Christmas workshop are trying out a new style of communication.",
     "user":"Solo Team",
-    "content": "Ein Spieler eures Teams bekommt Stift und Papier, sowie einen Umschlag mit Begriffen. Er zeichnet die Begriffe und die anderen Teammitglieder raten was gezeichnet wird. Das Zeitlimit ist 2 Minuten pro Person. Ihr wechselt euch also ab und spielt bei 4 Teammitgliedern 4 Runden. Bereits genutzte Begriffe werden zur Seite gelegt und am Ende wieder in den Umschlag getan.",
-    "points": "Jeder Spieler trägt die Anzahl der erklärten und vom Team erratenen Begriffe in sein #Feld.",
-    "location": "1 Stock - Computer Pool Raum 237",
+    "content": "One player on your team is given a pen and paper and an envelope with words. They draw the words and the other team members guess what is being drawn. The time limit is 2 minutes per person. So you take turns and play 4 rounds with 4 team members. Words that have already been used are put to one side and put back in the envelope at the end.",
+    "points": "Each player enters the number of words explained and guessed by the team in their #box.",
+    "location": "Second Floor – Computer Pool Room 237",
     "url":"https://www.youtube.com/embed/K4TOrB7at0Y"
 }
