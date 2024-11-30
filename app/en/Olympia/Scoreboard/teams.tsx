@@ -97,22 +97,22 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
       
       <div className="flex-1 w-full transition-all duration-300">
       
-        <div className="pt-8">
-        <nav className="mb-6 flex gap-4 mt-8">
+        <div>
+        <nav className="mb-6 flex gap-4">
         <a
-          href="./Olympa/"
+          href="./"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
         </a>
         <a
-          href="./Olympa/Map"
+          href="./Map"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Map
         </a>
         <a
-          href="./Olympa//Scoreboard/team"
+          href="./Scoreboard/team"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Team Editor

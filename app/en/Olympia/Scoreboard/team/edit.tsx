@@ -573,7 +573,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
 
   return (
     <main className="flex min-h-screen flex-col p-8 pt-20 bg-pink-50 dark:bg-gray-900">
-      <nav className="mb-6 flex gap-4 mt-8">
+      <nav className="mb-6 flex gap-4 sm:mt-8">
         <a
           href="../"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
@@ -592,15 +592,10 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
         >
           Scoreboard
         </a>
-        <button
-            onClick={handleSave}
-            className="fixed py-2 right-8 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200 focus:outline-none"
-          >
-            Save
-          </button>
+        
       </nav>
       <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
-
+      
       <div className="mt-6 flex justify-center space-x-4">
       <input
   type="text"
@@ -634,6 +629,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       >
       Load Team
       </button>
+      
 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}
 
@@ -660,6 +656,13 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
               className="w-full px-4 py-2 border-2 border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200"
             />
           ))}
+
+          <button
+            onClick={handleSave}
+            className={`${!showEditor ? "hidden" : ""} sticky py-2 px-4 top-20  bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none`}
+          >
+            Save
+          </button>
           
           {/* Edit game data */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -669,11 +672,11 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
     className={`${
       selectedTeam.games[gameKey][0]?.stamp !== ""
         ? "bg-gray-100"
-        : "bg-blue-100"
+        : "bg-pink-100"
     } p-4 rounded-md shadow-md space-y-2`}
   >
     <h3 className="text-lg font-semibold text-gray-800">
-      Eintrag {gameKey.toUpperCase()}
+      Entry {gameKey.toUpperCase()}
     </h3>
 
     {/* Map through each playerData for the current game */}

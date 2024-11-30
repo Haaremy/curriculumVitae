@@ -99,8 +99,8 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
       
       <div className="flex-1 w-full transition-all duration-300">
       
-        <div className="pt-8">
-        <nav className="mb-6 flex gap-4 mt-8">
+        <div className="sm:pt-8">
+        <nav className="mb-6 flex gap-4 sm:mt-8">
         <a
           href="./"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
@@ -149,7 +149,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
                       <td colSpan={3} className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">
                         <div className="mt-4">
                           <div className="text-center mb-4 font-semibold">
-                            {team.player1} - {team.player2} - {team.player3} - {team.player4}
+                            {filenames[team.name]}:{team.player1} - {team.player2} - {team.player3} - {team.player4}
                           </div>
                           {Object.keys(team.games).map((gameKey, index) => {
                             const scores = team.games[gameKey as keyof typeof team.games];

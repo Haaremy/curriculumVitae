@@ -39,8 +39,8 @@ export default function Navigation({ directories = [] }: { directories?: Directo
 
     useEffect(() => {
         const currentPath = window.location.pathname;
-        if (currentPath.startsWith("/Weihnachtsolympiade")) {
-            setDynamicHref("/Weihnachtsolympiade");
+        if (currentPath.startsWith("/de/Weihnachtsolympiade")) {
+            setDynamicHref("/de/Weihnachtsolympiade");
         } else {
             setDynamicHref("/"+currLang);
         }
@@ -106,18 +106,22 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                 </button>
                                 <div className="border-t border-gray-200 dark:border-gray-700"></div>
                                 <div className="px-4 py-2">
-                                    <label className="block text-gray-800 dark:text-gray-200 mb-1">Language</label>
-                                    <select 
-                                        className="w-full text-gray-800 dark:text-gray-200 p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                                        onChange={(e) => handleLanguageChange(e.target.value, router)}
-                                    >
-                                        {languages.map((lang) => (
-                                            <option key={lang} value={lang.toLowerCase()} className="text-gray-800 dark:text-gray-200">
-                                                {lang}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
+    <label htmlFor="language-select" className="block text-gray-800 dark:text-gray-200 mb-1">
+        Language
+    </label>
+    <select
+        id="language-select"
+        className="w-full text-gray-800 dark:text-gray-200 p-2 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-700"
+        onChange={(e) => handleLanguageChange(e.target.value, router)}
+    >
+        {languages.map((lang) => (
+            <option key={lang} value={lang.toLowerCase()} className="px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-pink-600 hover:text-white cursor-pointer">
+                {lang}
+            </option>
+        ))}
+    </select>
+</div>
+
                             </div>
                         )}
                     </div>

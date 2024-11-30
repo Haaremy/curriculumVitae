@@ -80,8 +80,8 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
   return (
     <main className="flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       <div className="flex-1 w-full transition-all duration-300">
-        <div className="pt-8">
-          <nav className="mb-6 flex gap-4 mt-8">
+        <div className="sm:pt-8">
+          <nav className="mb-6 flex gap-4 sm:mt-8">
             <a
               href="./Olympia/Map"
               className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
@@ -104,12 +104,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
         </div>
         <input
           type="text"
-          placeholder="Suche nach Spielnummer..."
+          placeholder="Searching for Game-Number..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
         />
-        <h1 className="text-xl mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-calender</h1>
+        <h1 className="text-xl mb-4 mt-4 text-gray-700 dark:text-gray-300">FSR-INS: Ad-Games-Calender</h1>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
           {loading && <p className="text-blue-500 text-center col-span-full">Loading...</p>}
           {error && <p className="text-red-500 text-center col-span-full">{error}</p>}

@@ -72,19 +72,19 @@ export default function Home() {
       {/* Navigation */}
       <nav className="mb-6 flex gap-4">
         <a
-          href="/Weihnachtsolympiade"
+          href="./"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Games
         </a>
         <a
-          href="/Weihnachtsolympiade/Scoreboard"
+          href="./Scoreboard"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Scoreboard
         </a>
         <a
-          href="/Weihnachtsolympiade/Scoreboard/team"
+          href="./Scoreboard/team"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
           Team Editor
@@ -95,7 +95,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-between">
         <input
           type="number"
-          placeholder="Suche nach Spielnummer..."
+          placeholder="Searching for Game-Number..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="text-black mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
@@ -104,14 +104,14 @@ export default function Home() {
         {/* Map Sections */}
         <MapSection
           title="Ground Floor"
-          imageSrc="/images/map_eg.jpg"
+          imageSrc="/images/map_gr.jpg"
           games={gamesEG}
           searchQuery={searchQuery}
         />
 
         <MapSection
           title="First Floor"
-          imageSrc="/images/map_og.jpg"
+          imageSrc="/images/map_1st.jpg"
           games={gamesOG}
           searchQuery={searchQuery}
         />
