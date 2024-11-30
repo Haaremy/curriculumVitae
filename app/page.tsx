@@ -1,12 +1,25 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
+  const [domainEnding, setDomainEnding] = useState('');
+  
+
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("lang");
+    
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname; // e.g., "example.com"
+      const parts = hostname.split('.');
+      if (parts.length > 1) {
+        setDomainEnding(parts[parts.length - 1]); // e.g., "com"
+      }
+    }
+
+    let savedLang = localStorage.getItem("lang");
+    if(savedLang===null) domainEnding=="de" ? savedLang="de" : savedLang="en";
     console.log("Language: " + savedLang);
     switch (savedLang) {
         case "de":

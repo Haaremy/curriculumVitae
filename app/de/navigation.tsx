@@ -102,7 +102,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                     Login
                                 </button>
                                 <button onClick={toggleDarkMode} className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                    {isDarkMode ? "Theme: Light" : "Theme: Dark"}
+                                    {isDarkMode ? "Theme: Hell" : "Theme: Dunkel"}
                                 </button>
                                 <div className="border-t border-gray-200 dark:border-gray-700"></div>
                                 <div className="px-4 py-2">

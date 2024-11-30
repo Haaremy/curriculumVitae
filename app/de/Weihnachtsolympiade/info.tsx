@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({ message, onClose }) => {
                     <p className="text-sm">Anleitung:<br />{message.content}</p><br />
                     <p className="text-sm">Punkte:<br />{message.points}</p><br />
                     <p className="text-sm text-pink-500"><a href={`./Weihnachtsolympiade/Karte?gameQuery=${message.gameref}`}>Karte:<br />&#x1F50D; {message.location} &#x1F517;</a></p><br />
-                    <p className="text-sm">Tutorial:</p>
+                    <p className="text-sm">{message.url && "Tutorial:"}</p>
                     
                     {/* Responsive Video */}
                     <div className="aspect-w-16 aspect-h-9 mb-4">
