@@ -116,7 +116,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
 
           {filteredGames.map((name, index) => {
             const game = gameData[name];
-            const gameref = name.charAt(4) !== "0" ? name.substring(4, 6) : name.substring(5, 6);
+            const gameref = name.substring(4, 6);
 
             return (
               game && (
@@ -133,7 +133,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
                     height={50}
                   />
                   <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
-                    {gameref}
+                    {gameref[0] !== "0" ? gameref : name.substring(5, 6)}
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                     <h2 className="text-xl font-semibold">{game.title}</h2>

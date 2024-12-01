@@ -1,35 +1,10 @@
 "use client";
 
-import { useState, useEffect  } from 'react';
+import { useState  } from 'react';
 
 export default function Page() {
   const [isHovered, setIsHovered] = useState(false);
-  const [error, setError] = useState(null);
   
-
-  const [files, setFiles] = useState([]);
-
-  useEffect(() => {
-    // Fetch the files from the API route
-    const fetchFiles = async () => {
-      const dir = '/mnt/10TB/Media/Movies'; // Replace with your desired directory
-      try {
-        const response = await fetch(`/api/read-files?dir=${encodeURIComponent(dir)}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          setFiles(data.files);
-        } else {
-          setError(data.error);
-        }
-      } catch (err) {
-        setError('An unexpected error occurred');
-        console.error(err);
-      }
-    };
-
-    fetchFiles();
-  }, []);
 
 
   return (
@@ -77,11 +52,7 @@ export default function Page() {
 
 
       <div className={` ${isHovered ? 'pl-64' : 'pl-16'} flex-1 w-full transition-all duration-300`}>
-      <ul>
-          {files.map((file, index) => (
-            <li key={index}>{file}</li>
-          ))}
-        </ul>
+     
       </div>
     </main>
   );

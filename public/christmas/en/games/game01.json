@@ -3,7 +3,7 @@
     "story": "It's the first day of December and the house doesn't smell of cookies, fruitcake and spices yet? Well, how could it be? Nobody labelled the spice containers and now it's a guessing game! We remember which ones we bought, but not which ones we still have.",
     "shortstory":"The spices have been mixed up. Which spice is in which container?",
     "user":"Multiple teams",
-    "content": "There are 4 spices on the table (#1 - #4), and 12 possible labels for the containers. Discuss as a team which label (1 - 12) goes with which container. ",
+    "content": "There are 4 spices on the table (#1 - #4), and 20 possible labels for the containers. Discuss as a team which label (1 - 20) goes with which container. ",
     "points": "Enter the number of the label in the corresponding #field.",
     "location": "First Floor – Foyer",
     "url":"https://www.youtube.com/embed/709ZC7t-8RU"

@@ -6,7 +6,9 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/de/Weihnachtsolympiade");
+    {localStorage.getItem('lang')=="de"?  
+      router.push("/de/Weihnachtsolympiade") : router.push("/en/Olympia") 
+    };
   }, [router]);
 
   return (

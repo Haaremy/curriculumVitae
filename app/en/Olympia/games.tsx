@@ -115,26 +115,33 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
           {error && <p className="text-red-500 text-center col-span-full">{error}</p>}
 
           {filteredGames.map((name, index) => {
-            const game = gameData[name];
-            const gameref = name.charAt(4) !== "0" ? name.substring(4, 6) : name.substring(5, 6);
+           const game = gameData[name];
+           const gameref = name.charAt(4) !== "0" ? name.substring(4, 6) : name.substring(5, 6);
 
-            return (
-              game && (
-                <div
-                  key={name}
-                  className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-transform transform hover:scale-105"
-                  onClick={() => handleInfoOpen(name, gameref)}
-                >
-                  <Image
-                    src={`/images/christmas_calender${index % 5}.jpg`}
-                    alt={"Türchen Cover"}
-                    className="w-full h-64 object-cover bg-gray-300"
-                    width={50}
-                    height={50}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
-                    {gameref}
-                  </div>
+           return (
+             game && (
+              <div
+              key={name}
+              className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-transform transform hover:scale-105"
+              onClick={() => {
+                if (gameData[name]) {
+                  handleInfoOpen(name, gameref);
+                } else {
+                  console.error("Game data is not loaded yet.");
+                }
+              }}
+            >
+              <Image
+                src={`/images/christmas_calender${index % 5}.jpg`}
+                alt={"Türchen Cover"}
+                className="w-full h-64 object-cover bg-gray-300"
+                width={50}
+                height={50}
+                priority
+              />
+                 <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
+                   {gameref}
+                 </div>
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
                     <h2 className="text-xl font-semibold">{game.title}</h2>
                   </div>

@@ -66,7 +66,7 @@ const videoRef = useRef<HTMLVideoElement | null>(null);
         
       }
     }
-  }, [videoSrc]);
+  }, [videoSrc, movie]);
 
   const handlePause = () => {
     if (videoRef.current) {

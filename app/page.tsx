@@ -32,7 +32,7 @@ export default function Home() {
             router.push("/de/");
             break;
     }
-  }, [router]);
+  }, [router, domainEnding]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 pt-20 bg-pink-50 dark:bg-gray-900">

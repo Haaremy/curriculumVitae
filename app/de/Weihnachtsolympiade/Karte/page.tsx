@@ -14,7 +14,7 @@ function MapSection({
 }: {
   title: string;
   imageSrc: string;
-  games: { id: number; top: number; left: number; color: string }[];
+  games: { id: string; top: number; left: number; color: string }[];
   searchQuery: string;
 }) {
   // Filter games based on searchQuery

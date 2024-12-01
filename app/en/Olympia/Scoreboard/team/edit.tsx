@@ -162,11 +162,11 @@ export default function EditTeam({ teams }: { teams: TeamRefs }) {
         });
   }
 
-  const allNew = () => {
-    teams.ids.forEach(element => {
-      createTeamFile(element);
-  });
-  }
+  //const allNew = () => {
+  //  teams.ids.forEach(element => {
+  //    createTeamFile(element);
+  //});
+ // }
 
   const fetchAndSaveTeamData = async (name: string) => {
     setError(null);
