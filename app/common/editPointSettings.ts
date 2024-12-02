@@ -13,7 +13,7 @@ export const pointSettings = [
     [1, 10], // 12
     [8, 12, 15, 12], // 13
     [5, 2], // 14 5P pro Schneeflocke in 5min, max 2
-    [1, 25], // 15 Zuckerstangen
+    [2, 5], // 5 Zuckerstangen a 2 Punkte, maximal 5 sind möglich in der Zeit
     [1, 5], // 16
     [1, 10], // 17
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // 18
