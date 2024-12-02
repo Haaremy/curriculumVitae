@@ -18,7 +18,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [showDropdown, setShowDropdown] = useState(false);
     const [dynamicHref, setDynamicHref] = useState("/de");
-    const languages = ["Deutsch", "Englisch"];
+    const languages = ["Deutsch", "English"];
 
     const handleSearch = debounce((value: string) => {
         setSearchQuery(value);
@@ -105,7 +105,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                     onClick={toggleDarkMode}
                                     className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                                 >
-                                    {isDarkMode ? "Theme: Light" : "Theme: Dark"}
+                                    {isDarkMode ? "Theme: Hell" : "Theme: Dunkel"}
                                 </button>
                                 <div className="border-t border-gray-200 dark:border-gray-700"></div>
                                 <div className="px-4 py-2">
@@ -146,11 +146,12 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                             <a
                                 href={path.join(dir.path)}
                                 key={dir.name}
-                                className="block p-3 bg-white border border-gray-200 rounded-lg shadow-sm transition-colors hover:bg-gray-100 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                                className=" block p-3 bg-white border border-gray-200 rounded-lg shadow-sm transition-colors hover:bg-gray-100 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                                
                             >
-                                <h2 className="text-mb font-semibold text-gray-800 dark:text-gray-200">
+                                <h2 className="overflow-hidden text-sm font-semibold text-gray-800 dark:text-gray-200">
                                     {dir.name}
-                                    <span className="block ml-2 text-xs">{dir.path}</span>
+                                    <span className="break-words block ml-2 text-xs">{dir.path}</span>
                                 </h2>
                             </a>
                         ))

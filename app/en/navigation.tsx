@@ -148,9 +148,9 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                 key={dir.name}
                                 className="block p-3 bg-white border border-gray-200 rounded-lg shadow-sm transition-colors hover:bg-gray-100 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                             >
-                                <h2 className="text-mb font-semibold text-gray-800 dark:text-gray-200">
+                                <h2 className="overflow-hidden text-sm font-semibold text-gray-800 dark:text-gray-200">
                                     {dir.name}
-                                    <span className="block ml-2 text-xs">{dir.path}</span>
+                                    <span className="break-words block ml-2 text-xs">{dir.path}</span>
                                 </h2>
                             </a>
                         ))
