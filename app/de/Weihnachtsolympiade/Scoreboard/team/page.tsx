@@ -30,7 +30,7 @@ export default function Page() {
 
     return (
         <div>
-            <EditTeam teams={{ ids, pins }} games={null} /> {/* Passing the teams object as a prop */}
+            <EditTeam teams={{ ids, pins }} /> {/* Passing the teams object as a prop */}
         </div>
     );
 }

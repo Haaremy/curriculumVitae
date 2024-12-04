@@ -39,16 +39,7 @@ const Page: React.FC = () => {
         <div className="fire-placeholder">
           {fireStarted && <Fire />}
         </div>
-        <div className="christmas-text">
-        {!fireStarted ? (
-          <p className="click-text"></p>
-        ) : (
-          <>
-            <p>Frohe Weihnachten und faire Wettkämpfe wünscht der FSR-INS!</p>
-            <p>Teamwork und Spaß sollen mit euch sein.</p>
-          </>
-        )}
-      </div>
+        
 
         {/* Firepit Image */}
         <div className="absolute bottom-0 max-w-[500px]">

@@ -1,18 +1,9 @@
-import https from 'https';
-import fs from 'fs';
-import path from 'path';
 import Movielist from './movieList'; // Import the Client Component
 
 // Define a type for the data returned by the API
 interface MovieItem {
     name: string;
 }
-
-// Load the self-signed certificate from the file system
-const agent = new https.Agent({
-    rejectUnauthorized: false, // Bypass certificate validation, safer in development
-    ca: fs.readFileSync(path.resolve('./app/api/server.crt')), // Path to your self-signed certificate
-});
 
 // Page Component
 export default async function Page() {

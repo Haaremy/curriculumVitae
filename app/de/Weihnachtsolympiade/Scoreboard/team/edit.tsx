@@ -53,7 +53,7 @@ type TeamRefs = {
   pins: string[];
 };
 
-export default function EditTeam({ teams, games }: { teams: TeamRefs, games: { id: string}[]}) {
+export default function EditTeam({ teams }: { teams: TeamRefs}) {
   const { ids, pins } = teams;
   const [teamQuery, setTeamQuery] = useState('');
   const [pinQuery, setPinQuery] = useState('');
