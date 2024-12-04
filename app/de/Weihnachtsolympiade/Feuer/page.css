@@ -1,125 +1,96 @@
+/* Global styles for the page */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container for the page */
 .page-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url('/images/map_eg.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background-color 2s ease, filter 2s ease; /* Smooth transition */
-  }
-  
-  .page-container.fire-off {
-    filter: brightness(0.1); /* Almost black at the start */
-  }
-  
-  .page-container.fire-on {
-    filter: brightness(1); /* Gradually brightens when fire starts */
-  }
-  
-  .click-prompt {
-    position: absolute;
-    color: white;
-    font-size: 2rem;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-    animation: blink 1.5s infinite;
-    pointer-events: none; /* Ensure prompt doesn't block click */
-  }
-  
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-  
-  
-.fire-placeholder {
-    width: 100%; /* Ensure full width to prevent layout shift */
-    height: 200px; /* Match the approximate height of the Fire component */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none; /* Click passes through placeholder */
-  }
-  
-  .firepit-container {
-    position: absolute;
-    bottom: 20px; /* Adjust for visual balance */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-  
-  .firepit-image {
-    transition: transform 0.3s ease;
-  }
-  
-  .firepit-image:hover {
-    transform: scale(1.2); /* Add a hover effect for interactivity */
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/map_eg.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 2s ease, filter 2s ease;
+}
 
-  .page-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url('/images/map_eg.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background-color 2s ease, filter 2s ease; /* Smooth transition */
-  }
-  
-  .page-container.fire-off {
-    filter: brightness(0.1); /* Almost black at the start */
-  }
-  
-  .page-container.fire-on {
-    filter: brightness(1); /* Gradually brightens when fire starts */
-  }
-  
 
-  
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-  
-  
+/* Placeholder for the fire animation */
 .fire-placeholder {
-    width: 100%; /* Ensure full width to prevent layout shift */
-    height: 200px; /* Match the approximate height of the Fire component */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none; /* Click passes through placeholder */
-  }
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Clicks pass through */
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Container for the firepit image */
+.firepit-container {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
   
-  .firepit-container {
-    position: absolute;
-    bottom: 20px; /* Adjust for visual balance */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+}
+
+.firepit-image {
+  transition: transform 0.3s ease;
+}
+
+/* Text container for Christmas messages */
+.christmas-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(17, 24, 39, 0.9); /* Semi-transparent dark background */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.christmas-text p {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+/* Style for the click prompt */
+.click-text {
+  font-size: 1.5rem;
+  color: #fb24d7; /* Yellow color */
+  animation: pulse 2s infinite; /* Pulsating effect */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .firepit-image {
-    transition: transform 0.3s ease;
+  to {
+    opacity: 1;
   }
-  
-  .firepit-image:hover {
-    transform: scale(1.2); /* Add a hover effect for interactivity */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
   }
+  50% {
+    opacity: 1;
+  }
+}

@@ -1,9 +1,9 @@
 {
     "title": "Schnitzeljagd",
-    "story": "Junior Geschenke Spezialist benötigt ein Studium und 10 Jahre Berufserfsahrung. Im X-ErasMAS+ Program werden Schüler von den verschiedenen Ausbildungsstätten kulturell geschult. Für einige ist das eine große Umstellung, insbesondere für die Osterhasen. Die Geschenke werden gar nicht versteckt?",
+    "story": "'Junior Geschenke Spezialist' benötigt ein Studium und 10 Jahre Berufserfsahrung. Im X-ErasMAS+ Program werden Schüler von den verschiedenen Ausbildungsstätten kulturell geschult. Für einige ist das eine große Umstellung, insbesondere für die Osterhasen. Die Geschenke werden gar nicht versteckt?",
     "shortstory":"Der Osterhase war zu Besuch und hat die Geschenke versteckt.",
     "user":"Multiple Teams",
-    "content": "Folge den Hinweisen: Start Rätselreihe <br />#1: || <br />#2: || <br />#3: || #4:",
+    "content": "Folge den Hinweisen: <br />Rätsel <br /><br />#1:  <br /><br />#2:  <br /><br />#3:  <br /><br />#4:",
     "points": "Tragt im entsprechenden <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=04' class='text-pink-500'><a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=' style='color: #ec4899;'>&#x1F517;#Feld</a></a> die Lösungszahl der Beschriftung ein.",
     "location": "Fachbereich INS",
     "url":""

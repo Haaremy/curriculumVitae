@@ -11,7 +11,9 @@ const Fire: React.FC = () => {
   };
 
   return (
-    <div className="fire-container">
+    <div
+      className="fire-container"
+    >
       {/* Core Flames */}
 
       <div className="outer-flame outer-flame1"></div>
@@ -38,7 +40,7 @@ const Fire: React.FC = () => {
       
 
       {/* Halo Glow */}
-      <div className="fire-halo"></div>
+      <div className="fire-halo" ></div>
       
     </div>
   );
