@@ -3,7 +3,7 @@
 export default function Page() {
 
   const faq=[
-    {"q":"#field #?", "a":"The #field references to the online form of the <a href='./Scoreboard/team' className='text-pink-600'>Team Editor</a> and means the input-<a href='./Weihnachtsolympiade/Scoreboard/team' style='color: #ec4899;'>&#x1F517;#field</a> of the player or object in question (1 bis 4) for their points or answer entry."},
+    {"q":"#field #?", "a":"The #field references to the online form of the <a href='./Scoreboard/team' className='text-pink-600'>Entries</a> and means the input-<a href='./Weihnachtsolympiade/Scoreboard/team' style='color: #ec4899;'>&#x1F517;#field</a> of the player or object in question (1 bis 4) for their points or answer entry."},
 
   ]
 
@@ -26,7 +26,7 @@ export default function Page() {
           href="./Scoreboard/team"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Team Editor
+          Entries
         </a>
           </nav>
       <div className={`sm:pl-64 flex-1 w-full transition-all duration-300`}>

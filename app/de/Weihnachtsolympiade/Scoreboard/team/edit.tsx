@@ -652,7 +652,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}
 
       {selectedTeam && (
-        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Team Editor</h2>
+        <div className={`${showEditor ? "visible" : "hidden"} mt-8 p-6 bg-white shadow-lg rounded-md space-y-4`}>          <h2 className="text-2xl font-semibold text-gray-900">Einträge</h2>
 
           {/* Edit team name */}
           <input
