@@ -41,7 +41,7 @@ const Page: React.FC = () => {
         </div>
         <div className="christmas-text">
         {!fireStarted ? (
-          <p className="click-text">Click zum Start</p>
+          <p className="click-text"></p>
         ) : (
           <>
             <p>Frohe Weihnachten und faire Wettkämpfe wünscht der FSR-INS!</p>

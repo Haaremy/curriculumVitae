@@ -39,21 +39,7 @@ body, html {
 }
 
 /* Text container for Christmas messages */
-.christmas-text {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  background: rgba(17, 24, 39, 0.9); /* Semi-transparent dark background */
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  font-family: Arial, sans-serif;
-  font-size: 1.5rem;
-  animation: fadeIn 1.5s ease-in-out;
-}
+
 
 .christmas-text p {
   font-size: 1.25rem;
