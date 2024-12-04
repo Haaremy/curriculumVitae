@@ -100,7 +100,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
       <div className="flex-1 w-full transition-all duration-300">
       
         <div className="sm:pt-8">
-        <nav className="mb-6 flex gap-4 sm:mt-8">
+        <nav className="mb-6 flex gap-1 sm:gap-4">
         <a
           href="./"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"

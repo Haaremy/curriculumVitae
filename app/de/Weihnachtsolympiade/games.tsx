@@ -81,7 +81,7 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
     <main className="flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       <div className="flex-1 w-full transition-all duration-300">
         <div className="sm:pt-8">
-          <nav className="mb-6 flex gap-4 sm:mt-8">
+        <nav className="mb-6 flex gap-1 sm:gap-4">
             <a
               href="./Weihnachtsolympiade/Karte"
               className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"

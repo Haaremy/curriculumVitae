@@ -3,13 +3,13 @@
 export default function Page() {
 
   const faq=[
-    {"q":"#Feld #?", "a":"Das #Feld bezieht sich auf das online Formular im <a href='./Scoreboard/team' className='text-pink-600'>Team Editor</a> und meint das Eingabe-<a href='./Weihnachtsolympiade/Scoreboard/team' style='color: #ec4899;'>&#x1F517;#Feld</a> des jeweiligen Spielers oder Objektes (1 bis 4) für die Punkte/Lösungs-Eintragung."},
+    {"q":"#Feld #?", "a":"Das #Feld bezieht sich auf das online Formular im <a href='./Scoreboard/team' className='text-pink-600'>Einträge</a> und meint das Eingabe-<a href='./Weihnachtsolympiade/Scoreboard/team' style='color: #ec4899;'>&#x1F517;#Feld</a> des jeweiligen Spielers oder Objektes (1 bis 4) für die Punkte/Lösungs-Eintragung."},
 
   ]
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8 pt-20 bg-pink-50 dark:bg-gray-900">
-      <nav className="mb-6 flex gap-4 sm:mt-8">
+    <main className="flex min-h-screen flex-col items-center justify-between p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
+      <nav className="mb-6 flex gap-2 sm:gap-4">
       <a
           href="."
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
@@ -26,7 +26,7 @@ export default function Page() {
           href="./Scoreboard/team"
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
         >
-          Team Editor
+          Einträge
         </a>
           </nav>
       <div className={`sm:pl-64 flex-1 w-full transition-all duration-300`}>
