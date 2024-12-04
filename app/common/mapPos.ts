@@ -1,9 +1,9 @@
 export const gamesEG = [
-    { id: "23", top: 35, left:  21, color: 'bg-pink-600' },
+    { id: "23", top: 35, left:  22, color: 'bg-pink-600' },
     { id: "22", top: 50, left:  21, color: 'bg-pink-600' },
     { id: "19", top: 45, left:  21, color: 'bg-pink-600' },
-    { id: "15", top: 68, left:  22, color: 'bg-pink-600' },
-    { id: "14", top: 68, left:  20, color: 'bg-pink-600' },
+    { id: "15", top: 38, left:  20, color: 'bg-pink-600' },
+    { id: "14", top: 33, left:  20, color: 'bg-pink-600' },
     { id: "13", top: 62, left:  21, color: 'bg-pink-600' },
     { id: "12", top: 57, left:  21, color: 'bg-pink-600' },
     { id: "10", top: 38, left:  30, color: 'bg-pink-600' },

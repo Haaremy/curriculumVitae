@@ -17,7 +17,7 @@
   /* Inner Flames */
   .flame {
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     width: 100px;
     height: 220px;
     background-color: orange;

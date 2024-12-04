@@ -51,15 +51,16 @@ const Page: React.FC = () => {
       </div>
 
         {/* Firepit Image */}
-        <div className="firepit-container">
-          <Image
-            alt="Firepit"
-            width={300}
-            height={200}
-            src="/images/map_og.jpg"
-            className="firepit-image"
-          />
-        </div>
+        <div className="absolute bottom-0 max-w-[500px]">
+  <Image
+    alt="Firepit"
+    width={500} // Adjusted to fit within the max-width
+    height={240} // Maintained aspect ratio (1250/600 ~ 500/240)
+    src="/images/pit.png"
+    className="firepit-image object-cover"
+  />
+</div>
+
       </div>
     </main>
   );
