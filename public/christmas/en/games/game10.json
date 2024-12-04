@@ -4,7 +4,7 @@
     "shortstory":"Cookies are not just a topic at the North Pole.",
     "user":"Multiple teams",
     "content": "Elias (#1), Fiona (#2), Greta (#3) and Hannes (#4) are baking cookies for Christmas. Each of them has a different cookie favorite: Gingerbread, cinnamon stars, vanilla crescents or speculoos. Everyone bakes a different number of cookies (12, 15, 18 or 20). Find out who likes which cookie and how many cookies each person has baked. The clues are at the station.",
-    "points": "Enter the number of cookies baked in the corresponding #field.",
+    "points": "Enter the number of cookies baked in the corresponding <a href='./Olympia/Scoreboard/team?gameQuery=10' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "Ground Floor - Room 110",
     "url":""
 }

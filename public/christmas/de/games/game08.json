@@ -4,7 +4,7 @@
     "shortstory":"Wie viele Süßigkeiten sind noch übrig?",
     "user":"Multiple Teams",
     "content": "Schätzt die Anzahl der Süßigkeiten.",
-    "points": "Tragt in das jeweilige #Feld die Schätzung ein.",
+    "points": "Tragt in das jeweilige <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=08' style='color: #ec4899;'>&#x1F517;#Feld</a> die Schätzung ein.",
     "location": "Obergeschoss 1 - Foyer",
     "url":"https://www.youtube.com/embed/ucl7HeabPO0"
 }

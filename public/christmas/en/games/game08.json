@@ -4,7 +4,7 @@
     "shortstory":"How many sweets are left?",
     "user":"Multiple teams",
     "content": "Estimate the number of sweets.",
-    "points": "Enter the estimate in the respective #field.",
+    "points": "Enter the estimate in the respective <a href='./Olympia/Scoreboard/team?gameQuery=08' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor – Foyer",
     "url":"https://www.youtube.com/embed/ucl7HeabPO0"
 }

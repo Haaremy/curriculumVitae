@@ -4,7 +4,7 @@
     "shortstory":"We are fishing for special fish today.",
     "user":"1 Team",
     "content": "Start a timer for 30 seconds and try to fish the candy canes out of the pool with your fishing rods.",
-    "points": "Everyone enters the candy canes they have caught in their #field.",
+    "points": "Everyone enters the candy canes they have caught in their <a href='./Olympia/Scoreboard/team?gameQuery=15' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "Ground Floor - Room 106",
     "url":""
 }

@@ -4,7 +4,7 @@
     "shortstory":"The Easter Bunny payed a visit and hid the presents.",
     "user":"Multiple teams",
     "content": "Using the Easter Bunny's student notes, find the 4 hidden objects.",
-    "points": "Each item has a #number and an answer number. Enter the numbers in the #field as soon as you have them all.",
+    "points": "Each item has a #number and an answer number. Enter the numbers in the <a href='./Olympia/Scoreboard/team?gameQuery=04' style='color: #ec4899;'>&#x1F517;#field</a> as soon as you have them all.",
     "location": "INS Department",
     "url":""
 }

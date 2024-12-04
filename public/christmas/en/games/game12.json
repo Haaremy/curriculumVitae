@@ -4,7 +4,7 @@
     "shortstory":"Bowling may be harder than you think in the eyes of elves. At least bigger...",
     "user":"Solo Team",
     "content": "Each player has 2 throws. The player stands in front of the mark and throws the Christmas tree ornament. The ball must knock over as many pins as possible. After the 2 throws, the pins are set up again for the next player.",
-    "points": "Strike (all in the 1st  throw): 10 points; spare (all in the 2nd  throw): 8 points; otherwise 1 point per pin",
+    "points": "Strike (all in the 1st  throw): 10 points; spare (all in the 2nd  throw): 8 points; otherwise 1 point per pin. Note your points into your <a href='./Olympia/Scoreboard/team?gameQuery=12' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor  - Room 107",
     "url":"https://www.youtube.com/embed/koXin1tVOHs"
 }

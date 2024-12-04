@@ -4,7 +4,7 @@
     "shortstory": "The Elf Choir has forgotten the titles of its Christmas carols.",
     "user":"1 Team",
     "content": "Listen to the station coordinator! You will receive tips on the song. ",
-    "points": "You will receive 10 points per #song. Each tip is worth -2 points.",
+    "points": "You will receive 10 points per <a href='./Olympia/Scoreboard/team?gameQuery=03' style='color: #ec4899;'>&#x1F517;#song</a>. Each tip is worth -2 points.",
     "location": "Ground Floor – Room 110",
     "url":""
 }

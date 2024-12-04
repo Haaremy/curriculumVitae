@@ -3,8 +3,8 @@
     "story": "Christmas Eve is in full swing. For centuries, Santa has been delivering gifts to children, but it has never been as difficult as it is today. Alarm systems and smart home monitoring are everywhere. And then there's the time pressure...",
     "shortstory":"The alarm system has been activated, but the gifts are waiting.",
     "user":"1 Team",
-    "content": "You need 1 time stopper and 1 to 3 elves/Santa Clauses. The stopper gives the signal to start, and the gift-giving team must navigate through the parkour. In the center are 3 numbers, which are assigned to a #field. When everyone has crossed the start/finish line again, the time is stopped.",
-    "points": "The time in seconds is entered in #Field 1. In #Field 2 to 4 the corresponding answers.",
+    "content": "You need 1 time stopper and 1 to 3 elves/Santa Clauses. The stopper gives the signal to start, and the gift-giving team must navigate through the parkour. In the center are 3 numbers, which are assigned to a <a href='./Olympia/Scoreboard/team?gameQuery=' style='color: #ec4899;'>&#x1F517;#field</a>. When everyone has crossed the start/finish line again, the time is stopped.",
+    "points": "The time in seconds is entered in <a href='./Olympia/Scoreboard/team?gameQuery=24' style='color: #ec4899;'>&#x1F517;#field</a> 1. In <a href='./Olympia/Scoreboard/team?gameQuery=24' style='color: #ec4899;'>&#x1F517;#field</a> 2 to 4 the corresponding answers.",
     "location": "First Floor – Room 210",
     "url":"https://www.youtube.com/embed/eypqWQn2hKk"
 }

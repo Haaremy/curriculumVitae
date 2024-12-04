@@ -4,7 +4,7 @@
     "shortstory":"A war over cookies.",
     "user":"1 Team",
     "content": "Each player has 5 throws. You throw at the cans on the table (elves). After the round, the game is set up for the next player.",
-    "points": "Enter the number of cans that have fallen off the table in the corresponding #field.",
+    "points": "Enter the number of cans that have fallen off the table in the corresponding <a href='./Olympia/Scoreboard/team?gameQuery=09' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "Ground Floor - Foyer",
     "url":"https://www.youtube.com/embed/sKCM5yMr4Js"
 }

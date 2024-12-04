@@ -4,7 +4,7 @@
     "shortstory":"Small defects are devastating.",
     "user":"Multiple teams",
     "content": "In front of you are #4 pictures. Each image has imperfections compared to its reference image next to it. Tip: take photos of the images and discuss them as a team.",
-    "points": "Count the imperfections and enter them in the corresponding #field.",
+    "points": "Count the imperfections and enter them in the corresponding <a href='./Olympia/Scoreboard/team?gameQuery=13' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor - Room 107",
     "url":""
 }

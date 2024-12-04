@@ -4,7 +4,7 @@
     "shortstory":"The gifts were mixed up? I wonder what's inside?",
     "user":"Multiple teams",
     "content": "You can lift, shake, turn and rotate the gifts, but not open them.",
-    "points": "Enter your answer (number) from the wish list in the #field with the gift number.",
+    "points": "Enter your answer (number) from the wish list in the <a href='./Olympia/Scoreboard/team?gameQuery=21' style='color: #ec4899;'>&#x1F517;#field</a> with the gift number.",
     "location": "First Floor – Foyer at the Christmas Tree",
     "url":""
 }

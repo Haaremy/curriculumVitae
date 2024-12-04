@@ -119,6 +119,12 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
         >
           Team Editor
         </a>
+        <a
+              href="./FAQ"
+              className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+            >
+              FAQ
+            </a>
       </nav>
       </div>
           {loading && <p className="text-blue-500 text-center col-span-full">Laden...</p>}
@@ -149,7 +155,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
                       <td colSpan={3} className="py-3 px-4 border-b border-gray-300 dark:border-gray-600">
                         <div className="mt-4">
                           <div className="text-center mb-4 font-semibold">
-                            {filenames[team.name]}:{team.player1} - {team.player2} - {team.player3} - {team.player4}
+                            :{team.player1} - {team.player2} - {team.player3} - {team.player4}:
                           </div>
                           {Object.keys(team.games).map((gameKey, index) => {
                             const scores = team.games[gameKey as keyof typeof team.games];

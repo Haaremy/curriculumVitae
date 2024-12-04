@@ -4,7 +4,7 @@
     "shortstory":"Instead of bocce, we throw circles.",
     "user":"1 Team",
     "content": "Each player has 3 attempts. The highest number thrown is scored.",
-    "points": "Enter the largest number from the attempts in your #field.",
+    "points": "Enter the largest number from the attempts in your <a href='./Olympia/Scoreboard/team?gameQuery=11' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor – West wing corridor",
     "url":"https://www.youtube.com/embed/fZ_udkVJbec"
 }

@@ -100,6 +100,12 @@ export default function GamesList({ filenames }: { filenames: string[] }) {
             >
               Team Editor
             </a>
+            <a
+              href="./Weihnachtsolympiade/FAQ"
+              className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
+            >
+              FAQ
+            </a>
           </nav>
         </div>
         <input

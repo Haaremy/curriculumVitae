@@ -4,7 +4,7 @@
     "shortstory":"Santa's elves kindly gift you one of their curling sets.",
     "user":"Solo Team",
     "content": "Each player has 5 shots and the game is played in succession. The player kneels or crouches in front of the mark and tries to hit the circle by sliding the puck along the floor.",
-    "points": "Each hit in the outer circle is worth 1 point, the inner circle is worth 2 points. Add up your points and enter them in your #field.",
+    "points": "Each hit in the outer circle is worth 1 point, the inner circle is worth 2 points. Add up your points and enter them in your <a href='./Olympia/Scoreboard/team?gameQuery=06' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "Ground Floor – West wing corridor",
     "url":"https://www.youtube.com/embed/YyZ09UlBV94"
 }

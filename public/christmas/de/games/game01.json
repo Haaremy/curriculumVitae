@@ -4,7 +4,7 @@
     "shortstory":"Die Gewürze wurden vertauscht. Welches Gewürz ist in welchem Behälter?",
     "user":"Multiple Teams",
     "content": "Auf dem Tisch stehen 4 Gewürze (#1 - #4). Davor liegen mögliche Beschriftungen (1 - 20) der Behälter. Besprecht euch im Team, welche Beschriftung zu welchem Behälter passt. ",
-    "points": "Tragt im entsprechenden #Feld die Lösungszahl der Beschriftung ein.",
+    "points": "Tragt im entsprechenden <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=01' style='color: #ec4899;'>&#x1F517;#Feld</a> die Lösungszahl der Beschriftung ein.",
     "location": "Obergeschoss 1 - Foyer",
     "url":"https://www.youtube.com/embed/709ZC7t-8RU"
 }

@@ -4,7 +4,7 @@
     "shortstory":"Statt Boccia werfen wir auf Kreise.",
     "user":"1 Team",
     "content": "Jeder Spieler hat 3 Versuche. Die höchste geworfene Zahl wird gewertet.",
-    "points": "Tragt die größte Zahl aus den Versuchen in euer #Feld ein.",
+    "points": "Tragt die größte Zahl aus den Versuchen in euer <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=11' style='color: #ec4899;'>&#x1F517;#Feld</a> ein.",
     "location": "Obergeschoss 1 - Flur Westflügel",
     "url":"https://www.youtube.com/embed/fZ_udkVJbec"
 }

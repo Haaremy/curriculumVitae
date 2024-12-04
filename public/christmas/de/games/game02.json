@@ -4,7 +4,7 @@
     "shortstory":"Das Passwort für den digitalen Wunschzettel wurde verlegt. ",
     "user":"Multiple Teams",
     "content": "Vor euch liegen Buchstaben und ihr müsst damit die 4 Wort-Kästchen (gedanklich) ausfüllen. Hierfür habt ihr wie bei einem Kreuzworträtsel hinweise neben den Kästchen. Besprecht euch im Team.",
-    "points": "Die Buchstaben haben Zahlwerte. Tragt den Zahlenwert in das entsprechende #Feld ein, auf dem der Buchstabe liegt.",
+    "points": "Die Buchstaben haben Zahlwerte. Tragt den Zahlenwert in das entsprechende <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=02' style='color: #ec4899;'>&#x1F517;#Feld</a> ein, auf dem der Buchstabe liegt.",
     "location": "Obergeschoss 1 - Foyer",
     "url":"https://www.youtube.com/embed/t5hXlxVnxfo"
 }

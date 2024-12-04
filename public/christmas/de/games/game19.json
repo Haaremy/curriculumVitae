@@ -4,7 +4,7 @@
     "shortstory":"Statt Bier gibts Wein, aber eigentlich nur heißes Wasser...",
     "user":"2x 2 Teams",
     "content": "Das Spiel benötigt ein Gegenerteam! Die Wasser gefüllten Becher werden auf die Pyramiden Markierung gestellt. Die Teams und Spieler werfen abwechselnd (außer auf den mit den Bällen drin). Gilt ein Becher als getroffen, wird dieser beiseite gestellt. Sind alle Becher eines Teams getroffen, ist das Spiel beendet.",
-    "points": "Jeder Spieler trägt die vom ihm getroffenen Becher in sein #Feld ein.",
+    "points": "Jeder Spieler trägt die vom ihm getroffenen Becher in sein <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=19' style='color: #ec4899;'>&#x1F517;#Feld</a> ein.",
     "location": "Erdgeschoss - Raum 108",
     "url":"https://www.youtube.com/embed/VvXDp5jZL4A"
 }

@@ -4,7 +4,7 @@
     "shortstory":"Instead of eggs, we have breakfast snow.",
     "user":"1 to 2 teams",
     "content": "Each player has one attempt. Meanwhile, someone stops the time. ",
-    "points": "Enter the player's time value in seconds in the corresponding #field.",
+    "points": "Enter the player's time value in seconds in the corresponding <a href='./Olympia/Scoreboard/team?gameQuery=07' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor – West wing corridor",
     "url":""
 }

@@ -4,7 +4,7 @@
     "shortstory":"Ein Krieg um Kekse.",
     "user":"1 Team",
     "content": "Jeder Spieler hat 5 Würfe. Ihr werft auf die Wichtel/Elfen auf dem Tisch. Nach der Runde wird für den nächsten Spieler aufgebaut.",
-    "points": "Tragt die Anzahl der umgeworfenen Wichtel euer entsprechendes #Feld.",
+    "points": "Tragt die Anzahl der umgeworfenen Wichtel euer entsprechendes <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=09' style='color: #ec4899;'>&#x1F517;#Feld</a>.",
     "location": "Erdgeschoss - Foyer",
     "url":"https://www.youtube.com/embed/sKCM5yMr4Js"
 }

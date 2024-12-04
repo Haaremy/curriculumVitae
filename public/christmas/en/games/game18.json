@@ -4,7 +4,7 @@
     "shortstory":"All games are now digital.",
     "user":"1 to 4 teams",
     "content": "You play Mario Kart Grand Prix on 100ccm against other teams and COMs. Each player plays one route. Listen to the station coordinator!",
-    "points": "Your ranking in the round will be entered in your #field.",
+    "points": "Your ranking in the round will be entered in your <a href='./Olympia/Scoreboard/team?gameQuery=18' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor – Room 216",
     "url":""
 }

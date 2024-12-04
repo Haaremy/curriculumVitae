@@ -4,7 +4,7 @@
     "shortstory":"Instead of beer there is wine, but actually only hot water...",
     "user":"2x 2 teams",
     "content": "The game requires an opposing team. The water-filled cups are placed on the pyramid marker. The teams and players take turns throwing. If a cup is deemed to have been hit, it is set aside. Once all of a team's cups have been hit, the game is over.",
-    "points": "Each player enters the cups they have hit in their #field.",
+    "points": "Each player enters the cups they have hit in their <a href='./Olympia/Scoreboard/team?gameQuery=19' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "Ground Floor - Room 108",
     "url":"https://www.youtube.com/embed/VvXDp5jZL4A"
 }

@@ -4,7 +4,7 @@
     "shortstory":"Marshmallow towers instead of gingerbread houses.",
     "user":"Multiple teams",
     "content": "Each player builds a marshmallow tower. You always stack 1 on top of another. The game is over when the tower falls.",
-    "points": "Enter the number of marshmallow layers in your respective #field.",
+    "points": "Enter the number of marshmallow layers in your respective <a href='./Olympia/Scoreboard/team?gameQuery=16' style='color: #ec4899;'>&#x1F517;#field</a>.",
     "location": "First Floor – Room 216",
     "url":"https://www.youtube.com/embed/PMlbu4DOZyc"
 }

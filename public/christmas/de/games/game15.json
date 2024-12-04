@@ -4,7 +4,7 @@
     "shortstory":"Wir angeln heute besondere Fische.",
     "user":"1 Team",
     "content": "Startet einen Timer für 30 Sekunden und versucht mit euren Angeln die Zuckerstangen aus dem Pool zu fischen.",
-    "points": "Jeder trägt sich die gefangenen Zuckerstangen in sein #Feld ein.",
+    "points": "Jeder trägt sich die gefangenen Zuckerstangen in sein <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=15' style='color: #ec4899;'>&#x1F517;#Feld</a> ein.",
     "location": "Erdgeschoss - Raum 106",
     "url":""
 }

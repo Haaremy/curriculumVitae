@@ -4,7 +4,7 @@
     "shortstory":"Die Rentiere sind ausgebrochen. Fangt sie wieder ein.",
     "user":"2x 1 Team",
     "content": "Ungleich der Story, ist es ein Teamspiel. Ihr braucht 2 Rentier und 2 Elfen. Jeder Elf hat 5 Würfe und muss auf das Geweih des Rentiers werfen. Das Rentier versucht durch geschickte Bewegung mitzuhelfen.",
-    "points": "Tragt in euer #Feld, wie viele Ringe ihr getroffen/gefangen habt.",
+    "points": "Tragt in euer <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=22' style='color: #ec4899;'>&#x1F517;#Feld</a>, wie viele Ringe ihr getroffen/gefangen habt.",
     "location": "Erdgeschoss - Raum 108",
     "url":"https://www.youtube.com/embed/cKgvAcYoHl0"
 }

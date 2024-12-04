@@ -4,7 +4,7 @@
     "shortstory": "Der Elfenchor hat die Titel seiner Weihnachtslieder vergessen.",
     "user":"1 Team",
     "content": "Es gibt einen Stationsleiter! Ihr erhaltet Tipps zum Lied ",
-    "points": "Ihr erhaltet 10 Punkte pro #Lied. Jeder Tipp gibt -2 Punkte.",
+    "points": "Ihr erhaltet 10 Punkte pro <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=03' style='color: #ec4899;'>&#x1F517;#Lied</a>. Jeder Tipp gibt -2 Punkte.",
     "location": "Erdgeschoss - Raum 110",
     "url":""
 }

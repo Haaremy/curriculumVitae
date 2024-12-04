@@ -4,7 +4,7 @@
     "shortstory":"The reindeer have escaped. Catch them!",
     "user":"2x 1 team",
     "content": "Unlike the story, it is a team game. You need 2 reindeer and 2 elves. Each elf has 5 throws and must throw at the reindeer's antlers. The reindeer tries to help by moving skillfully.",
-    "points": "Enter in your #field how many rings you have hit/captured.",
+    "points": "Enter in your <a href='./Olympia/Scoreboard/team?gameQuery=22' style='color: #ec4899;'>&#x1F517;#field</a> how many rings you have hit/captured.",
     "location": "Ground Floor – Room 108",
     "url":"https://www.youtube.com/embed/cKgvAcYoHl0"
 }

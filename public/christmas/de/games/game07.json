@@ -4,7 +4,7 @@
     "shortstory":"Statt Eier haben wir Frühstücksschnee.",
     "user":"1 bis 2 Teams",
     "content": "Jeder Spieler hat einen Versuch. Währenddessen stoppt einer die Zeit. Folgt dem Parkour entlang der Pfeile.",
-    "points": "Trag den Zeitwert des Spielers in Sekunden in das entsprechende #Feld.",
+    "points": "Trag den Zeitwert des Spielers in Sekunden in das entsprechende <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=07' style='color: #ec4899;'>&#x1F517;#Feld</a>.",
     "location": "Obergeschoss 1 - Flur Westflügel",
     "url":""
 }

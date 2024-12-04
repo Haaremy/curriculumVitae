@@ -4,7 +4,7 @@
     "shortstory":"Die Geschenke wurden vertauscht? Was ist wohl drin?",
     "user":"Multiple Teams",
     "content": "Ihr dürft die Geschenke hochheben, schütteln, drehen und wenden, aber nicht öffnen.",
-    "points": "Tragt in das #Feld mit der Gescnenkzahl eure Lösung (Zahl) vom Wunschzettel ein.",
+    "points": "Tragt in das <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=21' style='color: #ec4899;'>&#x1F517;#Feld</a> mit der Gescnenkzahl eure Lösung (Zahl) vom Wunschzettel ein.",
     "location": "Obergeschoss - Foyer am Tannenbaum",
     "url":""
 }

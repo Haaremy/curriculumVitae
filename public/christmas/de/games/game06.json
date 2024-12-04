@@ -4,7 +4,7 @@
     "shortstory":"Die Elfen des Weihnachtsmannes schenken dir eines ihrer Curling-Sets.",
     "user":"Solo Team",
     "content": "Jeder Spieler hat 5 Schuss und es wird nacheinander gespielt. Der Spieler stellt oder hockt sich vor die Markierung und versucht, den Kreis zu treffen, indem er den Puck über den Boden schiebt.",
-    "points": "Jeder Treffer im äußeren Kreis sind 1 Punkt, der innere Kreis gibt 2 Punkte. Rechnet eure Punkte zusammen und tragt Sie in euer #Feld ein.",
+    "points": "Jeder Treffer im äußeren Kreis sind 1 Punkt, der innere Kreis gibt 2 Punkte. Rechnet eure Punkte zusammen und tragt Sie in euer <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=06' style='color: #ec4899;'>&#x1F517;#Feld</a> ein.",
     "location": "Erdgeschoss - Flur Westflügel",
     "url":"https://www.youtube.com/embed/YyZ09UlBV94"
 }

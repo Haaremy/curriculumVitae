@@ -4,7 +4,7 @@
     "shortstory": "Die Geschenke müssen schnell auf den Schlitten beladen und zum Tannenbaum gebracht werden.",
     "user":"1 Team oder 2 Teams",
     "content": "Es werden (4 Spieler) 1 Zeit-Stopper, 2 Rentier und 1 Elf benötigt. Der Stopper gibt das Startsignal zum Beladen und Liefern, ab dann läuft die Zeit. Der Elf belädt den Schlitten mit den Geschenken vom Tisch. Die beiden Rentiere greifen sich (vorab) je ein Seilende am Schlitten. Sobald der Elf fertig beladen hat, laufen die Rentiere los. Wenn die die Markierung am Tannenbaum überschreiten, wird die Zeit gestoppt. Vom Schlitten fallende Gegenstände sind wieder zu beladen!",
-    "points": "In der Spieleauswertung muss im #Feld 1 die Zeit in Sekunden eingetragen werden. Die Felder 2 bis 4 werden mit 0 ausgefüllt.",
+    "points": "In der Spieleauswertung muss im <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=20' style='color: #ec4899;'>&#x1F517;#Feld</a> 1 die Zeit in Sekunden eingetragen werden. Die Felder 2 bis 4 werden mit 0 ausgefüllt.",
     "location": "Erdgeschoss - Ostflügel Flur",
     "url":"https://www.youtube.com/embed/WXbwk-7uOTg"
 }

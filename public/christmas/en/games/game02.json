@@ -4,7 +4,7 @@
     "shortstory":"The password for Santa’s digital wishlist has been misplaced. ",
     "user":"Multiple teams",
     "content": "There are letters in front of you and you have to fill in the 4 word-boxes (in your head). There are clues next to the boxes, just like in a crossword puzzle. Discuss as a team.",
-    "points": "The letters have numerical values. Enter the numerical value in the corresponding #field of the letter.",
+    "points": "The letters have numerical values. Enter the numerical value in the corresponding <a href='./Olympia/Scoreboard/team?gameQuery=02' style='color: #ec4899;'>&#x1F517;#field</a> of the letter.",
     "location": "First Floor – Foyer",
     "url":"https://www.youtube.com/embed/t5hXlxVnxfo"
 }
