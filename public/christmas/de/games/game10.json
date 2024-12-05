@@ -3,8 +3,8 @@
     "story": "Nicht nur am Nordpol ist die Debatte um die beste Kekssorte ein heißes Thema. Auch in unseren Küchen werden sie zum Gespräch (auch wenn Vanille Kipferle objektiv die besten sind).",
     "shortstory":"Kekse sind nicht nur am Nordpol Thema.",
     "user":"Multiple Teams",
-    "content": "Vier Freunde – Elias(#1), Greta(#2), Fiona(#3) und Hannes(#4) – backen Kekse für Weihnachten. Jeder von ihnen hat einen anderen Keksfavoriten: Lebkuchen (1), Zimtsterne (2), Vanillekipferl (3) oder Spekulatius (4). Außerdem backt jeder eine andere Anzahl an Keksen (5, 6, 7 oder 9). Findet heraus, wer welchen Keks mag und wie viele Kekse jede Person gebacken hat, basierend auf den Hinweisen an der Station.",
-    "points": "Trage die Anzahl der gebackenen Kekse in das entsprechende <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=10' style='color: #ec4899;'>&#x1F517;#Feld</a> ein.",
+    "content": "Vier Freunde – Elias(#1), Fiona(#2), Greta(#3) und Hannes(#4) – backen Kekse für Weihnachten. Jeder von ihnen hat einen anderen Keksfavoriten: Lebkuchen (1), Zimtsterne (2), Vanillekipferl (3) oder Spekulatius (4). Außerdem backt jeder eine andere Anzahl an Keksen (5, 6, 7 oder 9). Findet heraus, wer welchen Keks mag und wie viele Kekse jede Person gebacken hat, basierend auf den folgenden Hinweise: Findet ihr an der Station.",
+    "points": "Tragt in jedes <a href='./Weihnachtsolympiade/Scoreboard/team?gameQuery=10' style='color: #ec4899;'>&#x1F517;#Feld</a> die Anzahl der Kekse mit der Zahl des Kekses (bspw 2 Zimtstern (9) = 29) ein.",
     "location": "Erdgeschoss - Raum 110",
     "url":""
 }
