@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <main className="sm:mt-12 flex min-h-screen flex-col p-1 sm:p-8 pt-20 bg-pink-50 dark:bg-gray-900">
       {/* Navigation */}
-      <nav className="mb-6 flex gap-1 sm:gap-4">
+      <nav className="mb-6 flex gap-1 sm:gap-4 sm:mt-8">
       <a
           href="."
           className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
