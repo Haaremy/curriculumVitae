@@ -161,7 +161,7 @@ export default function TeamList({ filenames }: { filenames: string[] }) {
                             const scores = team.games[gameKey as keyof typeof team.games];
                             if (!Array.isArray(scores) || scores.length === 0 || !scores.some(score => score.pT > 0)) {
                               return null;
-                            } else if ([1, 2, 4, 8, 10, 13, 21].includes(index + 1)){ // wenn Spiel aus Lösungen besteht, bspw Spiel 2 = index 1
+                            } else if ([1, 2, 4, 8, 10, 13, 21, 24].includes(index + 1)){ // wenn Spiel aus Lösungen besteht, bspw Spiel 2 = index 1
                               return (
                                 <div key={gameKey} className="mb-4">
                                   <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow mb-2">

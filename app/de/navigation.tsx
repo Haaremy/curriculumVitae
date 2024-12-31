@@ -5,6 +5,8 @@ import Image from "next/image";
 import { handleLanguageChange, toggleTheme } from "../common/navigation";
 import path from "path";
 import debounce from "lodash.debounce";
+import LoginPage from "./login";
+import  RegisterPage from "./register";
 
 interface DirectoryInfo {
     name: string;
@@ -19,6 +21,8 @@ export default function Navigation({ directories = [] }: { directories?: Directo
     const [showDropdown, setShowDropdown] = useState(false);
     const [dynamicHref, setDynamicHref] = useState("/de");
     const languages = ["Deutsch", "English"];
+    const [openLogin, setOpenLogin] = useState(false);
+    const [openRegister, setOpenRegister] = useState(false);
 
     const handleSearch = debounce((value: string) => {
         setSearchQuery(value);
@@ -40,6 +44,21 @@ export default function Navigation({ directories = [] }: { directories?: Directo
         setIsDarkMode(!isDarkMode);
     };
 
+    const handleLoginClose = () => {
+        setOpenLogin(false);
+      };
+      const handleRegisterClose = () => {
+        setOpenRegister(false);
+      };
+      const handleLoginOpen = () => {
+        setOpenLogin(true);
+        setOpenRegister(false);
+      };
+      const handleRegisterOpen = () => {
+        setOpenRegister(true);
+        setOpenLogin(false);
+      };
+
     const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
     useEffect(() => {
@@ -57,6 +76,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
             setIsDarkMode(true);
         }
     }, []);
+
 
     return (
         <main className="bg-gray-100 dark:bg-gray-900 z-50">
@@ -95,7 +115,7 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                                 <button
                                     onClick={() => {
-                                        /* Handle login */
+                                        setOpenLogin(true);
                                     }}
                                     className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                                 >
@@ -121,6 +141,8 @@ export default function Navigation({ directories = [] }: { directories?: Directo
                                         ))}
                                     </select>
                                 </div>
+                                {openLogin && <LoginPage  router onClose={handleLoginClose} setOpenRegister={handleRegisterOpen}></LoginPage>}
+                                {openRegister && <RegisterPage router onClose={handleRegisterClose} setOpenLogin={handleLoginOpen}></RegisterPage>}
                             </div>
                         )}
                     </div>

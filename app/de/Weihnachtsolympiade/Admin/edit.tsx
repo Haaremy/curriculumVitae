@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Saved from './saved';
-import { pointSettings, gameTimer } from '../../../../common/editPointSettings';
+import { pointSettings, gameTimer, adminLogin } from '../../../common/editPointSettings';
 
 type GameData = {
   p1: number;
@@ -57,8 +57,11 @@ export default function EditTeam({ teams }: { teams: TeamRefs}) {
   const { ids, pins } = teams;
   const [teamQuery, setTeamQuery] = useState('');
   const [pinQuery, setPinQuery] = useState('');
+  const [teamQueryAdmin, setTeamQueryAdmin] = useState('');
+  const [pinQueryAdmin, setPinQueryAdmin] = useState('');
   const [teamData, setTeamData] = useState<{ [key: string]: TeamData }>({});
   const [showEditor, setshowEditor] = useState<boolean>(false);
+  const [login, setLogin] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedID, setSelectedID] = useState(""); // zum speichern der Datei
   const [showSaved, setShowSaved] = useState(false); // Speicherbestätigung Popup
@@ -204,20 +207,25 @@ export default function EditTeam({ teams }: { teams: TeamRefs}) {
   const handleTeamSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTeamQuery(event.target.value);
   };
-
-  const handlePinSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPinQuery(event.target.value);
+  const handleAdminID = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTeamQueryAdmin(event.target.value);
   };
+
+  const handleAdminPin = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPinQueryAdmin(event.target.value);
+  };
+
 
   const handleSubmit = async () => {
     const teamIndex = ids.findIndex((id) => id.toLowerCase() === teamQuery.toLowerCase());
     
-    if (teamIndex !== -1 && pins[teamIndex].toLowerCase() === pinQuery.toLowerCase()) {
+    if (teamQueryAdmin === adminLogin[0] && pinQueryAdmin === adminLogin[1]) {
       const teamName = ids[teamIndex];
       await fetchAndSaveTeamData(teamName);  // Fetch and save team data
-      sessionStorage.setItem("id",teamName);
-      sessionStorage.setItem("pin",pinQuery);
-      setshowEditor(true);
+      if(teamIndex!=-1){
+        setshowEditor(true);
+        setLogin(true);
+      }  else setLogin(true);
       
       // We wait for teamData to update using useEffect
     } else {
@@ -256,7 +264,8 @@ export default function EditTeam({ teams }: { teams: TeamRefs}) {
   };
 
   const gameResults = (g: number, m:number, cap:number) => { // Standard Numbers with multiplier || points or hits*pointscala || max points reachable
-    const capExceededPoints = 9.5;
+    const capExceededPoints = 10;
+    selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;
     
     if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<cap){
       selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1*m; 
@@ -273,7 +282,8 @@ export default function EditTeam({ teams }: { teams: TeamRefs}) {
   }
 
   const gameResultAnswer = (g: number, a:number[]) => { // Lösungszahl i=gameId a[]=answers
-      selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1==a[0] ? 10 : 0; 
+    selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;  
+    selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1==a[0] ? 10 : 0; 
       selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p2==a[1] ? 10 : 0;
       selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p3==a[2] ? 10 : 0;
       selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += selectedTeam.games[`game${g<10? "0"+g : g}`][0].p4==a[3] ? 10 : 0;   
@@ -282,6 +292,7 @@ export default function EditTeam({ teams }: { teams: TeamRefs}) {
  
 
 const gameResultTime = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
+  selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;
   for(let i=1; i<=4; i++){
     if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<limits[0]){ // < Zeitlimit
       selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += 10;
@@ -309,7 +320,7 @@ const gameResultTime = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
 }
 
 const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen mit Abweichung
-
+  selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;
     
     for(let i=1; i<=4; i++){
       if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1==numAns[i]){
@@ -327,7 +338,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
   }
 
   const gameResultTimeAnswer = (g:number, limits:number[], a:number[]) => { //Spiel mit Zeitlimit und Lösungszahlen
-
+    selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;
       if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<=limits[0]){ // < Zeitlimit
         selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += 10;
       } else if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<=(limits[1])){
@@ -359,6 +370,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
 
 
   const game20 = (g:number, limits:number[]) => { //Spiel mit Zeitlimit
+    selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT = 0;
     for(let i=1; i<=1; i++){ // nur #Feld 1 muss ausgewertet werden
       if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<limits[0]){ // < Zeitlimit
         selectedTeam.games[`game${g<10? "0"+g : g}`][0].pT += 40;
@@ -485,11 +497,8 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
       if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1<0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p2<0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p3<0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p4<0){
       // Spielvorraussetzung nicht erfüllt -> -1
       } else if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].p1>=0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p2>=0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p3>=0 && selectedTeam.games[`game${g<10? "0"+g : g}`][0].p4>=0){
-        if(selectedTeam.games[`game${g<10? "0"+g : g}`][0].stamp==""){
-          selectedTeam.played++;
-          selectedTeam.games[`game${g<10? "0"+g : g}`][0].stamp=humanReadableTimestamp; 
           switchPoints(g);
-      }
+      
       } else { // Inhalte unvollständig
         setErrorMessage(`Fehler: Eingabe ist leer oder enthält Zeichen außer Zahlen. (game${g<10? "0"+g : g})`)
         handleNotSavedOpen();
@@ -614,25 +623,38 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
               FAQ
             </a>
       </nav>
-      <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams</h1>
-
-      <div className="mt-6 flex justify-center space-x-4">
+      <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white">Teams - AdminPanel</h1>
+      <div className="mt-6 flex justify-center space-x-4 ">
+      <h2 className='mr-2'>Admin Login</h2>
       <input
   type="text"
-  placeholder="TEAM ID"
-  value={teamQuery}
-  onChange={handleTeamSearchChange}
+  placeholder="Admin ID"
+  value={teamQueryAdmin}
+  onChange={handleAdminID}
   className={`${showEditor ? "hidden" : ""} text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
   id="team"
 />
 
 <input
   type="password"
-  placeholder="PIN"
-  value={pinQuery}
-  onChange={handlePinSearchChange}
+  placeholder="Admin PIN"
+  value={pinQueryAdmin}
+  onChange={handleAdminPin}
   className={`${showEditor ? "hidden" : ""} text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
 />
+      </div><br/><br/>
+      <div className="mt-6 flex justify-center space-x-4 ">
+      <h2 className='mr-2'>Team ID</h2>
+      
+      <input
+  type="text"
+  placeholder="TEAM ID"
+  value={teamQuery}
+  onChange={handleTeamSearchChange}
+  className={` text-gray-900 w-full sm:w-72 max-w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-200`}
+  id="team"
+/>
+
 {showSaved && (
                 <Saved message="Erfolgreich gespeichert!" onClose={handleSavedlClose} />
             )}
@@ -643,7 +665,7 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
 
       <button
         onClick={handleSubmit}
-        className={`${showEditor ? "hidden" : ""} mt-6 py-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none`}
+        className={` mt-6 py-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-200 focus:outline-none`}
         id="loader"
 
       >
@@ -715,7 +737,6 @@ const gameResultGuess = (g:number, numAns:number[]) => { // Spiel zum Schätzen 
             key={`${gameKey}-${playerIndex}-${playerField}`}
             type="number"
             placeholder={`# ${i + 1}`}
-            disabled={playerData.stamp !== ""}
             value={
               playerData[playerField] != -1 ? playerData[playerField] : ''
             } // empty when Entry is -1

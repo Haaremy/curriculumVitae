@@ -25,3 +25,11 @@ export const pointSettings = [
     [30, 35, 40, 45, 50, 55, 60, 65, 70, 75],[198, 7, 499], // 24
   ];
   
+  export const gameTimer = [ // Wenn Abgabe beendet ist
+    "05.12.2024, 21:00"
+  ]
+
+  export const adminLogin = [
+    "id",
+    "pw"
+  ]
